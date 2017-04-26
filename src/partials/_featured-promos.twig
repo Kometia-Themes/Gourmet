@@ -1,13 +1,14 @@
 {% set promos = [] %}
 {% for i in 1..3 %}
-  {% set promo = 'featured_promos_home_' ~ i %}
+  {% set promo = 'promo_home_' ~ i ~ '_display' %}
   {% if settings[promo] and settings[promo] is defined %}
     {% set promos = promos | merge(['promo_home_' ~ i ]) %}
   {% endif %}
-
 {% endfor %}
+
 {% set count = promos.length %}
-{% if settings.featured_promos_home and (settings.featured_promos_home_1 or settings.featured_promos_home_2 or settings.featured_promos_home_3) %}
+
+{% if settings.featured_promos_home and (settings.promo_home_1_display or settings.promo_home_2_display or settings.promo_home_3_display) %}
 <div class="featured-promos-home">
   <div class="container">
     <div class="row">

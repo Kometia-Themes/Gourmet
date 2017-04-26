@@ -58,8 +58,8 @@
               margin-top:14px;
               font-size: 1.6em;
             }
-            @media(min-width: 1200px) {margin-top:18px;}
-            @media(min-width: 1420px) {margin-top:20px;}
+            @media(min-width: 1200px) {margin-top:18px; margin-bottom:20px;}
+            @media(min-width: 1420px) {margin-top:20px; margin-bottom: 22px;}
             a:hover {text-decoration: none;}
           }
           &--variant { }

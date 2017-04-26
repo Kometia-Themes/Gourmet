@@ -56,7 +56,7 @@
         <li class="has-children">
           <a href="{{ link.url }}" class="sub__link">{{ link.name }}</a>
           <a href="#" class="submenu-toggle"><i class="mdi mdi-chevron-down"></i></a>
-          <ul class="subnav">
+          <ul class="subnav {% if loop.last or loop.length - 1 == loop.index %}last{% endif %}">
             {% for children in link.children %}
               {% include '_nav-item.twig' with {'link': children} %}
             {% endfor %}

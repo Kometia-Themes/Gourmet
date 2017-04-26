@@ -302,38 +302,38 @@
             {
               "type": "color",
               "id": "footer_bg_color",
-              "label": "Títulos",
-              "default": "#F2F2F2"
+              "label": "Fondo",
+              "default": "#F8FBEF"
             },
             {
               "type": "color",
               "id": "footer_title_color",
-              "label": "Fondo",
+              "label": "Títulos",
               "default": "f15a29"
             },
             {
               "type": "color",
               "id": "footer_text_color",
-              "label": "Pleca lateral",
+              "label": "Textos",
               "default": "#666666"
             },
             {
               "type": "color",
               "id": "footer_border_color",
-              "label": "Enlaces",
-              "default": "#E6E6E6"
+              "label": "Borde",
+              "default": "#F2F2F2"
             },
             {
               "type": "color",
               "id": "footer_legal_text_color",
-              "label": "Enlaces",
+              "label": "Texto legal",
               "default": "#ffffff"
             },
             {
               "type": "color",
               "id": "footer_legal_bg_color",
-              "label": "Enlaces",
-              "default": "#F19729"
+              "label": "Fondo barra legal",
+              "default": "#86b404"
             }
           ]
         }
@@ -1000,12 +1000,14 @@
             {
               "type": "checkbox",
               "id": "accept_visa",
-              "label": "Visa"
+              "label": "Visa",
+              "default": true
             },
             {
               "type": "checkbox",
               "id": "accept_mastercard",
-              "label": "Mastercard"
+              "label": "Mastercard",
+              "default": true
             },
             {
               "type": "checkbox",
@@ -1015,7 +1017,8 @@
             {
               "type": "checkbox",
               "id": "accept_paypal",
-              "label": "Paypal"
+              "label": "Paypal",
+              "default": true
             },
             {
               "type": "checkbox",
@@ -1656,6 +1659,12 @@
               "label": "Límite de Productos a Mostrar",
               "default": "8",
               "info": "Para mostrar todos los productos de esta colección deja vacío este campo"
+            },
+            {
+              "type": "checkbox",
+              "id": "enable_product_image_zoom",
+              "default": false,
+              "label": "Activar zoom"
             }
           ]
         }
@@ -1708,6 +1717,104 @@
               "id": "featured_static_banner_bg_color",
               "label": "Color de fondo",
               "default": "#ffffff"
+            }
+          ]
+        },
+        {
+          "header": "Promos Gráficos",
+          "settings": [
+            {
+              "type": "checkbox",
+              "id": "promo_home_1_display",
+              "label": "Mostrar Promo 1",
+              "default": true
+            },
+            {
+              "type": "text",
+              "id": "promo_home_1_title",
+              "label": "Título Promo 1",
+              "default": "GRATIS"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_1_desc",
+              "label": "Descripción",
+              "default": "EL ENVÍO SI COMPRAS +$200"
+            },
+            {
+              "type": "checkbox",
+              "id": "promo_home_1_icon",
+              "default": true,
+              "label": "Mostrar ícono promo 1"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_1_icon_name",
+              "label": "Título Promo 1",
+              "default": "truck",
+              "info": "Ver íconos disponibles en https://materialdesignicons.com/"
+            },
+            {
+              "type": "checkbox",
+              "id": "promo_home_2_display",
+              "default": true,
+              "label": "Mostrar Promo 2"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_2_title",
+              "label": "Título Promo 2",
+              "default": "EXPRESS"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_2_desc",
+              "label": "Descripción",
+              "default": "LLEGA DE 30 A 45 MINUTOS*"
+            },
+            {
+              "type": "checkbox",
+              "id": "promo_home_2_icon",
+              "default": true,
+              "label": "Mostrar ícono promo 2"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_2_icon_name",
+              "label": "Título Promo 2",
+              "default": "motorbike",
+              "info": "Ver íconos disponibles en https://materialdesignicons.com/"
+            },
+            {
+              "type": "checkbox",
+              "id": "promo_home_3_display",
+              "default": true,
+              "label": "Mostrar Promo 3"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_3_title",
+              "label": "Título Promo 3",
+              "default": "GARANTÍA"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_3_desc",
+              "label": "Descripción",
+              "default": "SIEMPRE FRESCO"
+            },
+            {
+              "type": "checkbox",
+              "id": "promo_home_3_icon",
+              "default": true,
+              "label": "Mostrar ícono promo 3"
+            },
+            {
+              "type": "text",
+              "id": "promo_home_3_icon_name",
+              "label": "Título Promo 3",
+              "default": "food-apple",
+              "info": "Ver íconos disponibles en https://materialdesignicons.com/"
             }
           ]
         },

@@ -5,6 +5,10 @@
   {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
   {% set style = 'img-placeholder' %}
 {% endif %}
+{% set counter = 0 %}
+{% for item in product.skus if item.is_listable == 1 %}
+  {% set counter = counter + 1 %}
+{% endfor %}
 
 <div class="product-card__card">
   <div class="product-card__content">
@@ -13,20 +17,29 @@
       <div class="product-card__ribbon product-card--ofert"><span>{{ settings.product_ribbon_text }}</span></div>
       {% endif %}
       <div class="product-card__link">
-        <a class="btn btn-primary product-card__btn" href="/productos/{{ product.permalink }}">Ver más</a>
+        <a class="btn btn-primary product-card__btn" href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">Ver más</a>
       </div>
-      <a href="/productos/{{ product.permalink }}">
-      {% if product.images | length > 1 %}
-        {% for thumbnail in product.images [:2] %}
-        <img class="img-responsive product-card--preview-{{ loop.index }} {{ style }}" src="{{ thumbnail.url }}&w=400&h=400&fit=crop" width="400" alt="{{ product.name }}">
-        {% endfor %}
+      <a href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">
+      {% if counter == 1 %}
+          {% set alt_image_url = '' %}
+          {% if product.images | length > 1 %}
+            <img class="img-responsive product-card--preview-1" src="{{ image_url }}&w=600&h=600" alt="{{ product.name }}">
+            {% for thumbnail in product.images %}
+              {% if 'color-' not in thumbnail.url %}
+                {% set alt_image_url = thumbnail.url != image_url ? thumbnail.url %}
+              {% endif %}
+            {% endfor %}
+            <img class="img-responsive product-card--preview-2 {{ style }}" src="{{ alt_image_url }}&w=600&h=600" alt="{{ product.name }}">
+          {% else %}
+            <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w=600&h=600" alt="{{ product.name }}">
+          {% endif %}
       {% else %}
-        <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w=400&h=400&fit=crop" width="400" alt="{{ product.name }}">
+          <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w=600&h=600" alt="{{ product.name }}">
       {% endif %}
       </a>
     </div>
     <div class="product-card__desc">
-      <h3 class="product-card__title"><a href="/productos/{{ product.permalink }}">{{ product.name }}</a></h3>
+      <h3 class="product-card__title"><a href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">{{ product.name }}</a></h3>
       <p class="product-card__excerpt">{{ product.excerpt | truncate_words(40) }}</p>
       <p class="product-card__price">{{ product.price | money('symbol', 'code') }}
         {% if product.compared_price > product.price %}

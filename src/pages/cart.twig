@@ -42,11 +42,10 @@
               <img class="cart-item__image-thumbnail" src="{{ 'placeholders/product-11.jpg' | global_img_url }}" width="100" alt="{{ item.product.name }}">
             {% endif %}
             </div>
-
             <div class="col-xs-8 col-md-9 cart-item__product">
-              <h4 class="cart-item__product--title"><a href="/productos/{{ item.product.permalink }}">{{ item.product.name }}</a></h4>
+              <h4 class="cart-item__product--title"><a href="/productos/{{ item.product.permalink }}{% if item.sku.permalink != 'default' %}/{{ item.sku.permalink }}{% endif %}">{{ item.product.name }}</a></h4>
               {% for modifier in item.product.modifiers %}
-              <p class="cart-item__product--variant">Color: {{ modifier }}<span class="cart-item__product--variant-desc">{{ item.sku.modifiers[loop.index0] }}</span></p>
+              <p class="cart-item__product--variant">{{ modifier | title }}: <span class="cart-item__product--variant-desc">{{ item.sku.modifiers[loop.index0] | title }}</span></p>
                {% endfor %}
               <form action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form-mobile visible-xs">
                 <div class="form-group">
