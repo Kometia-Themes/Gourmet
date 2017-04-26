@@ -7,7 +7,7 @@
 1. <a href="https://github.com/Shoperti-Themes/Gourmet/archive/master.zip"> Descargar </a> la última versión y rama master.
 2. También puedes clonar el reporte git: <code>git clone git@github.com:Shoperti-Themes/Gourmet.git</code>
 
-![alt text](https://raw.githubusercontent.com/Shoperti-Themes/Bold/master/screenshot.png "Screeshot")
+![alt text](https://raw.githubusercontent.com/Shoperti-Themes/Gourmet/master/theme.png "Screeshot")
 
 ## Implementación manual
 La opción más sencilla si no deseas realizar cambios en el tema es cargar el archivo [theme.zip] (dist/theme.zip) encontrado dentro de la carpeta 'dist' una vez ya descargado el paquete completo.
