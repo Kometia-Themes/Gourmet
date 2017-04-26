@@ -1656,6 +1656,12 @@
               "label": "Límite de Productos a Mostrar",
               "default": "8",
               "info": "Para mostrar todos los productos de esta colección deja vacío este campo"
+            },
+            {
+              "type": "checkbox",
+              "id": "enable_product_image_zoom",
+              "default": false,
+              "label": "Activar zoom"
             }
           ]
         }
