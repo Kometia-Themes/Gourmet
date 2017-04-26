@@ -1,0 +1,121 @@
+.post-page {
+
+  &__header {
+    text-align: center;
+  }
+  &__title {
+    margin-bottom: 20px;
+  }
+  &__section-title {
+    font-size: 16px;
+    color: #999999;
+  }
+  &__tags {
+    margin-top: 1.4em;
+    margin-bottom: 1em;
+  }
+  &__tag-title {
+    font-size: 12px;
+    text-transform: uppercase;
+  }
+  &__tag-link {
+    .label {
+      font-size: 14px;
+      text-transform: uppercase;
+    }
+    .label-primary {
+
+    }
+    .post-page__label {
+      transition: all .3s ease-in-out;
+      margin-left: .3em;
+      margin-right: .3em;
+      padding: .2em .6em .2em;
+      border-radius: 0;
+      color: #cccccc;
+      background-color: #F2F2F2;
+    }
+
+  }
+  &__tag-link:hover {
+    text-decoration: none;
+    .post-page__label {
+      transition: all .3s ease-in-out;
+      color: white;
+      background-color: $main_link_color;
+    }
+  }
+  &__content {
+    min-height: 400px;
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 1em auto;
+    }
+  }
+  &__link {
+    
+  }
+  &__image {
+    width: 100%;
+  }
+  .page__description {
+
+  }
+  &__title-link {
+    color: $headings_color;
+  }
+  &__title-link:hover {
+    text-decoration: none;
+    color: $main_link_hover_color;
+  }
+  &__item-extract {
+    min-height: 100px;
+    margin-bottom: 1em;
+    @media(min-width: 768px) {
+      min-height: 100px;
+    }
+    @media(min-width: 992px) {
+      min-height: 100px;
+    }
+    @media(min-width: 1200px) {
+      min-height: 90px;
+    }
+  }
+  &__btn {
+
+  }
+  &__btn-link {
+
+  }
+  &--modifier {
+    
+  }
+}
+
+.post-page {
+  &__content {
+    .post-page__social-share {
+      margin-top: 2em;
+      padding-top: 2em;
+      border-top: 1px solid #eeeeee;
+    }
+  }
+  .social-sharing {
+    .share-facebook {}
+    .share-twitter {}
+    .share-pinterest {}
+    .share-google {}
+
+  }
+  .btn {
+    font-size:14px;
+    padding:.5em;
+    .mdi {}
+    .mdi-facebook {}
+    .mdi-twitter {}
+    .mdi-pinterest {}
+    .mdi-google-plus {}
+  }
+
+}

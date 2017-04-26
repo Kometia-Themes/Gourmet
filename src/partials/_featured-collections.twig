@@ -1,0 +1,38 @@
+{% set featured_collections = [] %}
+{% for i in 1..8 %}
+  {% set featured_collection = 'featured_best_collections_' ~ i %}
+  {% if settings[featured_collection] is not empty and collections[settings[featured_collection]]is defined %}
+    {% set featured_collections = featured_collections | merge([collections[settings[featured_collection]]]) %}
+  {% endif %}
+{% endfor %}
+
+{% if featured_collections | length > 0 %}
+<div class="featured-best-collections">
+  <div class="container">
+    <div class="row">
+      <div class="featured-best-collections__header block_title">
+        <h2 class="title">{{ settings.featured_best_collections_title }}</h2>
+      </div>
+    </div>
+    <div class="row">
+    {% for collection in featured_collections  %}
+      <div class="col-xs-12 col-sm-6 col-md-3">
+      {% if collection.image_url is not null %}
+        {% set image_url = collection.image_url %}
+          <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('{{ image_url }}&w=360&h=224');">
+      {% else %}
+        <div class="featured-best-collections__card collections-page--bg_no-img">
+      {% endif %}
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">{{ collection.title }}</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="/colecciones/{{ collection.permalink }}">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endif %}

@@ -1,0 +1,33 @@
+{% if 'post' in template or 'blog' in template %}
+  {% set permalink_url = canonical_url %}
+  {% set share_title = post.title | escape %}
+{% elseif 'product' in template %}
+  {% set permalink_url = canonical_url %}
+  {% set share_title = product.name | escape %}
+{% elseif template == 'password' %}
+  {% set permalink_url = canonical_url %}
+  {% set share_title = store.name | escape %}
+{% endif %}
+
+<div class="post-page__social-share">
+  <div class="post-page__social-sharing" data-permalink="{{ permalink_url }}">
+  {% if settings.share_facebook %}
+    <a target="_blank" href="//www.facebook.com/sharer.php?u={{ permalink_url }}" class="btn btn-xs btn-primary post-page__share-facebook" title="Compartir en Facebook">
+      <i class="mdi mdi-facebook" aria-hidden="true"></i>Compartir</a>
+  {% endif %}
+  {% if settings.share_twitter %} 
+    <a target="_blank" href="//twitter.com/share?text={{ share_title }}&amp;url={{ permalink_url }}" class="btn btn-xs btn-primary post-page__share-twitter" title="Tuitear en Twitter">
+      <i class="mdi mdi-twitter" aria-hidden="true"></i>Tuitear</a>
+  {% endif %} 
+  {% if product.image_url or post.image_url %} 
+    {% if settings.share_pinterest %} 
+      <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ permalink_url }}&amp;media=http:{% if 'product' in template %}{{ product.image_url }}{% else %}{{ post.image_url }}{% endif %}&amp;description={{ share_title }}" class="btn btn-xs btn-primary post-page__share-pinterest" title="Pinear en Pinterest">
+        <i class="mdi mdi-pinterest" aria-hidden="true"></i>Pinear</a>
+    {% endif %}
+  {% endif %}
+  {% if settings.share_google %}
+    <a target="_blank" href="//plus.google.com/share?url={{ permalink_url }}" class="btn btn-xs btn-primary post-page__share-google" title="+1 en Google Plus">
+      <i class="mdi mdi-google-plus" aria-hidden="true"></i>+1 Google</a>
+  {% endif %}
+  </div>
+</div>

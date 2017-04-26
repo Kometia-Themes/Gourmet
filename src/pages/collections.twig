@@ -1,0 +1,50 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page collections-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="collections-page__header block_title">
+        <h1 class="collections-page__title title">{{ settings.collections_page_title }}</h1>
+        <p class="page__description">{{ settings.collections_page_description }}</p>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 collections-page__content">
+      {% if collections | length > 0 %}
+      <div class="row">
+      {% for collection in collections %}
+        <div class="col-xs-12 col-sm-6 col-md-4">
+          {% if collection.image_url is not null %}
+          <div class="collections-page__card collections-page--bg_img" style="background-image:url('{{ collection.image_url  }}');">
+          {% else %}
+          <div class="collections-page__card collections-page--bg_no-img">
+          {% endif %}
+            <div class="collections-page__collection">
+              <div class="collections-page__inner">
+                <h3 class="collections-page__title">{{ collection.title | title }}</h3>
+                <p class="collections-page__text"><a class="collections-page__link"href="/colecciones/{{ collection.permalink }}">Ver</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+      {% include '_pagination.twig' %}
+    {% else %}
+      <div class="row">
+        <div class="col-xs-12 text-center">
+              <h2 class="products-title">¡Falta poco!</h2>
+              <p class="products-text">Todavía no existen productos en esta colección, una vez que empieces a crearlos aparecerán aquí.</p>
+              <p><a class="btn btn-primary" href="/admin/products">Gestionar Productos</a> <a class="btn btn-primary" href="/admin/collections">Gestionar Colecciones</a></p>
+        </div>
+      </div>
+    {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+

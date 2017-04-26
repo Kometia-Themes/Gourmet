@@ -1,0 +1,125 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page cart-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="cart-page__header block_title">
+        <h1 class="cart-page__title title">Carrito de Compras</h1>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 cart-page__content">
+    {% if cart.items | length > 0 %}
+      <div class="row cart-page__heading-row hidden-xs">
+        <div class="col-sm-6 col-md-8"><h5 class="cart-page__heading-row--title">Artículo</h5></div>
+        <div class="col-sm-3 col-md-2"><h5 class="cart-page__heading-row--title text-center">Cantidad</h5></div>
+        <div class="col-sm-3 col-md-2"><h5 class="cart-page__heading-row--title cart-page__heading-row--right">Precio</h5></div>
+      </div>
+
+    {% for item in cart.items %}
+      <div class="row cart-page__items-row">
+        <div class="col-sm-6 col-md-8 cart-item__data-container">
+          <div class="row">
+            <div class="cart-item_mobile-delete visible-xs">
+              <form action="/carrito/eliminar" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="id" value="{{ item.id }}">
+                <input type="hidden" name="quantity" value="0">
+                <button type="submit" class="btn-link item__delete"><i class="mdi mdi-close"></i></button>
+              </form>
+            </div>
+
+            <div class="col-xs-4 col-md-3 cart-item__image">
+            {% if item.sku.image_url is not empty %}
+              <img class="cart-item__image-thumbnail" src="{{ item.sku.image_url }}&w=100" width="100" alt="{{ item.product.name }}">
+            {% elseif item.product.image_url is not empty %}
+              <img class="cart-item__image-thumbnail" src="{{ item.product.image_url }}&w=100" width="100" alt="{{ item.product.name }}">
+            {% else %}
+              <img class="cart-item__image-thumbnail" src="{{ 'placeholders/product-11.jpg' | global_img_url }}" width="100" alt="{{ item.product.name }}">
+            {% endif %}
+            </div>
+
+            <div class="col-xs-8 col-md-9 cart-item__product">
+              <h4 class="cart-item__product--title"><a href="/productos/{{ item.product.permalink }}">{{ item.product.name }}</a></h4>
+              {% for modifier in item.product.modifiers %}
+              <p class="cart-item__product--variant">Color: {{ modifier }}<span class="cart-item__product--variant-desc">{{ item.sku.modifiers[loop.index0] }}</span></p>
+               {% endfor %}
+              <form action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form-mobile visible-xs">
+                <div class="form-group">
+                  <input type="hidden" name="_method" value="patch">
+                  <input type="hidden" name="id" value="{{ item.id }}">
+                  <select class="cart-item__quantity-picker selectpicker" name="quantity">
+                    {% for qty in 1..5 %}
+                    <option value="{{ qty }}"{{ qty == item.quantity ? ' selected="selected"' : null }}>{{ qty }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <button class="btn btn-link cart-item__quantity-refresh" type="submit"><span class="mdi mdi-autorenew"></span></button>
+              </form>
+              {% if cart.items | length > 1 %}
+              <h5 class="cart-item__product--price visible-xs">{{ item.total | money('symbol', 'code') }}</h5>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-md-2 cart-item__quantity-container hidden-xs">
+          <h5 class="visible-xs-block cart-item__quantity-item-title">Cantidad</h5>
+          <form action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form">
+            <div class="form-group">
+              <input type="hidden" name="_method" value="patch">
+              <input type="hidden" name="id" value="{{ item.id }}">
+              <select class="cart-item__quantity-picker selectpicker" name="quantity">
+                {% for qty in 1..5 %}
+                <option value="{{ qty }}"{{ qty == item.quantity ? ' selected="selected"' : null }}>{{ qty }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button class="btn btn-link cart-item__quantity-refresh" type="submit"><span class="mdi mdi-autorenew"></span></button>
+          </form>
+        </div>
+        <div class="col-sm-3 col-md-2 cart-item__price-container hidden-xs">
+          <h5 class="visible-xs-block cart-item__price-item-variant">Precio</h5>
+          <h4 class="cart-item__price-item-price">{{ item.total | money('symbol', 'code') }}</h4>
+          <div class="cart-item__price-item-delete hidden-xs">
+            <form action="/carrito/eliminar" method="post" class="text-center">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="id" value="{{ item.id }}">
+              <input type="hidden" name="quantity" value="0">
+              <button type="submit" class="btn btn-link cart-item__price-item-btn"><i class="mdi mdi-close"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+      <div class="row cart-page__heading-row resume">
+        <div class="col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">
+          <div class="cart-page__payment__info">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="cart-page__payment__heading">Total</h4>
+              </div>
+              <div class="col-xs-12">
+                <h4 class="cart-page__payment__total">{{ cart.total_price | money('symbol', 'code') }}</h4>
+                {% if store.is_tax_included %}
+                  <span class="cart-page__payment__taxes-included">IVA Incluído</span>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+          <a href="/checkout" class="btn btn-primary btn-lg cart-page__btn-cart">Compra Ahora</a>
+        </div>
+      </div>
+  {% else %}
+      <div class="cart-page__emptycart text-center">
+        <p class="lead cart-page--empty-cart">No tienes nada en tu carrito de compras, <a href="/productos">¡agrega algo ahora!</a></p>
+      </div>
+  {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

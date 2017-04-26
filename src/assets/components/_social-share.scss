@@ -1,0 +1,41 @@
+.social-share {
+  .social-sharing {
+    a.btn {
+      -webkit-filter: brightness(95%); /* Safari 6.0 - 9.0 */
+      filter: brightness(95%);
+      i.mdi {
+      font-size: 12px;
+      margin-right: 5px;
+      }
+      i.mdi-facebook {}
+      i.mdi-twitter {}
+      i.mdi-pinterest {}
+      i.mdi-google-plus {}
+    }
+    .btn:hover {
+      -webkit-filter: brightness(100%); /* Safari 6.0 - 9.0 */
+      filter: brightness(100%);
+    }
+    .share-facebook {
+      color: #ffffff;
+      background-color: $facebook-color;
+      border-color: $facebook-color;
+    }
+    .share-twitter {
+      color: #ffffff;
+      background-color: $twitter-color;
+      border-color:$twitter-color;
+    }
+    .share-pinterest {
+      color: #ffffff;
+      background-color: $pinterest-color;
+      border-color:$pinterest-color;
+    }
+    .share-google {
+      color: #ffffff;
+      background-color: $googleplus-color;
+      border-color:$googleplus-color;
+    }
+  }
+
+}

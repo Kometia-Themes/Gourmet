@@ -1,0 +1,110 @@
+.collections-page {
+    &__card {
+        background-color: $product_bg_card;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        @media only screen and (min-width : 992px) {
+
+        }
+    }
+    &__header {
+      text-align: center;
+    }
+    &__card:hover {
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0);
+    }
+    &__content {
+      padding-bottom: 40px;
+      min-height: 400px;
+    }
+    &__collection {
+        display: table;
+        width: 100%;
+        min-height: 200px;
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (min-width : 480px) {
+          min-height: 140px;
+        }
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (min-width : 640px) {
+          min-height: 140px;
+        }
+
+        /* Small Devices, Tablets */
+        @media only screen and (min-width : 768px) {
+          min-height: 160px;
+        }
+
+        /* Medium Devices, Desktops */
+        @media only screen and (min-width : 992px) {
+          min-height: 180px;
+        }
+
+        /* Large Devices, Wide Screens */
+        @media only screen and (min-width : 1200px) {
+          min-height: 200px;
+        }
+
+        /* Super Large Devices, Wide Screens */
+        @media only screen and (min-width : 1680px) {
+          min-height: 220px;
+        }
+        /* Mega Large Devices, Wide Screens */
+        @media only screen and (min-width : 1920px) {
+          min-height: 240px;
+        }
+    }
+    &__inner {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        background-color: rgba(0,0,0,.3);
+        -webkit-transition: background-color .5s ease-out;
+        -moz-transition: background-color .5s ease-out;
+        -o-transition: background-color .5s ease-out;
+        transition: background-color .5s ease-out;
+        .collections-page__title {
+          color: white;
+          text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        }
+    }
+    &__inner:hover {
+        background-color: rgba(255,255,255,0);
+        -webkit-transition: background-color .5s ease-out;
+        -moz-transition: background-color .5s ease-out;
+        -o-transition: background-color .5s ease-out;
+        transition: background-color .5s ease-out;
+    }
+
+    &__text {
+      display: inline-block;
+      min-height: 30px;
+    }
+    &__link {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1.3em;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+    }
+    &__link:hover {
+      color: #ffffff;
+      text-decoration: underline;
+      -webkit-transition: all .5s ease-out;
+      -moz-transition: all .5s ease-out;
+      -o-transition: all .5s ease-out;
+      transition: all .5s ease-out;
+    }
+    &--bg_img {
+      -webkit-filter: grayscale(.3);
+      filter: grayscale(.3);
+    }
+    &--bg_no-img {
+      background-color: $brand_main_color;
+    }
+
+}

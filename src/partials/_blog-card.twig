@@ -1,0 +1,23 @@
+<div class="featured-blog-home__content">
+  <p class="featured-blog-home__blog-name">{{ settings.featured_blog | title }}</p>
+  <h3 class="featured-blog-home__title"> <a href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">{{ post.title | title }}</a></h3>
+  <div class="featured-blog-home__thumbnail">
+    {% if post.image_url is not null %}
+    <a class="featured-blog-home--link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">
+      <img class="img-responsive featured-blog-home__img" src="{{ post.image_url }}&w=600&h=400&fit=crop">
+    </a>
+    {% else %}
+    <a class="featured-blog-home--link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">
+      <img class="img-responsive featured-blog-home__img" src="{{ 'placeholders/product-11.jpg' | global_img_url }}&w=400&h=400&fit=crop">
+    </a>
+    {% endif %}
+  </div>
+  <div class="featured-blog-home__desc">
+  {% if post.summary %}
+    <p class="featured-blog-home__excerpt">{{ post.summary | truncate_words(20) }}</p>
+  {% else %}
+    <p class="featured-blog-home__excerpt">{{ post.content | truncate_words(20) }}</p>
+  {% endif %}
+    <p class="featured-blog-home__link"><a class="featured-blog-home--link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">Ver más</a></p>
+  </div>
+</div>

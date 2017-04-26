@@ -1,0 +1,34 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page recover-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="recover-page__header block_title">
+        <h1 class="recover-page__title title">Recuperar Contraseña</h1>
+        <p class="page__description">Por favor ingresa tu correo electrónico.</p>
+        <p>Recibirás un link para cambiar tu contraseña.</p>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 recover-page__content">
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-md-offset-3">
+          <div class="recover-page-form">
+          {% form 'customer_recover_password' 'role="form"' %}
+            <div class="form-group recover-page__input">
+              <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Correo electrónico" required>
+            </div>
+            <div class="form-group recover-page__button">
+              <button type="submit" class="btn btn-lg btn-danger recover-page--btn-danger">Recuperar</button> <button class="btn btn-lg btn-success" href="/cuenta/login">Cancelar</button>
+            </div>
+          {% endform %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

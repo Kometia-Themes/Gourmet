@@ -1,0 +1,114 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page contact-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="contact-page__header block_title">
+        <h1 class="contact-page__title title">{{ page.title }}</h1>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 contact-page__content">
+      {{ page.content }}
+    </div>
+  </div>
+  <div class="row contact-page__form">
+    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+      {% form 'contact' 'role="form" class="contact-form"' %}
+      <form action="#" method="POST" role="form" class="contact-page__contact-form">
+        <div class="form-group">
+          <input type="name" data-validation="length required" data-validation-length="min4" data-validation-error-msg="Escribe tu nombre por favor." name="message[content][nombre]" class="form-control contact-page__input contact-page--input" id="name" placeholder="Tu nombre">
+        </div>
+        <div class="form-group">
+          <input type="email" data-validation="email required" data-validation-error-msg="La dirección de correo no es válida." name="message[content][email]" class="form-control contact-page__input contact-page--input" id="email" placeholder="Correo electrónico" required>
+        </div>
+        <div class="form-group">
+          <input type="text" name="message[content][telefono]"  class="form-control contact-page__input contact-page--input" id="phone" placeholder="Teléfono">
+        </div>
+        <div class="form-group">
+          <textarea id="message" data-validation="length required" data-validation-length="min6" data-validation-error-msg="Olvidó su mensaje." name="message[content][mensaje]" class="form-control contact-page__input contact-page--message" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-lg btn-primary contact-page__btn">Enviar</button>
+        </form>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% if settings.map_is_enabled %}
+  <div class="contact-page__gmaps">
+    <div class="row">
+      <div class="col-sm-12 text-center contact-page__map center-map">
+        <div id="map" class="map"></div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+  <div class="container contact-page__placeholder">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="contact-page__placeholder-help">
+          <div class="contact-page__placeholder-helper">
+            <div class="contact-page__placeholder-info text-center">
+              <p>Ocurrió un error con la configuración del mapa, por favor verifica la dirección o la llave de acceso.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock body %}
+
+{% block body_js %}
+{{ parent() }}
+{% if settings.map_is_enabled %}
+  <script>
+  var map;
+  var address = '{{ settings.map_address }}';
+  var map_zoom = {{ settings.map_zoom }};
+
+  function initMap() {
+    var geocoder = new google.maps.Geocoder();
+    function codeAddress(address) {
+     geocoder.geocode( { 'address': address}, function(results, status) {
+       if (status === google.maps.GeocoderStatus.OK) {
+         var p_lat = (results[0].geometry.location.lat());
+         var p_long = (results[0].geometry.location.lng());
+         console.log(p_lat +'='+p_long);
+         map = new google.maps.Map(document.getElementById('map'), {
+          center: { lat: p_lat, lng: p_long },
+          zoom: map_zoom,
+          disableDefaultUI: false,
+          scrollwheel: false
+        });
+         $('.center-map').on('click', function(event) {
+          event.preventDefault();
+          map.setCenter({ lat: p_lat, lng: p_long });
+        });
+         {% if settings.map_marker %}
+         var marker = new google.maps.Marker({
+            map: map,
+            position: { lat: p_lat, lng: p_long },
+            draggable: true,
+            title: '{{ store_name }}'
+          });
+         {% endif %}
+        $('.contact-page__gmaps').show();
+        $('.contact-page__placeholder').hide();
+       } else {
+        $('.contact-page__gmaps').hide();
+        $('.contact-page__placeholder').show();
+      }
+    });
+   }
+   codeAddress(address);
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key={{ settings.map_api_key }}&signed_in=true&callback=initMap"
+  async defer></script>
+{% endif %}
+
+{% endblock %}

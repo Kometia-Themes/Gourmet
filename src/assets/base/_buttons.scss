@@ -1,0 +1,34 @@
+.btn {
+  border-radius:0;
+}
+.btn-primary {
+  color: $btn_text_color;
+  background-color: $btn_bg_color;
+  border-color: $btn_bg_color;
+}
+.btn-primary:hover, .btn-primary:focus {
+  color: $btn_text_color_hover;
+  background-color: $btn_bg_color_hover;
+  border-color: $btn_bg_color_hover;
+}
+.btn-link {
+  color: $main_link_color;
+}
+.btn-link:hover {
+  color: $main_link_hover_color;
+}
+
+.btn-primary.disabled.focus,
+.btn-primary.disabled:focus,
+.btn-primary.disabled:hover,
+.btn-primary[disabled].focus,
+.btn-primary[disabled]:focus,
+.btn-primary[disabled]:hover,
+fieldset[disabled] .btn-primary.focus,
+fieldset[disabled] .btn-primary:focus,
+fieldset[disabled] .btn-primary:hover {
+  color: $btn_text_color;
+  background-color: $btn_bg_color;
+  border-color: $btn_bg_color;
+  filter: sepia(1);
+}

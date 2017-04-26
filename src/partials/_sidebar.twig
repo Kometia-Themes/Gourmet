@@ -1,0 +1,17 @@
+<div class="sidebar__sidebar">
+{% if settings.categories_sidebar_display %}
+  <h4 class="sidebar__sidebar-title">{{ settings.categories_sidebar_title }}</h4>
+  <ul class="sidebar__sidebar-list active">
+    {% if categories | length > 0 %}
+      {% for categoryElement in categories %}
+        {% include '_category_tree_item.twig' with {
+          'category' : categoryElement,
+          'current'  : category
+        } only %}
+      {% endfor %}
+  {% else %}
+    <li class="sidebar__sidebar-item"><a class="sidebar__sidebar-item-link" href="#">No hay categorías</a></li>
+  {% endif %}
+  </ul>
+{% endif %}
+</div>

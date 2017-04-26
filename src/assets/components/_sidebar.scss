@@ -1,0 +1,114 @@
+.sidebar {
+  color: $sidebar_texts_color;
+  a {
+    text-decoration: none;
+    color: $sidebar_texts_color;
+  }
+  a:hover {
+    color: $main_link_color;
+    text-decoration: none;
+  }
+  
+  &__header {
+    text-align: center;
+  }
+  &__title {
+
+  }
+  &__content {
+    min-height: 600px;
+  }
+  &__sidebar-container {
+    position: relative;
+    margin-top: 0;
+    border-left: 1px solid $sidebar_lines_color;
+    padding-left: 1em;
+    color: $sidebar_texts_color;
+    background-color: $sidebar_bg_color;
+    @media(min-width:1200px) {
+      margin-top: 3em;
+    }
+  }
+
+  &__sidebar {
+    position: relative;
+    width: auto;
+    ul {
+      padding-left: 0;
+      list-style: none;
+    }
+    &-submenu {
+      display: none;
+      .sidebar__sidebar-item-link:hover {
+        background-color: rgba(240,240,240,.5);
+      }
+    }
+    &-submenu.active {
+      border-top: 1px solid rgba(100,100,100,.2);
+    }
+
+    &-title {
+      font-size: 18px;
+      color: $sidebar_titles_color;
+      font-weight: normal;
+      margin-top: 0;
+      margin-left: -.9em;
+      padding-left: .6em;
+      border-left: 4px solid $brand_main_color;
+      text-transform: uppercase;
+    }
+    &-list {
+      margin-bottom: 10px;
+      &-title {
+        position: relative;
+        color: $sidebar_titles_color !important;
+        display: block;
+        width: 100%;
+        padding: 12px 15px 12px 0;
+      }
+      &-title:hover {
+        color: $main_link_color !important;
+        text-decoration: none;
+      }
+      &-toggle {
+          position: absolute;
+          right: 0;
+          top: 0;
+          z-index: 99;
+          padding: 8px 0 8px 15px;
+        i.mdi {
+          color: $sidebar_texts_color;
+
+        }
+      }
+    }
+    &-item {
+      display: block;
+      position: relative;
+      width: 100%;
+      &-link {
+        display: block;
+        width: 100%;
+        padding: 8px 15px;
+        color: $sidebar_texts_color;
+      }
+      &-link:hover {
+        color: $main_link_color !important;
+        text-decoration: none;
+      }
+    }
+
+
+  }
+
+
+  &__list-title {
+
+  }
+  &__sidebar-item-link {
+
+  }
+  &--modifier {
+    
+  }
+}

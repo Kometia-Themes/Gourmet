@@ -1,0 +1,65 @@
+.contact-page {
+  
+    &__header {
+      text-align: center;
+    }
+    &__title {
+      
+    }
+    &__content {
+      text-align: center;
+      padding-bottom: 1em;
+      padding-top: 1em;
+    }
+    &__form {
+      
+    }
+    &__message {
+      
+    }
+    &__contact-form {
+      margin-bottom: 2em;
+    }
+    &__input {
+      
+    }
+    &--input {
+      border-radius: 0;
+      padding:1.4em 1.2em;
+    }
+    &--message {
+      border-radius: 0;
+      padding:1.4em 1.2em;
+    }
+    &__btn {
+      
+    }
+    &__gmaps {
+      background-color: rgba(255,255,255,0);
+      display: none;
+    }
+    &__map {
+      background-color: rgba(255,255,255,0);
+     #map {
+      min-height: 400px;
+      height: 50vh;
+      }
+    }
+    &__placeholder-help {
+    }
+    &__placeholder-helper {
+      
+    }
+    &__placeholder-info {
+      padding-top:200px;
+      padding-bottom: 200px;
+    }
+    &--modifier {
+      
+    }
+}
+body.contact-page {
+  footer.footer {
+    margin-top: 0;
+  }
+}

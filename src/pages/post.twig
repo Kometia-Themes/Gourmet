@@ -1,0 +1,36 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page post-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="post-page__header block_title">
+        <h3 class="post-page__section-title">{{ blog.title }}</h3>
+        <h1 class="post-page__title title">{{ post.title }}</h1>
+        {% if post.summary is not null %}
+        <p class="page__description">{{ post.summary | truncate_words(20) }}</p>
+        {% endif %}
+        <hr class="page__line">
+        {% if post.tags | length > 0 %}
+        <p class="post-page__tags">
+          {% for tag in post.tags %}
+            <a class="post-page__tag-link" href="/blogs/{{ blog.permalink }}/tags/{{ tag.permalink }}">
+              <span class="label label-primary post-page__label">{{ tag.title }}</span>
+            </a>
+          {% endfor %}
+        </p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 col-lg-10 col-lg-offset-1 post-page__content">
+      <p class="post-date">{{ post.published_at | datetime }}</p>
+      {{ post.content }}
+      {% if settings.enable_share_blog %}
+        {% include '_social-share.twig' %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

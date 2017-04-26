@@ -1,0 +1,23 @@
+{% if pagination.last > 1 %}
+<div class="row pagination-bar">
+  <ul class="pagination">
+    {% if pagination.current <= 1 %}
+    <li class="page-item disabled"><a class="page-link">&laquo;</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="{{ pagination.previous_link }}">&laquo;</a></li>
+    {% endif %}
+    {% for index, link in pagination.links %}
+      {% if index == pagination.current %}
+      <li class="page-item active"><a class="page-link">{{ index }}</a></li>
+      {% else %}
+      <li class="page-item"><a class="page-link" href="{{ link }}">{{ index }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if pagination.current == pagination.last %}
+    <li class="page-item disabled"><a class="page-link">&raquo;</a></li>
+    {% else %}
+    <li class="page-item"><a class="page-link" href="{{ pagination.next_link }}">&raquo;</a></li>
+    {% endif %}
+  </ul>
+</div>
+{% endif %}

@@ -1,0 +1,193 @@
+.product-page {
+  .carousel {
+    img {
+      width: 100%;
+    }
+    &__container {
+
+    }
+    &__image {}
+    .slider {
+      margin-bottom: 2em;
+      &__slide {
+        border: 4px solid $body_background_color;
+        .slick-active {
+        }
+      }
+      &__image {
+
+      }
+    }
+    .slick-dots {
+      li.slick-active {
+        button:before{  color: $brand_main_color;}
+      }
+    }
+    .slider-nav {
+      margin-bottom: 1em;
+      .slider-nav__item {
+        border: 4px solid $body_background_color;
+        .slider-nav__image {
+        }
+      }
+    }
+  }
+
+  .product {
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    .header {
+      margin-bottom: 1em;
+      &__status {
+        margin-bottom: 4px;
+      }
+      &__title {
+        font-weight: normal;
+        color: $brand_main_color;
+        margin-top: 0;
+      }
+      &__sku {
+        border-top: 1px solid rgba(100,100,100,.15);
+        padding-top: 1em;
+        margin-top: 1em;
+        span.label-sku {
+          color: $brand_main_color;
+        }
+      }
+    }
+    .vendor {
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      font-size: .9em;
+      letter-spacing: 1px;
+      strong {color: $body_font_color;}
+    }
+
+    .price-preview {
+      margin-bottom: 1em;
+      &__compared-price {
+        margin-bottom: 4px;
+        font-size: 1.2em;
+        color: $product_compared_price_color;
+        text-decoration: line-through;
+        span.inner {
+        color: $body_font_color;
+        text-decoration: none;
+        }
+        @media(min-width: 768px) {
+          font-size: 1.2em;
+        }
+        @media(min-width: 992px) {
+          font-size: 1.2em;
+        }
+        @media(min-width: 1200px) {
+          font-size: 1.2em;
+        }
+      }
+      &__price {
+        line-height: 1;
+        font-size: 2em;
+        @media(min-width: 768px) {
+          font-size: 2.2em;
+        }
+        @media(min-width: 992px) {
+          font-size: 2.4em;
+
+        }
+        @media(min-width: 1200px) {
+          font-size: 3em;
+        }
+      }
+
+    }
+    .quantity {
+      margin-top: 1.4em;
+      margin-bottom: 2em;
+      .input-group {
+        position: relative;
+        width: 100%;
+        .input-group-btn {
+          position: absolute;
+          button {
+            height:100%; width: 50px; font-size:24px; border-color: rgba(255,255,255,0);
+            .mdi {}
+          }
+        }
+        .input-group-btn:focus {
+          button {border-color: rgba(150,150,150,.5)}
+        }
+        .input-group-btn.left {
+          left:0;
+          top:0;
+          z-index: 99;
+          height: 100%;
+          width: auto;
+          .btn-number {
+            color: #d9534f;
+            background-color: transparent;
+          }
+        }
+        .input-group-btn.left:hover {
+          .btn-number {
+            color: #ffffff;
+            background-color: #d9534f;
+          }
+        }
+        .input-group-btn.right {
+          right:0;
+          top:0;
+          z-index: 99;
+          height: 100%;
+          width: auto;
+          .btn-number {
+            color: #5cb85c;
+            background-color: transparent;
+          }
+        }
+        .input-group-btn.right:hover {
+          .btn-number {
+            color: #ffffff;
+            background-color: #5cb85c;
+          }
+        }
+        input#quantity {
+          padding: 24px;
+          text-align: center;
+          font-size: 30px;
+          width: 100%;
+          font-weight: lighter;
+        }
+      }
+    }
+
+  }
+  .related_products {
+    margin-top: 2em;
+    padding-top:0;
+    position: relative;
+    .divider {
+      position: absolute;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 20%;
+      height: 1px;
+      background-color: #cccccc;
+    }
+    .subdivider {
+      position: absolute;
+      z-index: 20;
+      left: 0;
+      top: 0;
+      width: 5%;
+      height: 4px;
+      background-color: $brand_main_color;
+    }
+    &__title {
+      color: $brand_main_color;
+      font-weight: normal;
+      font-size: 2em;
+      margin-bottom: .5em;
+    }
+  }
+}

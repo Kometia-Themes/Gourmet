@@ -1,0 +1,26 @@
+{% if errors is not empty %}
+<div class="notification alert alert-danger fade in">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  {% for message in errors %}
+  <div class="message">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if success is not empty %}
+<div class="notification alert alert-success fade in">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  {% for message in success %}
+  <div class="message">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% if warning is not empty %}
+<div class="notification alert alert-warning fade in">
+  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  {% for message in warning %}
+  <div class="message">{{ message }}</div>
+  {% endfor %}
+</div>
+{% endif %}

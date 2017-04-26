@@ -1,0 +1,32 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+  <div class="container page products-page">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="products-page__header block_title">
+          <h1 class="products-page__title title">Productos</h1>
+          <hr class="page__line">
+        </div>
+      </div>
+    </div>
+  {% if products.count > 0 %}
+    <div class="row symmetrical-container">
+    {% for product in products %}
+      <div class="col-xs-6 col-sm-6 col-md-4 symmetrical">
+        {% include '_product-card.twig' %}
+      </div>
+    {% endfor %}
+    {% include '_pagination.twig' %}
+    </div>
+  {% else %}
+    <div class="row">
+      <div class="col-xs-12 text-center">
+        <h2 class="products-title">¡Falta poco!</h2>
+        <p class="products-text">Todavía no existen Productos, una vez que empieces a crearlos aparecerán aquí.</p>
+        <p><a class="btn btn-primary" href="/admin/products">Gestionar Productos</a> <a class="btn btn-primary" href="/admin/collections">Gestionar Colecciones</a></p>
+      </div>
+    </div>
+  {% endif %}
+  </div>
+{% endblock %}

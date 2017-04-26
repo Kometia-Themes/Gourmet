@@ -1,0 +1,28 @@
+{% if settings.featured_products_collection is not empty
+  and collections[settings.featured_products_collection] is defined
+  and collections[settings.featured_products_collection].is_visible %}
+  {% set featured_products = collections[settings.featured_products_collection].products %}
+{% endif %}
+{% if (settings.featured_products_limit > 0 or settings.featured_products_limit is empty) and featured_products is not empty %}
+  {% if settings.featured_products_collection is not empty and featured_products | length > 0 %}
+    {% set limit = settings.featured_products_limit is not empty ? min(0+settings.featured_products_limit, 50) : 50 %}
+
+    <div class="featured-products-home">
+      <div class="container">
+        <div class="row">
+          <div class="featured-products-home__header block_title">
+            <h2 class="title">{{ settings.featured_best_products_title }}</h2>
+          </div>
+        </div>
+
+      <div class="row featured-products-home__products-row symmetrical-container">
+        {% for product in featured_products | slice(0, limit) %}
+        <div class="col-xs-6 col-sm-6 col-md-3 symmetrical">
+          {% include '_product-card.twig' %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% endif %}
+{% endif %}

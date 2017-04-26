@@ -1,0 +1,122 @@
+.footer {
+  color: $footer_text_color;
+  border-top: 1px solid $footer_border_color;
+  background-color: $footer_bg_color;
+  min-height: 100px;
+  padding-top: 1.2em;
+  padding-bottom: 20px;
+  margin-top: 30px;
+  font-size: .8em;
+  > .container {
+    margin-bottom: 14px;
+  }
+  &__menu {
+    &--close {
+        .footer--list {
+          @media(max-width:767px) {
+            display: none;
+            height: 0;
+            transition: display 2s linear;
+          }
+          li {
+            @media(max-width:767px) {
+              line-height: 2;
+            }
+          }
+        }
+        .footer--list-open {
+          @media(max-width:767px) {
+            display: block;
+            height: auto;
+            transition: display 2s linear;
+          }
+        }
+    }
+  }
+
+  &__list-1 {
+  }
+  &__list-2 {
+  }
+  &__list-3 {
+  }
+  &__list-4 {
+  }
+  &__list-5 {
+  }
+  &__section-title {
+    font-family: $heading_font;
+    font-weight: $heading_font_weight;
+    margin-top: 0;
+    margin-bottom: 2px;
+    color: $footer_title_color;
+    display: inline-block;
+    width: 100%;
+    font-size: 1.2em;
+    @media(max-width:767px) {
+      margin-bottom: 0;
+    }
+  }
+  &__section-subtitle {
+    font-family: $heading_font;
+    font-weight: $heading_font_weight;
+    margin-bottom: 10px;
+    font-size: 1em;
+  }
+  &__section-icon {
+    padding:2px;
+    display: none;
+    @media(max-width:767px) {
+      display: inline-block;
+      float: right;
+      padding:0;
+      font-size: 24px;
+      color: $footer_title_color;
+      background-color: transparent;
+      cursor:pointer;
+      margin-top: 0px;
+      margin-bottom: 10px;
+    }
+  }
+  &__link {
+    @media(max-width:767px) {
+    }
+    a {
+      color: $body_font_color;
+    }
+    a:hover {
+      color: $main_link_hover_color;
+    }
+  }
+  &__link--payment {
+    float: left;
+    display: inline-block;
+    .payment-image {
+      width: 50px;
+      max-height: 30px;
+      margin-right: 9px;
+      margin-bottom: 8px;
+    }
+    @media(max-width:767px) {
+    }
+    a {
+      color: $body_font_color;
+    }
+    a:hover {
+      color: $main_link_hover_color;
+    }
+  }
+  &--list {
+    margin-top: 0;
+    margin-bottom: 1.6em;
+    list-style: none;
+    padding-left:0;
+    li {
+      line-height: 1.7;
+    }
+  }
+}
+
+body.home .footer {
+  margin-top: -30px;
+}

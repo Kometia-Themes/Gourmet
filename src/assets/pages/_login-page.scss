@@ -1,0 +1,23 @@
+.login-page {
+    &__header {
+      .title { margin-bottom:20px; }
+      text-align: center;
+    }
+    &__title { }
+    &__content {
+      padding-bottom: 40px;
+      min-height: 400px;
+    }
+    &__create-account {
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
+    &__create-account-link {}
+    &__login-form {
+      .form-group { width: 100%; }
+      &--input {
+        width: 100%;
+        margin-bottom: 1.6em;
+      }
+    }
+}

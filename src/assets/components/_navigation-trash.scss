@@ -1,0 +1,40 @@
+	  .subnav {
+	  	position: relative;
+      @media (min-width: 768px) {
+      	position: absolute;
+        margin-top: 0 !important;
+      	width: 100%;
+ne;
+	}     }
+    	.navigation__link {
+	      position: relative;
+	      padding: 1.2em 1em;
+	      display: block;
+	      width: 100%;
+	      @media (max-width: 767px) {
+	        color: $nav_link_text_color;
+	        padding: 1.2em 1em;
+	      }
+	      @media(min-width: 768px) {
+	      	background-color: $nav_menu_bg;
+	      }
+    	}
+    	.navigation__link:hover {
+      	color: $nav_link_text_hover_color;
+    	}
+    	.navigation__link::before {
+      	position: absolute;
+      	content: '';
+      	top:0;
+      	left: 0;
+      	width: 0;
+      	height: 100%;
+      	background-color: #e6e6e6;
+      	transform-origin:left;
+      	transition:width 0.35s ease;
+      	z-index:-1;
+    	}
+    	.navigation__link:hover::before {
+      	width: 100%;
+    	}
+	  }

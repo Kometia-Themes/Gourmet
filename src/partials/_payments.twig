@@ -1,0 +1,26 @@
+<div class="payment_methods">
+  <p class="paymente_methods__title">Métodos de pago</p>
+    <ul class="payment_methods__list">
+    {% if settings.accept_visa %}
+      <li><img class="payment_methods-icon" src="{{ 'visa.png'| payment_img_url }}" alt="Visa"></li>
+    {% endif %}
+    {% if settings.accept_mastercard %}
+      <li><img class="payment_methods-icon" src="{{ 'mastercard.png'| payment_img_url }}" alt="Mastercard"></li>
+    {% endif %}
+    {% if settings.accept_amex %}
+      <li><img class="payment_methods-icon" src="{{ 'amex.png'| payment_img_url }}" alt="American Express"></li>
+    {% endif %}
+    {% if settings.accept_paypal %}
+      <li><img class="payment_methods-icon" src="{{ 'paypal.png'| payment_img_url }}" alt="Paypal"></li>
+    {% endif %}
+    {% if settings.accept_oxxo %}
+      <li><img class="payment_methods-icon" src="{{ 'oxxo.png'| payment_img_url }}" alt="oxxo"></li>
+    {% endif %}
+    {% if settings.accept_spei %}
+      <li><img class="payment_methods-icon" src="{{ 'spei.png'| payment_img_url }}" alt="spei"></li>
+    {% endif %}
+    {% if settings.accept_cash %}
+      <li><img class="payment_methods-icon" src="{{ 'cash.png'| payment_img_url }}" alt="Efectivo"></li>
+    {% endif %}
+    </ul>
+</div>

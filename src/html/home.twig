@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- replace line with below -->
+  <!-- {% if settings.use_favicon %} -->
+  <link rel="shortcut icon" href="{{ settings['favicon.png'] }}" type="image/png" />
+  <!-- {% endif %} -->
+<!-- end replace -->
+
+  <title>{{ page_title }}{% if current_page != 1 %} | Página {{ current_page }}{% endif %}{% if store.name not in page_title %} | {{ store.name }}{% endif %}</title>
+
+  <!-- {% if page_description %} -->
+  <meta name="description" content="{{ page_description }}"/>
+  <!-- {% endif %} -->
+
+  <!-- {% include '_og-meta-tags.twig' %} -->
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <!-- {# Bootstrap #} -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- {# Select #} -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
+
+  <!-- {# Material Design Icons #} -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/1.7.22/css/materialdesignicons.min.css">
+
+  <!-- {# Google Fonts #} -->
+  <!-- replace line with below -->
+  <!-- {% include '_google-fonts.twig' %} -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:200,300,400,500,600,700,800,900" rel="stylesheet">
+  <!-- end replace -->
+  <!-- {# Slick Styles #} -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+
+  <!-- {# Theme Styles #} -->
+<!-- replace line with below -->
+  <!-- <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" media="screen"> -->
+  <link rel="stylesheet" href="assets/styles.css" media="screen">
+<!-- end replace -->
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- {{ head_content }} -->
+
+</head>
+<body class="home {% block body_class %}{% endblock body_class %}" role="document">
+<!-- Define body class -->
+<!--  {% block body_class %}home{% endblock body_class %} -->
+<!-- {% include '_notifications.twig' %} -->
+<!-- {% include '_sidebar.twig' %} -->
+<!-- {% include '_mobilenav.twig' %} -->
+    <!-- Component Name -->
+<nav class="navbar navbar-fixed-top navigation">
+  <!-- supernavbar banner-->
+  <div class="navbanner hidden-xs hidden-sms">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="navbanner__title">Envío gratis en pedidos superiores a $200 | Área de entrega Bosques</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+<!--      <a class="navbar-brand navigation__logo-text" href="#">Chef Restaurant</a> -->
+      <a class="navbar-brand navigation__logo-image" href="/"><img class="logotype" src="assets/logo-chef-orange.png"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right second-navigation hidden-xs">
+        <li><a class="navigation__link second-navigation__link second-navigation--active" href="/cart.html"><i class="mdi mdi-cart second-navigation__icon "></i><sup class="second-navigation__qty">2</sup></a></li>
+        <li><a class="navigation__link second-navigation__link" href="/customers/register.html">REGISTRARSE</a></li>
+        <li><a class="navigation__link second-navigation__link" href="/customers/login.html">INGRESAR</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right first-navigation">
+        <li><a class="navigation__link" href="/">INICIO</a></li>
+        <li><a class="navigation__link" href="/page.html">RECOMENDACIONES</a></li>
+        <li><a class="navigation__link" href="/collections.html">ENTREGAS</a></li>
+        <li><a class="navigation__link" href="/collection.html">COLLECTION</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navigation__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENÚ <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="navigation__link" href="/products.html">Productos</a></li>
+            <li><a class="navigation__link" href="/product.html">Producto</a></li>
+            <li><a class="navigation__link" href="/page.html">Sugerencias del chef & Sugerencias del chef</a></li>
+            <li><a class="navigation__link" href="/page.html">Rollos</a></li>
+            <li><a class="navigation__link" href="/category.html">Categorías</a></li>
+          </ul>
+        </li>
+        <li><a class="navigation__link" href="/blog.html">BLOG</a></li>
+        <li><a class="navigation__link" href="/post.html">POST</a></li>
+        <li><a class="navigation__link" href="/contact.html">CONTACTO</a></li>
+        <li><a class="navigation__link visible-xs" href="/customers/login.html">INGRESAR</a></li>
+        <li><a class="navigation__link visible-xs" href="/customers/register.html">REGISTRARSE</a></li>
+        <li><a class="navigation__link visible-xs" href="/cart.html">CARRITO <span>0</span></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+<div class="featured-slider-home">
+  <div class="featured-slider-home__main-slider main-slider">
+    <div class="featured-slider-home__slide_1 featured-slider-home--slide" style="background-image: url('/images/homepage_1.jpg');">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="featured-slider-home__content">
+            <div class="featured-slider-home__inner-content">
+              <button type="button" data-role="none" class="prev" aria-label="Previous" role="button" style="display: block;"><i class="mdi mdi-chevron-left"></i></button>
+              <button type="button" data-role="none" class="next" aria-label="Next" role="button" style="display: block;"><i class="mdi mdi-chevron-right"></i></button>
+              <h3 class="featured-slider-home__subtitle">DELICIOSAMENTE SAZONADO</h3>
+              <h1 class="featured-slider-home__title">Teppanyaki</h1>
+              <p><a class="btn btn-lg featured-slider-home--btn-slide" href="{{ settings.slide_1_btn_link }}">Leer más<!--{{ settings.slide_1_btn_text }}--></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </div>
+    <div class="featured-slider-home__slide_2 featured-slider-home--slide" style="background-image: url('/images/homepage_2.jpg');">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="featured-slider-home__content">
+            <div class="featured-slider-home__inner-content">
+              <button type="button" data-role="none" class="prev" aria-label="Previous" role="button" style="display: block;"><i class="mdi mdi-chevron-left"></i></button>
+              <button type="button" data-role="none" class="next" aria-label="Next" role="button" style="display: block;"><i class="mdi mdi-chevron-right"></i></button>
+              <h3 class="featured-slider-home__subtitle">QUESO, PLÁTANO, CAMARÓN Y MUCHOS MÁS</h3>
+              <h2 class="featured-slider-home__title">Kushiage</h2>
+              <p><a class="btn btn-lg featured-slider-home--btn-slide" href="{{ settings.slide_1_btn_link }}">Leer más<!--{{ settings.slide_1_btn_text }}--></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </div>
+    <div class="featured-slider-home__slide_3 featured-slider-home--slide" style="background-image: url('/images/homepage_3.jpg');">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="featured-slider-home__content">
+            <div class="featured-slider-home__inner-content">
+              <button type="button" data-role="none" class="prev" aria-label="Previous" role="button" style="display: block;"><i class="mdi mdi-chevron-left"></i></button>
+              <button type="button" data-role="none" class="next" aria-label="Next" role="button" style="display: block;"><i class="mdi mdi-chevron-right"></i></button>
+              <h3 class="featured-slider-home__subtitle">EN EL CORAZÓN DE LA CONDESA</h3>
+              <h2 class="featured-slider-home__title">SUBARASHII</h2>
+              <p><a class="btn btn-lg featured-slider-home--btn-slide" href="{{ settings.slide_1_btn_link }}">Leer más<!--{{ settings.slide_1_btn_text }}--></a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="overlay"></div>
+    </div>
+  </div>
+</div>
+
+
+<div class="featured-best-collections">
+  <div class="container">
+    <div class="row">
+      <div class="featured-best-collections__header block_title">
+        <h2 class="title">SUGERENCIAS DEL CHEF<!-- {{ settings.featured_best_collections_title }} --></h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/salad.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">ENSALADAS</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/postres.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">POSTRES</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/shushies.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">SUSHI</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/carnes.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">CARNES</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/sopas.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">SOPAS</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/pasta.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">PASTAS</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/helados.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">HELADOS</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('images/bebidas.jpg');">
+          <div class="featured-best-collections__content">
+            <div class="featured-best-collections__inner">
+              <h3 class="featured-best-collections__title">BEBIDAS</h3>
+              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="">VER</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</div>
+
+
+
+
+
+<div class="featured-promos-home">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="featured-promos-home__content">
+          <div class="featured-promos-home__img-icon">
+            <i class="mdi mdi-truck {{ settings.promo_home_1_icon_name }} mdi-48px featured-promos-home--icon-color"></i>
+          </div>
+          <h4 class="featured-promos-home__title">GRATIS<!--{{ settings.promo_home_1_title }}--></h4>
+          <p class="featured-promos-home__desc">EL ENVÍO SI COMPRAS +$200<!--{{ settings.promo_home_1_desc }}--></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="featured-promos-home__content">
+          <div class="featured-promos-home__img-icon">
+            <i class="mdi mdi-motorbike {{ settings.promo_home_2_icon_name }} mdi-48px featured-promos-home--icon-color"></i>
+          </div>
+          <h4 class="featured-promos-home__title">EXPRESS<!--{{ settings.promo_home_2_title }}--></h4>
+          <p class="featured-promos-home__desc">LLEGA DE 30 A 45 MINUTOS*<!--{{ settings.promo_home_2_desc }}--></p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <div class="featured-promos-home__content featured-promos-home--last">
+          <div class="featured-promos-home__img-icon">
+            <i class="mdi mdi-food-apple {{ settings.promo_home_3_icon_name }} mdi-48px featured-promos-home--icon-color"></i>
+          </div>
+          <h4 class="featured-promos-home__title">GARANTÍA<!--{{ settings.promo_home_3_title }}--></h4>
+          <p class="featured-promos-home__desc">SIEMPRE FRESCO<!--{{ settings.promo_home_3_desc }}--></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="featured-static-banner-home">
+  <a href="featured-static-banner-home__link" target="_blank">
+    <img class="img-responsive featured-static-banner-home__img" src="images/banner-chef.png">
+  </a>
+</div>
+
+<div class="featured-products-home">
+  <div class="container">
+    <div class="row">
+      <div class="featured-products-home__header block_title">
+        <h2 class="title">NUESTRAS ESPECIALIDADES <!--{{ settings.featured_best_products_title }}--></h2>
+      </div>
+    </div>
+ <!--{# {% if settings.product_thumbnail_type == 'portrait' %}
+  {% set thumb = {'width': 350, 'height': 615} %}
+{% else if settings.product_thumbnail_type == 'landscape' %}
+  {% set thumb = {'width': 350, 'height': 216} %}
+{% else %}
+  {% set thumb = {'width': 350, 'height': 350} %}
+{% endif %} #} -->
+
+    <div class="row featured-products-home__products-row">
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-1" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" >
+              <img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-2" src="images/bebidas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Antartida Extra Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Paradise Sushi Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-1" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" >
+              <img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-2" src="images/bebidas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Tepanyaky Delicious Normal Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-1" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" >
+              <img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-2" src="images/bebidas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Antartida Extra Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- .row -->
+
+    <div class="row featured-products-home__products-row">
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-1" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" >
+              <img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-2" src="images/bebidas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Antartida Extra Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Paradise Sushi Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-1" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" >
+              <img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-2" src="images/bebidas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Tepanyaky Delicious Extra Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-6 col-sm-6 col-md-3">
+        <div class="featured-products-home__card">
+          <div class="featured-products-home__content">
+            <div class="featured-products-home__thumbnail">
+              <div class="featured-products-home__ribbon featured-products-home--ofert"><span>Oferta</span></div>
+              <div class="featured-products-home__link">
+                <a class="btn btn-primary featured-products-home__btn" href="">Ver más</a>
+              </div>
+<!-- {# <img alt="{{ product.title }}" class="img-responsive" src="images/sopas.jpg&w=width&h=height&fit=crop" width="350"> #} -->
+              <a href="#"><img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-1" src="images/sopas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" >
+              <img alt="{{ product.title }}" class="img-responsive featured-products-home--preview-2" src="images/bebidas.jpg?v=1487293841&w=width&h=height&fit=crop" width="350" ></a>
+            </div>
+            <div class="featured-products-home__desc">
+              <h3 class="featured-products-home__title"><a href="#">Antartida Extra Shoperti</a></h3>
+              <p class="featured-products-home__excerpt">Our Food shop was founded in 2017 and...</p>
+              <p class="featured-products-home__price">$25.00 <span class="featured-products-home--discount">$28.00</span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- .row -->
+
+  </div> <!-- .container -->
+</div> <!-- .featured-products-home -->
+
+<div class="featured-banner-home" style="background-image: url('images/maki-banner.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="featured-banner-home__content">
+        <h2 class="featured-banner-home__title">PROMOCIÓN SEMANAL 2 x 1</h2>
+        <h4 class="featured-banner-home__subtitle">Maki California 175g</h4>
+        <p class="featured-banner-home__intro">Aguacate, pepino y camarón por dentro, ajonjolí por fuera.</p>
+        <p><a class="btn btn-lg featured-banner-home--btn-banner" href="{{ settings.slide_1_btn_link }}">¡Comprar ya!<!--{{ settings.slide_1_btn_text }}--></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="featured-banner-home__overlay"></div>
+</div>
+
+<div class="featured-blog-home">
+  <div class="container">
+    <div class="row">
+      <div class="featured-products-home__header block_title">
+        <h2 class="title">NUESTROS BLOG <!--{{ settings.featured_blog_title }}--></h2>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="co-xs-12 col-sm-6">
+        <div class="featured-blog-home__content">
+          <p class="featured-blog-home__blog-name">Noticias</p>
+          <h3 class="featured-blog-home__title">Salud en la cocina japonesa</h3>
+          <div class="featured-blog-home__thumbnail"><img class="img-responsive featured-blog-home__img" src="images/blog1.jpg"></div>
+          <div class="featured-blog-home__desc">
+            <p class="featured-blog-home__excerpt">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
+            <p class="featured-blog-home__link"><a class="featured-blog-home--link" href="#">Ver más</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="co-xs-12 col-sm-6">
+        <div class="featured-blog-home__content">
+          <p class="featured-blog-home__blog-name">Noticias</p>
+          <h3 class="featured-blog-home__title">El arte del teppanyaki</h3>
+          <div class="featured-blog-home__thumbnail"><img class="img-responsive featured-blog-home__img" src="images/blog2.jpg"></div>
+          <div class="featured-blog-home__desc">
+            <p class="featured-blog-home__excerpt">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
+            <p class="featured-blog-home__link"><a class="featured-blog-home--link" href="#">Ver más</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="co-xs-12 col-sm-6">
+        <div class="featured-blog-home__content">
+          <p class="featured-blog-home__blog-name">Noticias</p>
+          <h3 class="featured-blog-home__title">Calidad vs Costo</h3>
+          <div class="featured-blog-home__thumbnail"><img class="img-responsive featured-blog-home__img" src="images/blog3.jpg"></div>
+          <div class="featured-blog-home__desc">
+            <p class="featured-blog-home__excerpt">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
+            <p class="featured-blog-home__link"><a class="featured-blog-home--link" href="#">Ver más</a></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="co-xs-12 col-sm-6">
+        <div class="featured-blog-home__content">
+          <p class="featured-blog-home__blog-name">Noticias</p>
+          <h3 class="featured-blog-home__title">Experiencia inolvidable</h3>
+          <div class="featured-blog-home__thumbnail"><img class="img-responsive featured-blog-home__img" src="images/blog4.jpg"></div>
+          <div class="featured-blog-home__desc">
+            <p class="featured-blog-home__excerpt">Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto.</p>
+            <p class="featured-blog-home__link"><a class="featured-blog-home--link" href="#">Ver más</a></p>
+          </div>
+        </div>
+      </div>
+
+
+    </div> <!-- .row -->
+  </div>
+</div>
+<!-- <div class="featured-banner-second-home" style="background-image: url({{ settings.featured_banner_first_home_image }});"> -->
+<!-- <div class="featured-banner-second-home" style="background-image: url({{ settings.featured_banner_second_home_image }});"> -->
+
+<div class="featured-banner-second-home" style="background-image: url('images/bannersecond.jpg');">
+  <div class="container">
+    <div class="row">
+      <div class="featured-banner-second-home__content">
+        <h2 class="featured-banner-second-home__title">SUCURSALES</h2>
+        <h4 class="featured-banner-second-home__subtitle">Muy cerca de ti</h4>
+        <p class="featured-banner-second-home__intro">Todo el sabor de Subarashii</p>
+        <p><a class="btn btn-lg featured-banner-second-home--btn-banner" href="{{ settings.slide_1_btn_link }}">Sucursales<!--{{ settings.slide_1_btn_text }}--></a></p>
+      </div>
+    </div>
+  </div>
+  <div class="featured-banner-second-home__overlay"></div>
+</div>
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">NAVEGACIÓN <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-1 footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Inicio</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Buscar</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Blog</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Nosotros</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Contáctanos</a></li>
+          </ul>
+        </div>
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">REDES SOCIALES <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-3 footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Fecebook Icon</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Twitter Icon</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Instragram Icon</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Postres</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Carnes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">MENÚ <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-2 footer--list footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Entradas</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Sushi</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Ensaladas</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Postres</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Carnes</a></li>
+          </ul>
+        </div>
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">MÉTODOS DE PAGO <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-4 footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Master Card</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Visa</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Paypal</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Oxxo</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Efectivo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">SUBARASHII <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <div class="footer--list">
+            <div>Av. Nuevo León 108 PB Hipodromo Condesa Cuauhtémoc
+               Teléfonos: 5211 1240</div>
+            <h5 class="footer__section-subtitle">Horario</h5>
+            <ul class="footer__list-5">
+              <li>L-J 13:00 a 23:00</li>
+              <li>V y S 13:00 a 24:00</li>
+              <li>D 13:00 a 23:00</li>
+            </ul>
+            <h5 class="footer__section-subtitle">Servicios</h5>
+            <ul class="footer__list-5">
+              <li>Restaurante</li>
+              <li>Plancha de Teppanyaki</li>
+              <li>Servicio a Domicilio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p class="footer-legal__description">© 2017 Subarashii Theme - Derechos reservados <br class="visible-xs"/><span class="hidden-xs"> &nbsp;&nbsp;|&nbsp;&nbsp; </span> Tienda generada con <span class="footer-legal--bold">Shoperti</span></p>
+  </div>
+</footer>
+
+
+<!-- {% block body %}{% endblock body %} -->
+
+
+<!-- {% block body_js %} -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Bootstrap Select -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+
+  <!-- Slick For Carousel Plugin -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+  <!-- Slick For Carousel Plugin -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.js"></script>
+
+  <!-- Waypoints Plugin -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+  <!-- Validator Js -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+  <!-- replace line with below -->
+  <!-- <script src="{{ 'app.js' | asset_url }}"></script> -->
+  <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>') </script>
+  <script src="assets/app.js"></script>
+
+  <!-- end replace -->
+  <!-- {% endblock %} -->
+</body>
+</html>

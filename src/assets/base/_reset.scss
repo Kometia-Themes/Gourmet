@@ -1,0 +1,44 @@
+// Reset Bootstrap elements
+a {
+  color: $main_link_color;
+}
+a:hover {
+  color: $main_link_hover_color;
+}
+a:focus {
+  color: $main_link_hover_color;
+}
+
+a, button {
+  transition: all .3s ease-in-out;
+}
+a:active, a:focus {
+  outline: none;
+}
+:focus {
+  outline: none !important;
+}
+::-moz-focus-inner {
+  border: 0 !important;
+}
+::selection {
+  background: $brand_main_color;
+  color: white;
+  text-shadow: none;
+}
+.nav > li > a:focus,
+.nav > li > a:hover {
+  // background: transparent;
+}
+.nav .open > a,
+.nav .open > a:focus,
+.nav .open > a:hover {
+  background: transparent;
+  border-color: transparent;
+}
+.form-group {
+  margin-bottom: 20px;
+}
+.form-control {
+  border-radius: 0;
+}

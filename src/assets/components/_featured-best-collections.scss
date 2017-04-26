@@ -1,0 +1,143 @@
+.featured-best-collections {
+    margin-bottom: 30px;
+    margin-top: 0;
+    &__card {
+        background-color: $product_bg_card;
+        margin-bottom: 15px;
+        margin-top: 0;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        @media only screen and (min-width : 992px) {
+
+        }
+    }
+    &__header {
+      text-align: center;
+    }
+    &__card:hover {
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0);
+    }
+    &__content {
+        display: table;
+        width: 100%;
+        min-height: 200px;
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (min-width : 480px) {
+          min-height: 160px;
+        }
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (min-width : 640px) {
+          min-height: 170px;
+        }
+
+        /* Small Devices, Tablets */
+        @media only screen and (min-width : 768px) {
+          min-height: 180px;
+        }
+
+        /* Medium Devices, Desktops */
+        @media only screen and (min-width : 992px) {
+          min-height: 190px;
+        }
+
+        /* Large Devices, Wide Screens */
+        @media only screen and (min-width : 1200px) {
+          min-height: 200px;
+        }
+
+        /* Super Large Devices, Wide Screens */
+        @media only screen and (min-width : 1680px) {
+          min-height: 220px;
+        }
+        /* Mega Large Devices, Wide Screens */
+        @media only screen and (min-width : 1920px) {
+          min-height: 240px;
+        }
+    }
+    &__inner {
+        text-align: center;
+        display: table-cell;
+        vertical-align: middle;
+        background-color: rgba(0,0,0,.3);
+        -webkit-transition: background-color .5s ease-out;
+        -moz-transition: background-color .5s ease-out;
+        -o-transition: background-color .5s ease-out;
+        transition: background-color .5s ease-out;
+    }
+    &__inner:hover {
+        background-color: rgba(255,255,255,0);
+        -webkit-transition: background-color .5s ease-out;
+        -moz-transition: background-color .5s ease-out;
+        -o-transition: background-color .5s ease-out;
+        transition: background-color .5s ease-out;
+    }
+    &__title {
+        color: white;
+        letter-spacing: .1em;
+        font-size: 2em;
+        margin-bottom: .6em;
+        font-weight: bold;
+        text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (min-width : 480px) {
+          font-size: 1.2em;
+        }
+        /* Extra Small Devices, Phones */ 
+        @media only screen and (min-width : 640px) {
+          font-size: 1.3em;
+        }
+
+        /* Small Devices, Tablets */
+        @media only screen and (min-width : 768px) {
+          font-size: 1.4em;
+        }
+
+        /* Medium Devices, Desktops */
+        @media only screen and (min-width : 992px) {
+          font-size: 1.5em;
+        }
+
+        /* Large Devices, Wide Screens */
+        @media only screen and (min-width : 1200px) {
+          font-size: 1.6em;
+        }
+
+        /* Super Large Devices, Wide Screens */
+        @media only screen and (min-width : 1680px) {
+          font-size: 1.8em;
+        }
+        /* Mega Large Devices, Wide Screens */
+        @media only screen and (min-width : 1920px) {
+          font-size: 2em;
+        }
+    }
+    &__text {
+      display: inline-block;
+      min-height: 30px;
+    }
+    &__link {
+      text-decoration: none;
+      color: #ffffff;
+      font-size: 1.3em;
+      letter-spacing: 2px;
+      padding: .3em 1em;
+      background-color: transparent;
+    }
+    &__link:hover {
+      text-decoration: none;
+      -webkit-transition: all .5s ease-out;
+      -moz-transition: all .5s ease-out;
+      -o-transition: all .5s ease-out;
+      transition: all .5s ease-out;
+      color: #ffffff;
+      background-color: #FF1E00;
+    }
+    &--bg_img {
+      -webkit-filter: grayscale(.3);
+      filter: grayscale(.3);
+    }
+
+}
+

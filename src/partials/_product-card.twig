@@ -1,0 +1,38 @@
+{% if product.image_url is not null %}
+  {% set image_url = product.image_url %}
+  {% set style = '' %}
+{% else %}
+  {% set image_url = 'placeholders/product-11.jpg' | global_img_url %}
+  {% set style = 'img-placeholder' %}
+{% endif %}
+
+<div class="product-card__card">
+  <div class="product-card__content">
+    <div class="product-card__thumbnail">
+      {% if product.compared_price > product.price %}
+      <div class="product-card__ribbon product-card--ofert"><span>{{ settings.product_ribbon_text }}</span></div>
+      {% endif %}
+      <div class="product-card__link">
+        <a class="btn btn-primary product-card__btn" href="/productos/{{ product.permalink }}">Ver más</a>
+      </div>
+      <a href="/productos/{{ product.permalink }}">
+      {% if product.images | length > 1 %}
+        {% for thumbnail in product.images [:2] %}
+        <img class="img-responsive product-card--preview-{{ loop.index }} {{ style }}" src="{{ thumbnail.url }}&w=400&h=400&fit=crop" width="400" alt="{{ product.name }}">
+        {% endfor %}
+      {% else %}
+        <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w=400&h=400&fit=crop" width="400" alt="{{ product.name }}">
+      {% endif %}
+      </a>
+    </div>
+    <div class="product-card__desc">
+      <h3 class="product-card__title"><a href="/productos/{{ product.permalink }}">{{ product.name }}</a></h3>
+      <p class="product-card__excerpt">{{ product.excerpt | truncate_words(40) }}</p>
+      <p class="product-card__price">{{ product.price | money('symbol', 'code') }}
+        {% if product.compared_price > product.price %}
+        <span class="product-card--discount">{{ product.compared_price | money('symbol', 'code') }}</span>
+        {% endif %}
+      </p>
+    </div>
+  </div>
+</div>

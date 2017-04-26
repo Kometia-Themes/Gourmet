@@ -1,0 +1,39 @@
+{% if settings.slide_1 or settings.slide_2 or settings.slide_3 or settings.slide_4 %}
+<div class="featured-slider-home">
+  <div class="featured-slider-home__main-slider main-slider">
+  {% for i in 1..4 %}
+      {% set slide = 'slide_'~i %}
+      {% if settings[slide] %}
+        {% if settings['slide_'~i~'_image_bg'] is not empty and settings['slide_'~i~'_image_bg'] %}
+          {% set slide_bg = settings['slide_'~i~'_image_bg'] %}
+          <div class="featured-slider-home__{{ slide }} featured-slider-home--slide" style="background-image: url('{{ settings['slide_'~i~'_image_bg'] }}');">
+        {% else %}
+          <div class="featured-slider-home__{{ slide }} featured-slider-home--slide">
+        {% endif %}
+          <div class="container-fluid">
+            <div class="row">
+              <div class="featured-slider-home__content">
+                <div class="featured-slider-home__inner-content">
+                  <button type="button" data-role="none" class="prev" aria-label="Previous" role="button" style="display: block;"><i class="mdi mdi-chevron-left"></i></button>
+                  <button type="button" data-role="none" class="next" aria-label="Next" role="button" style="display: block;"><i class="mdi mdi-chevron-right"></i></button>
+                  <h3 class="featured-slider-home__subtitle {% if settings.slide_text_shadow %}text-shadow{% endif %}">
+                  {{ settings['slide_'~i~'_subtitle'] }}</h3>
+                  <h1 class="featured-slider-home__title {% if settings.slide_text_shadow %}text-shadow{% endif %}">
+                  {{ settings['slide_'~i~'_title'] }}</h1>
+                  {% if settings['slide_'~i~'_btn'] and settings['slide_'~i~'_btn_text'] %}
+                  <p><a class="btn btn-lg featured-slider-home--btn-slide" href="{{ settings['slide_'~i~'_btn_link'] }}">{{ settings['slide_'~i~'_btn_text'] }}</a></p>
+                  {% endif %}
+                </div>
+              </div>
+            </div>  <!-- .row -->
+           </div>  <!-- .container-fluid -->
+           {% if settings.slide_overlay %}
+            <div class="overlay"></div>
+            {% endif %}
+          </div>  <!-- .slide -->
+    {% endif %}
+  {% endfor %}
+  </div> <!-- .slider -->
+</div> <!-- .container-fluid .featured-slider-home -->
+
+{% endif %}

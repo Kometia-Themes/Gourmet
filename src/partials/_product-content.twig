@@ -1,0 +1,173 @@
+<div class="container page product-page">
+  <div class="row">
+    <div class="col-md-9 col-md-push-3">
+      <div class="row">
+        <div class="carousel">
+          <div class="col-xs-12 col-sm-6 col-md-8">
+            <div class="slider">
+            {% if product.images | length == 0 %}
+              <div class="main-product slider__slide slide_1">
+                <img class="img-responsive slider__image" src="images/shushies.jpg" id="zoom">
+                <img class="img-responsive slider__imag-placeholder" src="{{ 'placeholders/product-15.jpg' | global_img_url }}" alt="{{ product.name }}" id="zoom">
+              </div>
+            {% elseif product.images | length == 1 %}
+              <div class="carousel__container">
+                <img class="img-responsive carousel__image" src="{{ product.image_url }}&w=900&fit=crop" width="900" alt="{{ product.name }}" id="zoom">
+              </div>
+            {% else %}
+              {% for image in product.images %}
+                <div class="carousel__container">
+                  <img class="img-responsive carousel__image" src="{{ image.url }}&w=900&fit=crop" width="600" alt="{{ product.name }}" id="zoom">
+                </div>
+              {% endfor %}
+            {% endif %}
+            </div>
+            <div class="row">
+              {% if product.images | length > 1 %}
+              <div class="col-xs-12">
+                <div class="slider-product slider-nav">
+                  {% for thumbnail in product.images %}
+                    <div class="slider-nav__item">
+                      <img class="slider-nav__image" src="{{ thumbnail.url }}" alt="{{ product.name }}">
+                    </div>
+                  {% endfor %}
+                </div>
+              </div>
+              {% endif %}
+            </div>
+          </div> <!-- col-xs-12 col-sm-6 col-md-8 -->
+        </div> <!-- .caorusel -->
+        <div class="product">
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="header">
+              <p class="header__status">
+              {% if not product.is_in_stock %}
+                <span class="label label-danger">{{ settings.product_status_not_available_text }}</span>
+              {% else %}
+              <span class="label label-success">{{ settings.product_status_available_text}}</span>
+              {% endif %}
+              </p>
+              <div class="vendor">
+              {% if product.vendor_name is not null and settings.display_vendor %}
+              <p class="vendor__sku">Marca: <strong>Provolone</strong>{{ settings.vendor_name }}: <strong>{{ product.vendor_name | title }}</strong></p>
+              {% endif %}
+              </div><!-- vendor -->
+              <h1 class="header__title">{{ product.name }}</h1>
+              {% if settings.show_sku_code and product.sku.code is not empty %}
+              <p id="js-sku-id" class="header__sku">SKU: <span class="label-sku">HKJ786</span>{{ settings.sku_title }}: <span>{{ product.sku.code }}</span></p>
+              {% endif %}
+            </div>
+
+            <div class="price-preview" id="js-price-preview">
+              {% if product.compared_price %}
+              <p class="price-preview__compared-price"><span class="inner">$ 2,909.00{{ product.compared_price is defined ? product.compared_price | money('symbol', 'code') : '' }}</span></p>
+              {% endif %}
+              <p class="price-preview__price">$ 1,909.00{{ product.price | money('symbol', 'code') }}</p>
+            </div>
+
+            <div class="quantity">
+              <div class="input-group">
+                <span class="input-group-btn left">
+                  <button type="button" class="btn btn-default btn-number" disabled="disabled" data-type="minus" data-field="quantity">
+                  <span class="mdi mdi-minus"></span>
+                  </button>
+                </span>
+                <input id="quantity" type="text" name="quantity" class="form-control input-number" value="1" min="1" max="10">
+                <span class="input-group-btn right">
+                  <button type="button" class="btn btn-default btn-number" data-type="plus" data-field="quantity">
+                  <span class="mdi mdi-plus"></span>
+                  </button>
+                </span>
+                </div>
+            </div>
+
+            {% if settings.enable_share_products %}
+              <div class="share-product">
+                {% include '_social-share.twig' %}
+              </div>
+            {% endif %}
+
+            <div class="selector">
+              <form class="product_selection" action="/carrito/agregar" method="post">
+              <input type="hidden" name="sku_id" value="{{ product.sku.id }}" id="js-sku-new">
+              <input type="hidden" name="quantity" value="1" id="js-quantity">
+              {% if product.skus_modifiers | length > 0 %}
+              {% for attribute, attribute_variants in product.skus_modifiers %}
+              {% if settings.product_tagcolor and attribute | lower == 'color' %}
+              <p class="product-features hide-product-{{ index }}">{{ attribute | title }}</p>
+              <div class="form-group product-page__tagcolor hide-product-{{ index }}">
+              {% set step = loop.index - 1 %}
+              {% set default_variant = product.sku.modifiers[step] %}
+
+              {% for variant in attribute_variants %}
+              <input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %}checked="checked"{% endif %}>
+              {% endfor %}
+              </div>
+              {% else %}
+              <p class="product-features hide-product-{{ index }}">{{ attribute | title }}</p>
+              <div class="form-group hide-product-{{ index }}">
+              {% set step = loop.index - 1 %}
+              {% set default_variant = product.sku.modifiers[step] %}
+              {% for variant in attribute_variants %}
+              <label for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %} checked="checked" {% endif %} > {{ variant | title }}</label>
+              {% endfor %}
+              </div>
+              {% endif %}
+
+              {% endfor %}
+              {% endif %}
+
+
+              {% if product.is_in_stock %}
+                <div class="stock">
+                  <button type="submit" class="btn btn-primary btn-block btn-lg" id="js-add-to-cart">
+                  <i class="mdi mdi-cart"></i>
+                  Añadir al carrito
+                  </button>
+                  {% else %}
+                  <button class="btn btn-primary btn-block btn-lg js-add-to-cart-disabled" disabled="disabled">
+                  <i class="mdi mdi-cart-off"></i>
+                  No disponible
+                  </button>
+                </div>
+              {% endif %}
+
+              </form>
+              <hr class="spacer light">
+            </div>
+            {% if product.description is not empty %}
+              <div class="product__description">
+                <h4>Descripción:</h4>
+                {{ product.description }}                
+              </div>
+            {% endif %}
+            </div>
+            </div>
+          </div>
+      </div> <!-- -.row -->
+
+    {% if settings.related_products and product.related_by_tags | length > 0 %}
+      <div class="related_products">
+        <div class="subdivider"></div>
+        <div class="divider"></div>
+        <div class="row">
+          <div class="col-xs-12">
+            <h3 class="related_products__title title">Productos relacionados</h3>
+          </div>
+        </div>
+        <div class="row symmetrical-container">
+          {% for product in product.related_by_tags | slice(0, 3) %}
+              <div class="col-xs-12 col-sm-6 col-md-4 symmetrical">
+                {% include '_product-card.twig' %}
+              </div>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+    </div> <!-- .col-md-9 col-md-push-3 -->
+
+    <div class="col-md-3 col-md-pull-9 sidebar__sidebar-container">
+      {% include '_sidebar.twig' %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,53 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page login-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="login-page__header block_title">
+        <h1 class="login-page__title title">Iniciar Sesión</h1>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 text-center login-page__create-account">
+      <p class="login-page__create-account-link">¿No estás registrado? <a href="/cuenta/registro">Crear cuenta</a></p>
+    </div>
+  </div>
+  <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-4 col-lg-offset-4 login-page__content">
+      {% form 'customer_login' 'role="form" class="login-page__login-form"' %}
+      <form action="https://bold-theme.shoperti.com/cuenta/login" method="POST" role="form" class="login-page__login-form">
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="form-group">
+              <div class="input-group input-group-lg login-page__login-form--input">
+                <input type="email" class="form-control input-lg" id="email" name="email" placeholder="Correo electrónico" required>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="form-group">
+              <div class="input-group input-group-lg login-page__login-form--input">
+                <input type="password" class="form-control input-lg" id="password" name="password" placeholder="Contraseña" required>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="form-group">
+              <a href="/cuenta/recuperar">¿Olvidaste tu contraseña?</a>
+            </div>
+            <div class="form-group">
+              <input class="btn btn-success btn-lg login-page__button" type="submit" name="submit" id="submit" value="&nbsp; Iniciar sesión &nbsp;">
+            </div>
+          </div>
+        </div>
+      </form>
+      {% endform %}
+      </div>
+  </div>
+</div>
+{% endblock %}

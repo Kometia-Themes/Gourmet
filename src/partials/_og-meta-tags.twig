@@ -1,0 +1,35 @@
+{% if 'product' in template %}
+  <meta property="og:type" content="product" />
+  <meta property="og:title" content="{{ product.name | striptags | escape }}" />
+  {% for image in product.images %}
+  <meta property="og:image" content="{{ image.src | replace({ 'https://': 'http://' }) }}" />
+  <meta property="og:image:secure_url" content="{{ image.src | replace({ 'http://': 'https://' }) }}" />
+  {% endfor %}
+  <meta property="og:price:amount" content="{{ product.price | money }}" />
+  <meta property="og:price:currency" content="{{ store.currency }}" />
+{% elseif 'post' in template %}
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ post.title | striptags | escape }}" />
+  {% set img_tag = '<img' %}
+  {% if img_tag in post.content  %}
+    {% set src = post.content | split('src="') %}
+    {% set src = src[1] | split('"') | first | remove('https:') | remove('http:') %}
+    {% if src %}
+      <meta property="og:image" content="http:{{ src }}" />
+      <meta property="og:image:secure_url" content="https:{{ src }}" />
+    {% endif %}
+  {% endif %}
+{% else %}
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="{{ page_title | escape }}" />
+  {% if settings.use_logo %}
+    <meta property="og:image" content="{{ settings['logo.png'] | replace({ 'https://': 'http://' }) }}" />
+    <meta property="og:image:secure_url" content="https:{{ settings['logo.png'] | replace({ 'http://': 'https://' }) }}" />
+  {% endif %}
+{% endif %}
+
+{% if page_description %}
+<meta property="og:description" content="{{ page_description | escape }}" />
+{% endif %}
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:site_name" content="{{ store.name }}" />

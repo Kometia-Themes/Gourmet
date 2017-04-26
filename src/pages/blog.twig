@@ -1,0 +1,26 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page blog-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="blog-page__header block_title">
+        <h1 class="blog-page__title title">{{ blog.title }}</h1>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 blog-page__content">
+      <div class="row symmetrical-container">
+        {% for post in posts %}
+          {% include '_post-item.twig' %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% include '_pagination.twig' %}
+</div>
+{% endblock %}
+
+

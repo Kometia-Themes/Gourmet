@@ -1,0 +1,10 @@
+{% set heading = settings.heading_font~settings.heading_font_weight %}
+{% set body = settings.body_font~settings.body_font_weight %}
+
+{% if 'Google' in settings.body_font %}
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family={{ settings.body_font | remove('Google+') }}{% if settings.body_font_weight is not empty %}:{{ settings.body_font_weight }}{% endif %}">
+{% endif %}
+
+{% if 'Google' in settings.heading_font and heading != body %}
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family={{ settings.heading_font | remove('Google+') }}{% if settings.heading_font_weight is not empty %}:{{ settings.heading_font_weight }}{% endif %}">
+{% endif %}

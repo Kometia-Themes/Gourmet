@@ -1,0 +1,70 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page search-page">
+  {% if not performed %}
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+        <form method="get" class="search-page__form">
+          <div class="form-group">
+            <label class="search-page__label" for="q">Término de búsqueda</label>
+            <input type="text" placeholder="Término de búsqueda" class="form-control search-page__input" name="q">
+            <input type="submit" class="btn btn-primary search-page__btn" value="&nbsp; Buscar &nbsp;">
+          </div>
+        </form>
+      </div>
+    </div>
+  {% else %}
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="search-page__header block_title">
+        <h1 class="search-page__title title">Resultados</h1>
+        <p class="page__description">Término de búsqueda: "{{ search }}"</p>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 search-page__results">
+    {% if results.products | length == 0 %}
+        <div class="text-center">
+          <h5>No se encontraron productos con los términos de búsqueda.</h5>
+        </div>
+    {% else %}
+        <div class="search-page__table-container table-responsive">
+          <table class="table table-striped table-hover search-page__table">
+            <thead class="search-page__table--thead">
+              <tr>
+                <th class="search-page__table--thead-th" colspan="2">Nombre</th>
+                <th>Precio</th>
+              </tr>
+            </thead>
+          <tbody class="search-page__table--tbody">
+          {% for product in results.products %}
+             {% set image_url = product.image_url is not empty ? product.image_url ~ '&w=128&h=128&fit=crop' : 'placeholders/product-11.jpg' | global_img_url %}
+          <tr class="search-page__table--row">
+            <td class="search-page__table--thumbnail">
+              <a class="search-page__table--thumbnail-link" href="/productos/{{ product.permalink }}">
+                <img src="{{ image_url }}&w=180&h=120" class="img-responsive search-page__table--thumbnail-img" alt="{{ product.name }}">
+                <img src="images/bebidas.jpg" class="img-responsive search-page__table--thumbnail-img" alt="{{ product.name }}">
+              </a>
+            </td>
+            <td class="search-page__table--description">
+              <a class="search-page__table--link" href="/productos/{{ product.permalink }}">
+                {{ product.name }}
+              </a>
+            </td>
+            <td class="search-page__table--price">
+            290.00 {{ product.price | money('symbol', 'code') }}
+            </td>
+          </tr>
+           {% endfor %}
+          </tbody>
+          </table>
+        </div>
+    {% endif %}
+    </div>
+  </div>
+  {% endif %}
+</div>
+{% endblock %}

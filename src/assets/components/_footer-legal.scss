@@ -1,0 +1,15 @@
+.footer-legal {
+  margin-bottom: -20px;
+  color: $footer_legal_text_color;
+  background-color: $footer_legal_bg_color;
+    &__description {
+      text-align: center;
+      padding-top: 4px;
+      padding-bottom:4px;
+      margin-bottom: 0;
+      color: $footer_legal_text_color;
+    }
+    &--bold {
+      font-weight: bold;
+    }
+}

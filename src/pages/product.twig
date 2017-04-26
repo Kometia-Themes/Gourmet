@@ -1,0 +1,11 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+{% include '_product-content.twig' %}
+{% endblock %}
+
+{% block body_js %}
+{{ parent() }}
+
+{% include '_product-content-js.twig' %}
+{% endblock %}

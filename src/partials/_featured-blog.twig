@@ -1,0 +1,26 @@
+{% if blogs[settings.featured_blog] is defined %}
+  {% set featured_blog = blogs[settings.featured_blog] %}
+  {% set limit = settings.featured_blog_limit is not empty ? min(0 + settings.featured_blog_limit, 50) : 8 %}
+
+  <div class="featured-blog-home">
+    <div class="container">
+      <div class="row">
+        <div class="featured-products-home__header block_title">
+          <h2 class="title">{{ settings.featured_blog_title }}</h2>
+        </div>
+      </div>
+      {% if featured_blog.posts | length > 0 %}
+          {% for post_row in featured_blog.posts | slice(0, limit) | batch(2) %}
+            <div class="row">
+            {% for post in post_row %}
+              <div class="co-xs-12 col-sm-6">
+                  {% include "_blog-card.twig" with { 'blog': featured_blog } %}
+              </div>
+            {% endfor %}
+            </div>
+          {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+{% endif %}
+

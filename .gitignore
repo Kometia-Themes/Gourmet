@@ -1,0 +1,9 @@
+.DS_Store
+*.log
+dist/*.log
+cache/
+cache/cached_uglify/assets/*.js
+dist/theme/
+dist/.src/
+node_modules/
+public/

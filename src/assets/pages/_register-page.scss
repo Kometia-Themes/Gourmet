@@ -1,0 +1,31 @@
+.register-page {
+    &__header {
+      .title { margin-bottom:20px; }
+      text-align: center;
+    }
+    &__title { }
+    &__content {
+      padding-bottom: 40px;
+      min-height: 400px;
+    }
+    &__create-account {
+      margin-top: 0;
+      margin-bottom: 1em;
+    }
+    &__create-account-link {}
+    &__form {
+      .form-group { width: 100%; }
+      &--input {
+        width: 100%;
+        margin-bottom: 0;
+        input {width: 100%;}
+      }
+
+    }
+    &__login-form {
+      .text-center {
+        .form-group {margin-top:2em;}
+      }
+    }
+
+}

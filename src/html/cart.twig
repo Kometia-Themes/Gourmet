@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- replace line with below -->
+  <!-- {% if settings.use_favicon %} -->
+  <link rel="shortcut icon" href="{{ settings['favicon.png'] }}" type="image/png" />
+  <!-- {% endif %} -->
+<!-- end replace -->
+
+  <title>{{ page_title }}{% if current_page != 1 %} | Página {{ current_page }}{% endif %}{% if store.name not in page_title %} | {{ store.name }}{% endif %}</title>
+
+  <!-- {% if page_description %} -->
+  <meta name="description" content="{{ page_description }}"/>
+  <!-- {% endif %} -->
+
+  <!-- {% include '_og-meta-tags.twig' %} -->
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <!-- {# Bootstrap #} -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- {# Select #} -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
+
+  <!-- {# Material Design Icons #} -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/1.7.22/css/materialdesignicons.min.css">
+
+  <!-- {# Google Fonts #} -->
+  <!-- replace line with below -->
+  <!-- {% include '_google-fonts.twig' %} -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,600,700,800,900" rel="stylesheet">
+  <!-- end replace -->
+  <!-- {# Slick Styles #} -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+
+  <!-- {# Theme Styles #} -->
+<!-- replace line with below -->
+  <!-- <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" media="screen"> -->
+  <link rel="stylesheet" href="assets/styles.css" media="screen">
+<!-- end replace -->
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- {{ head_content }} -->
+
+</head>
+<body class="page {% block body_class %}{% endblock body_class %}" role="document">
+<!-- Define body class -->
+<!--  {% block body_class %}page{% endblock body_class %} -->
+<!-- {% include '_notifications.twig' %} -->
+<!-- {% include '_sidebar.twig' %} -->
+<!-- {% include '_mobilenav.twig' %} -->
+    <!-- Component Name -->
+<nav class="navbar navbar-fixed-top navigation">
+  <!-- supernavbar banner-->
+  <div class="navbanner hidden-xs hidden-sms">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <p class="navbanner__title">Envío gratis en pedidos superiores a $200 | Área de entrega Bosques</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+<!--      <a class="navbar-brand navigation__logo-text" href="#">Chef Restaurant</a> -->
+<!--      <a class="navbar-brand navigation__logo-image hidden-xs hidden-sm" href="#"><img src="assets/logo-chef-contrast.png"></a> -->
+      <a class="navbar-brand navigation__logo-image" href="/"><img data-logo="assets/logo-chef-contrast.svg" class="logotype" src="assets/logo-chef-orange.png"></a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav navbar-right second-navigation hidden-xs">
+        <li><a class="navigation__link second-navigation__link second-navigation--active" href="/cart.html"><i class="mdi mdi-cart second-navigation__icon "></i><sup class="second-navigation__qty">20</sup></a></li>
+        <li><a class="navigation__link second-navigation__link" href="/customers/register.html">REGISTRARSE</a></li>
+        <li><a class="navigation__link second-navigation__link" href="/customers/login.html">INGRESAR</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right first-navigation">
+        <li><a class="navigation__link" href="/">INICIO</a></li>
+        <li><a class="navigation__link" href="/page.html">RECOMENDACIONES</a></li>
+        <li><a class="navigation__link" href="/collections.html">ENTREGAS</a></li>
+        <li><a class="navigation__link" href="/collection.html">COLLECTION</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle navigation__link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">MENÚ <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a class="navigation__link" href="/products.html">Productos</a></li>
+            <li><a class="navigation__link" href="/product.html">Producto</a></li>
+            <li><a class="navigation__link" href="/page.html">Sugerencias del chef & Sugerencias del chef</a></li>
+            <li><a class="navigation__link" href="/page.html">Rollos</a></li>
+            <li><a class="navigation__link" href="/category.html">Categorías</a></li>
+          </ul>
+        </li>
+        <li><a class="navigation__link" href="/blog.html">BLOG</a></li>
+        <li><a class="navigation__link" href="/post.html">POST</a></li>
+        <li><a class="navigation__link" href="/contact.html">CONTACTO</a></li>
+        <li><a class="navigation__link visible-xs" href="/customers/login.html">INGRESAR</a></li>
+        <li><a class="navigation__link visible-xs" href="/customers/register.html">REGISTRARSE</a></li>
+        <li><a class="navigation__link visible-xs" href="/cart.html">CARRITO <span>0</span></a></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</nav>
+
+
+
+<!-- {% block body %} -->
+
+
+
+<div class="container page cart-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="cart-page__header block_title">
+        <h1 class="cart-page__title title">Carrito de Compras</h1>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 cart-page__content">
+  <!-- {% if cart.items | length > 0 %} -->
+      <div class="row cart-page__heading-row hidden-xs">
+        <div class="col-sm-6 col-md-8">
+          <h5 class="cart-page__heading-row--title">Artículo</h5>
+        </div>
+        <div class="col-sm-3 col-md-2">
+          <h5 class="cart-page__heading-row--title text-center">Cantidad</h5>
+        </div>
+        <div class="col-sm-3 col-md-2">
+          <h5 class="cart-page__heading-row--title cart-page__heading-row--right">Precio</h5>
+        </div>
+      </div>
+
+
+    <!-- {% for item in cart.items %} -->
+
+
+
+
+      <div class="row cart-page__items-row">
+
+        <div class="col-sm-6 col-md-8 cart-item__data-container">
+          <div class="row">
+
+            <div class="cart-item_mobile-delete visible-xs">
+              <form action="/carrito/eliminar" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="id" value="{{ item.id }}">
+                <input type="hidden" name="quantity" value="0">
+                <button type="submit" class="btn-link item__delete"><i class="mdi mdi-close"></i></button>
+              </form>
+            </div>
+
+            <div class="col-xs-4 col-md-3 cart-item__image">
+              <!--  if sku has image -->
+              <!-- {% if item.sku.image_url is not empty %} -->
+              <!-- <img class="cart-item__image-thumbnail" src="{{ item.sku.image_url }}&w=100" width="100" alt="{{ item.product.name }}"> -->
+              <img class="cart-item__image-thumbnail" src="images/saladita.jpg" width="100" alt="{{ item.product.name }}">
+              <!-- {% elseif item.product.image_url is not empty %} -->
+              <!--  then if product has image -->
+              <!-- <img class="cart-item__image-thumbnail" src="{{ item.product.image_url }}&w=100" width="100" alt="{{ item.product.name }}"> -->
+              <!-- {% else %} -->
+              <!-- <img class="cart-item__image-thumbnail" src="{{ 'placeholders/product-11.jpg' | global_img_url }}" width="100" alt="{{ item.product.name }}"> -->
+              <!-- {% endif %} -->
+            </div>
+
+            <div class="col-xs-8 col-md-9 cart-item__product">
+              <h4 class="cart-item__product--title"><a href="/productos/{{ item.product.permalink }}">Product name<!-- {{ item.product.name }} --></a></h4>
+              <!-- {% for modifier in item.product.modifiers %} -->
+              <p class="cart-item__product--variant">Color: <!-- {{ modifier }} --><span class="cart-item__product--variant-desc">Negro<!-- {{ item.sku.modifiers[loop.index0] }} --></span></p>
+              <!--  {% endfor %} -->
+              <form action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form-mobile visible-xs">
+                <div class="form-group">
+                  <input type="hidden" name="_method" value="patch">
+                  <input type="hidden" name="id" value="{{ item.id }}">
+                  <select class="cart-item__quantity-picker selectpicker" name="quantity">
+                    {% for qty in 1..5 %}
+                    <option value="{{ qty }}"{{ qty == item.quantity ? ' selected="selected"' : null }}>{{ qty }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+                <button class="btn btn-link cart-item__quantity-refresh" type="submit"><span class="mdi mdi-autorenew"></span></button>
+              </form>
+              <!-- {% if cart.items | length > 1 %} -->
+              <h5 class="cart-item__product--price visible-xs">$23,609.90<!-- {{ item.total | money('symbol', 'code') }}--></h5>
+              <!-- {% endif %}-->
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-sm-3 col-md-2 cart-item__quantity-container hidden-xs">
+          <h5 class="visible-xs-block cart-item__quantity-item-title">Cantidad</h5>
+          <form action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form">
+            <div class="form-group">
+              <input type="hidden" name="_method" value="patch">
+              <input type="hidden" name="id" value="{{ item.id }}">
+              <select class="cart-item__quantity-picker selectpicker" name="quantity">
+                {% for qty in 1..5 %}
+                <option value="{{ qty }}"{{ qty == item.quantity ? ' selected="selected"' : null }}>{{ qty }}</option>
+                {% endfor %}
+              </select>
+            </div>
+            <button class="btn btn-link cart-item__quantity-refresh" type="submit"><span class="mdi mdi-autorenew"></span></button>
+          </form>
+        </div>
+        <div class="col-sm-3 col-md-2 cart-item__price-container hidden-xs">
+          <h5 class="visible-xs-block cart-item__price-item-variant">Precio</h5>
+          <h4 class="cart-item__price-item-price">$23609.90<!-- {{ item.total | money('symbol', 'code') }}--></h4>
+          <div class="cart-item__price-item-delete hidden-xs">
+            <form action="/carrito/eliminar" method="post" class="text-center">
+              <input type="hidden" name="_method" value="delete">
+              <input type="hidden" name="id" value="{{ item.id }}">
+              <input type="hidden" name="quantity" value="0">
+              <button type="submit" class="btn btn-link cart-item__price-item-btn"><i class="mdi mdi-close"></i></button>
+            </form>
+          </div>
+        </div>
+      </div> <!-- .row -->
+
+
+    <!-- {% endfor %} -->
+
+
+
+      <div class="row cart-page__heading-row resume">
+        <div class="col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">
+          <div class="cart-page__payment__info">
+            <div class="row">
+              <div class="col-xs-12">
+                <h4 class="cart-page__payment__heading">Total</h4>
+              </div>
+              <div class="col-xs-12">
+                <h4 class="cart-page__payment__total">122,459.98<!-- {{ cart.total_price | money('symbol', 'code') }}--></h4>
+                <!-- {% if store.is_tax_included %} -->
+                  <span class="cart-page__payment__taxes-included">IVA Incluído</span>
+                <!-- {% endif %} -->
+              </div>
+            </div>
+          </div>
+          <a href="/checkout" class="btn btn-primary btn-lg cart-page__btn-cart">Compra Ahora</a>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- {% else %} -->
+      <div class="cart-page__emptycart text-center">
+        <p class="lead cart-page--empty-cart">No tienes nada en tu carrito de compras, <a href="/productos">¡agrega algo ahora!</a></p>
+      </div>
+  <!-- {% endif %} -->
+    </div>
+  </div>
+</div>
+<!-- {% endblock %} -->
+<!-- {% block body_js %} -->
+<!-- {{ parent() }} -->
+
+<!-- {% endblock body_js %} -->
+
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">NAVEGACIÓN <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-1 footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Inicio</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Buscar</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Blog</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Nosotros</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Contáctanos</a></li>
+          </ul>
+        </div>
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">REDES SOCIALES <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-3 footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Fecebook Icon</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Twitter Icon</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Instragram Icon</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Postres</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Carnes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-3">
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">MENÚ <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-2 footer--list footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Entradas</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Sushi</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Ensaladas</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Postres</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Carnes</a></li>
+          </ul>
+        </div>
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">MÉTODOS DE PAGO <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <ul class="footer__list-4 footer--list">
+            <li class="footer__link"><a href="#" target="_blank">Master Card</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Visa</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Paypal</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Oxxo</a></li>
+            <li class="footer__link"><a href="#" target="_blank">Efectivo</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+        <div class="footer__menu footer__menu--close">
+          <h4 class="footer__section-title">SUBARASHII <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
+          <div class="footer--list">
+            <div>Av. Nuevo León 108 PB Hipodromo Condesa Cuauhtémoc
+               Teléfonos: 5211 1240</div>
+            <h5 class="footer__section-subtitle">Horario</h5>
+            <ul class="footer__list-5">
+              <li>L-J 13:00 a 23:00</li>
+              <li>V y S 13:00 a 24:00</li>
+              <li>D 13:00 a 23:00</li>
+            </ul>
+            <h5 class="footer__section-subtitle">Servicios</h5>
+            <ul class="footer__list-5">
+              <li>Restaurante</li>
+              <li>Plancha de Teppanyaki</li>
+              <li>Servicio a Domicilio</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-legal">
+    <p class="footer-legal__description">© 2017 Subarashii Theme - Derechos reservados <br class="visible-xs"/><span class="hidden-xs"> &nbsp;&nbsp;|&nbsp;&nbsp; </span> Tienda generada con <span class="footer-legal--bold">Shoperti</span></p>
+  </div>
+</footer>
+
+
+<!-- {% block body %}{% endblock body %} -->
+
+
+<!-- {% block body_js %} -->
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Bootstrap Select -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+
+  <!-- Slick For Carousel Plugin -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+
+  <!-- Slick For Carousel Plugin -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.js"></script>
+
+  <!-- Waypoints Plugin -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+
+  <!-- replace line with below -->
+  <!-- <script src="{{ 'app.js' | asset_url }}"></script> -->
+  <script> document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>') </script>
+  <script src="assets/app.js"></script>
+
+  <!-- end replace -->
+  <!-- {% endblock %} -->
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js ie6 oldie" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js ie7 oldie" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js ie8 oldie" lang="en"><![endif]-->
+<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1' /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% if settings.use_favicon %}
+  <link rel="shortcut icon" href="{{ settings['favicon.png'] }}" type="image/png" />
+  {% endif %}
+
+  <title>{{ page_title }}{% if current_page != 1 %} | Página {{ current_page }}{% endif %}{% if store.name not in page_title %} | {{ store.name }}{% endif %}</title>
+
+  {% if page_description %}
+  <meta name="description" content="{{ page_description }}"/>
+  {% endif %}
+
+  {% include '_og-meta-tags.twig' %}
+
+  <link rel="canonical" href="{{ canonical_url }}" />
+
+  <!-- {# Bootstrap #} -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <!-- {# Select #} -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
+
+  <!-- {# Material Design Icons #} -->
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/1.7.22/css/materialdesignicons.min.css">
+
+  <!-- {# Google Fonts #} -->
+  {% include '_google-fonts.twig' %}
+
+  <!-- {# Slick Styles #} -->
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick-theme.css"/>
+
+  <!-- {# Theme Styles #} -->
+  <link rel="stylesheet" href="{{ 'styles.css' | asset_url }}" media="screen">
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  {{ head_content }}
+
+</head>
+<body class="{% block body_class %}{% endblock body_class %}" role="document">
+  <div id="wrapper">
+    {% include '_notifications.twig' %}
+    {% include "_navigation.twig" %}
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      {% block body %}{% endblock body %}
+
+    </div> <!-- /#page-content-wrapper -->
+  </div> <!-- /#wrapper -->
+<footer class="footer">
+{% include '_footer.twig' %}
+</footer>
+
+{% block body_js %}
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+  <!-- Bootstrap -->
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <!-- Bootstrap Select -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.1/js/bootstrap-select.min.js"></script>
+  <!-- Slick For Carousel Plugin -->
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <!--  Plugin -->
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.js"></script>
+    <!-- Validator Js -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
+
+  <script src="{{ 'app.js' | asset_url }}"></script>
+  {% endblock %}
+</body>
+</html>

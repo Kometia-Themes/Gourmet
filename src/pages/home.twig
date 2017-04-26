@@ -1,0 +1,37 @@
+{% extends 'layout.twig' %}
+{% block body_class %}home has-featured{% endblock body_class %}
+{% block body %}
+
+  {% if settings.frontpage_section_1 is not empty and settings.frontpage_section_1 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_1 ~ '.twig' %}
+  {% endif %}
+
+  {% if settings.frontpage_section_2 is not empty and settings.frontpage_section_2 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_2 ~ '.twig' %}
+  {% endif %}
+
+  {% if settings.frontpage_section_3 is not empty and settings.frontpage_section_3 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_3 ~ '.twig' %}
+  {% endif %}
+
+  {% if settings.frontpage_section_4 is not empty and settings.frontpage_section_4 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_4 ~ '.twig' %}
+  {% endif %}
+
+  {% if settings.frontpage_section_5 is not empty and settings.frontpage_section_5 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_5 ~ '.twig' %}
+  {% endif %}
+
+  {% if settings.frontpage_section_6 is not empty and settings.frontpage_section_6 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_6 ~ '.twig' %}
+  {% endif %}
+
+  {% if settings.frontpage_section_7 is not empty and settings.frontpage_section_7 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_7 ~ '.twig' %}
+  {% endif %}
+
+  {% if settings.frontpage_section_8 is not empty and settings.frontpage_section_8 != 'none' %}
+    {% include '_' ~ settings.frontpage_section_8 ~ '.twig' %}
+  {% endif %}
+
+{% endblock body %}

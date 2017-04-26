@@ -1,0 +1,7 @@
+{% if settings.featured_static_banner_image_url %}
+<div class="featured-static-banner-home">
+  <a class="featured-static-banner-home__link" href="{{ settings.featured_static_banner_link }}" target="_blank">
+    <img class="img-responsive featured-static-banner-home__img" src="{{ settings.featured_static_banner_image_url }}">
+  </a>
+</div>
+{% endif %}

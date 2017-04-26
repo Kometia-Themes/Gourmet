@@ -1,0 +1,78 @@
+{% extends 'layout.twig' %}
+
+{% block body %}
+<div class="container page account-page">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="account-page__header block_title">
+        <h1 class="account-page__title title">Mi Cuenta</h1>
+        <hr class="page__line">
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12 account-page__content">
+    <div class="col-xs-12 col-sm-4 col-md-3 col-lg-2">
+      <h3>{{ customer.name }}</h3>
+      <p class="email">{{ customer.email }}</p>
+      <p><a class="btn btn-primary" href="/cuenta/logout">Cerrar sesión</a></p>
+      {% if customer.address %}
+      <p>
+        {{ customer.address.address1 }}<br>
+        {% if customer.address.address2 != "" %}
+          {{ customer.address.address2 }}<br>
+        {% endif %}
+        {% if customer.address.city != "" %}
+          {{ customer.address.city }}
+        {% endif %}
+        {% if customer.address.state_code != "" %}
+          {{ customer.address.state_code | upper }}<br>
+        {% endif %}
+        {% if customer.address.postcode != "" %}
+          {{ customer.address.postcode | upper }}<br>
+        {% endif %}
+        {% if customer.address.country != "" %}
+          {{ customer.address.country }}<br>
+        {% endif %}
+        {% if customer.address.phone != "" %}
+          {{ customer.address.phone }}
+        {% endif %}
+        </p>
+      {% endif %}
+    </div>
+    <div class="col-xs-12 col-sm-8 col-md-9 col-lg-10">
+      <h3>Historial de órdenes</h3>
+      {% if customer.orders.count > 0 %}
+      <div class="table-responsive">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="order_number">No.</th>
+              <th class="date">Fecha</th>
+              <th class="payment_status">Estado de Pago</th>
+              <th class="fulfillment_status">Estado de Envio</th>
+              <th class="total">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for order in customer.orders %}
+            <tr class="pointer js-clickable {% if order.cancelled %}cancelled_order{% else %}placed_order{% endif %}" data-href="/cuenta/orden/{{ order.id }}">
+              <td><a href="/cuenta/orden/{{ order.id }}">{{ order.number }}</a></td>
+              <td>{{ order.created_at | datetime }}</td>
+              <td>{{ order.financial_status_label }}</td>
+              <td>{{ order.fulfillment_status_label }}</td>
+              <td>{{ order.total_price | money }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+      {% else %}
+        No has realizado pedidos aún.
+      {% endif %}
+    </div>
+    {% include '_pagination.twig' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

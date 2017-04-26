@@ -1,0 +1,17 @@
+{% if settings.featured_banner_home_two_image_url %}
+<div class="featured-banner-home" style="background-image: url({{ settings.featured_banner_home_two_image_url }});">
+  <div class="container">
+    <div class="row">
+      <div class="featured-banner-home__content">
+        <h2 class="featured-banner-home__title">{{ settings.featured_banner_home_two_title }}</h2>
+        <h4 class="featured-banner-home__subtitle">{{ settings.featured_banner_home_two_subtitle }}</h4>
+        <p class="featured-banner-home__intro">{{ settings.featured_banner_home_two_intro }}</p>
+        <p><a class="btn btn-lg featured-banner-home--btn-banner" href="{{ settings.featured_banner_home_two_link }}">{{ settings.featured_banner_home_two_btn_text }}</a></p>
+      </div>
+    </div>
+  </div>
+  {% if settings.featured_banner_home_two_overlay %}
+  <div class="featured-banner-home__overlay"></div>
+  {% endif %}
+</div>
+{% endif %}
