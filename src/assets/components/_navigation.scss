@@ -135,9 +135,7 @@
       max-height: 50px;
       float: left;
       @media(min-width:768px) {
-        // min-width: 180px;
         width: auto;
-        // height: 80px;
         max-height: 80px;
         max-width: 220px;
       }
@@ -160,7 +158,6 @@
 
     @media(min-width:768px) {
     .navbar-brand.navigation__logo-text {
-      // padding: 13px 0;
       height: 86px;
       font-size: 1.4em;
       padding-top: 32px;

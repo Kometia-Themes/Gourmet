@@ -52,22 +52,13 @@
     &__results {
 
     }
-    &__table-container {}
-    &__table {}
     &__table--thead {
-      tr {}
       th {
         text-align: right;
       }
       .search-page__table--thead-th {
         text-align: left;
       }
-    }
-    &__table--tbody {
-
-    }
-    &__table--row {
-
     }
     &__table--thumbnail {
       width: 12%;

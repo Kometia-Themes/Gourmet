@@ -1,54 +1,54 @@
 .first-navigation {
-	ul {
-		list-style: none;
-		padding-left:0;
-	}
-	li a:hover {
-		text-decoration:none;
-	}
-	clear: right;
-	.navigation__link {
-		position: relative;
-		padding: 1.2em 1em;
-		display: block;
-		width: 100%;
-		@media (max-width: 767px) {
-			color: $nav_link_text_color;
-			padding: 1.2em 1em;
-		}
-		@media(min-width: 768px) {
-			background-color: $nav_menu_bg;
-		}
-	}
-	.navigation__link:hover {
-		color: $nav_link_text_hover_color;
-	}
+  ul {
+    list-style: none;
+    padding-left:0;
+  }
+  li a:hover {
+    text-decoration:none;
+  }
+  clear: right;
+  .navigation__link {
+    position: relative;
+    padding: 1.2em 1em;
+    display: block;
+    width: 100%;
+    @media (max-width: 767px) {
+      color: $nav_link_text_color;
+      padding: 1.2em 1em;
+    }
+  }
+  .navigation__link:hover {
+    color: $nav_link_text_hover_color;
+  }
   .submenu-toggle {
-  	width: 20px;
+  	width: auto;
     position: absolute;
     top: 0;
     right: 0;
     padding-right:0;
     padding-left:0;
     text-align: center;
+    padding: 1.2em 8px;
   }
 
   .has-children {
-  	position: relative;
-  	font-size: 1em;
+    position: relative;
+    font-size: 1em;
     .sub__link {
       color: $nav_link_text_color;
     }
     .sub__link:hover {
       color: $nav_link_text_hover_color;
-	  }
-	  .subnav {
-    	min-width: 200px;
+    }
+    .subnav {
+      min-width: 200px;
       display: none;
-    	@media(min-width: 768px) {
-      	position: absolute;
+      background-color: $nav_menu_bg;
+      @media(min-width: 768px) {
+        position: absolute;
         margin-top: 0 !important;
       	width: 100%;
+        min-width: 250px;
 	      -webkit-box-shadow: 0px 4px 14px 0 rgba(100,100,100,0.15);
 	      -moz-box-shadow: 0px 4px 14px 0 rgba(100,100,100,0.15);
 	      box-shadow: 0px 4px 14px 0 rgba(100,100,100,0.15);
@@ -60,7 +60,7 @@
 				left: 0;
 				width: 0;
 				height: 100%;
-				background-color: #e6e6e6;
+				background-color: $nav_menu_scrolled_bg;
 				transform-origin:left;
 				transition:width 0.35s ease;
 				z-index:-1;
@@ -69,8 +69,31 @@
 				width: 100%;
 			}
 	  }
-
-
+    > .subnav.active {
+      display: block;
+      position: absolute;
+      z-index: 0;
+      @media(max-width: 767px) {
+        position: relative;
+      }
+    }
+    > .subnav.active {
+      display: block;
+      position: absolute;
+      @media(max-width: 767px) {
+        position: relative;
+      }
+    }
+    .subnav.active .has-children .subnav.active {
+      position: absolute;
+      left: 100%;
+      top: 0;
+    }
+    .subnav.last.active .has-children .subnav.active {
+      position: absolute;
+      left: -100%;
+      top: 0;
+    }
   } // Has children
 
   // First parent link
@@ -83,37 +106,40 @@
     	> .subnav {
     		border-top: 4px solid $nav_link_text_hover_color;
     	}
+      .subnav.active .has-children .subnav.active {
+        display: block;
+        position: absolute;
+      }
     }
   }
-
 }
 
-	// Navbar toggle
-	.navbar-toggle {
-	  background-color: transparent;
-	  color: $nav_link_text_color;
-	  border-radius: 0;
-	  padding: 10px;
-	  margin-bottom: 4px;
-	  margin-top: 4px;
-	  .icon-bar {
-	    height: 5px;
-	    background-color: $nav_link_text_color;
-	  }
-	}
-	.navbar-toggle:hover {
-	  background-color: transparent;
-	  .icon-bar {
-	    background-color: $nav_link_text_hover_color;
-	  }
-	}
-	.navbar-collapse {
-	  max-height: 1000px;
-	  -webkit-transition:200ms ease;
-	  -moz-transition:200ms ease;
-	  -o-transition:200ms ease;
-	  transition:200ms ease;
-	  @media(max-width:767px) {
-	    background-color: $nav_mobile_menu_bg;
-	  }
-	}
+  // Navbar toggle
+  .navbar-toggle {
+    background-color: transparent;
+    color: $nav_link_text_color;
+    border-radius: 0;
+    padding: 10px;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    .icon-bar {
+      height: 5px;
+      background-color: $nav_link_text_color;
+    }
+  }
+  .navbar-toggle:hover {
+    background-color: transparent;
+    .icon-bar {
+      background-color: $nav_link_text_hover_color;
+    }
+  }
+  .navbar-collapse {
+    max-height: 1000px;
+    -webkit-transition:200ms ease;
+    -moz-transition:200ms ease;
+    -o-transition:200ms ease;
+    transition:200ms ease;
+    @media(max-width:767px) {
+      background-color: $nav_mobile_menu_bg;
+    }
+  }

@@ -158,7 +158,6 @@ $(document).ready(function() {
   alignHeights();
 
   $(window).resize(function() {
-    // swap_logo();
     bodyPadding();
     alignHeights();
     setSidebarWidth();
@@ -186,6 +185,25 @@ $(document).ready(function() {
       $(this).next(".sidebar__sidebar-submenu").slideUp();
       $(this).next(".sidebar__sidebar-submenu").removeClass('active');
     }
+  });
+
+  $('.nav > .has-children > .submenu-toggle').on('click', function (e) {
+    var nextElement = $(this).next( ".subnav" );
+    nextElement.toggleClass( "active" );
+    $(this).parents().find('.subnav.active').not(nextElement).removeClass("active");
+    nextElement.mouseleave(function() {
+      $('.first-navigation').find('.subnav.active').removeClass('active');
+    });
+    e.stopPropagation();
+  });
+
+  $('.sidebar-nav__more.submenu-toggle').on('click', function (e) {
+    e.stopPropagation();
+    var nextElement = $(this).next( ".subnav" );
+    nextElement.toggleClass( "active" );
+  });
+  $('body').on('click', function() {
+    $(this).find('.subnav').removeClass('active');
   });
 
   var $adminBar = $('#admin-bar-iframe');
