@@ -62,7 +62,6 @@
             @media(min-width: 1420px) {margin-top:20px; margin-bottom: 22px;}
             a:hover {text-decoration: none;}
           }
-          &--variant { }
           &--price {
             padding-right: 4px;
             @media(max-width:767px) {
@@ -73,21 +72,18 @@
             }
 
           }
-          &--variant-desc { }
-          &--price {}}
+        }
       }
       
       .cart-item__quantity-form-mobile {
         position: relative;
         width: 100%;
         padding-right: 40px;
-          &-item-title{}
           &-form{
             position: relative;
             padding-right: 34px;
             .form-group {width: 100%;}
           }
-          .cart-item__quantity-picker {}
           .cart-item__quantity-refresh {
             position: absolute;
             padding:0;
@@ -105,7 +101,7 @@
       .cart-item__quantity-container {
         height: 40px;
         @media(min-width: 768px) {margin-top: 20px;}
-        .cart-item__quantity {&-item-title {}
+        .cart-item__quantity {
           &-form{
             position: relative;
             height: 100%;
@@ -135,7 +131,7 @@
         text-align: right;
         padding-right: 34px;
         @media(min-width: 768px) {margin-top: 20px;}
-        .cart-item__price {&-item-variant {}
+        .cart-item__price {
           &-item-price {
             font-size: 20px;
             font-weight: normal;
@@ -159,9 +155,8 @@
     }
 
   .cart-items__resume {
-    .cart-items__resume--item-variant {}
     .cart-items__resume-product-quantity {width: 100%;}
-    .cart-items__resume-item_refresh {}}
+  }
   .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {width: 100%;}
   .resume {
     text-align: center;

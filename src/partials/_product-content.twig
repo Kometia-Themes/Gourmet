@@ -53,7 +53,7 @@
 
             <div class="price-preview" id="js-price-preview">
               {% if product.compared_price %}
-              <p class="price-preview__compared-price"><span class="inner">{{ product.compared_price is defined ? product.compared_price | money('symbol', 'code') : '' }}</span></p>
+              <p class="price-preview__compared-price"><span class="inner">{{ product.compared_price is defined and product.compared_price > product.price ? product.compared_price | money('symbol', 'code') : '' }}</span></p>
               {% endif %}
               <p class="price-preview__price">{{ product.price | money('symbol', 'code') }}</p>
             </div>
