@@ -35,6 +35,9 @@
       -o-height:  calc(100vh - 50px);
       height: calc(100vh - 50px);
       min-height:calc(100vh - 50px);
+      @media(max-width: 767px) {
+      background-attachment: initial;
+      }
       @media(min-width: 768px) {
         -webkit-height: calc(100vh - 80px);
         -moz-height: calc(100vh - 80px);
