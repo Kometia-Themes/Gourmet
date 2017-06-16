@@ -175,6 +175,7 @@
       "product_status_not_available_text": "AGOTADO",
       "product_thumbnail_form": "thumbnail_landscape",
       "enable_product_image_zoom": true,
+      "related_products": true,
       "post_thumbnail_form": "thumbnail_square",
       "footer_display_newsletter": true,
       "footer_display_contact_data": true,

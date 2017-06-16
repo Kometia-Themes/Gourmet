@@ -17,7 +17,7 @@
       background-color: $product_bg_card;
       margin-top: 0;
       position: relative;
-      margin-bottom: 2em;
+      margin-bottom: 12px;
     }
     &__card:hover &--preview-1 {
       opacity: 0;
@@ -63,7 +63,7 @@
     }
     &__content {
       text-align: center;
-      min-height: 400px;
+      min-height: 100px;
     }
     &__thumbnail {
       position: relative;

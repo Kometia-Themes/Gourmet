@@ -152,8 +152,8 @@
         jQuery('#js-price-preview').html('<span class="product-price-data-price">No disponible</span>');
       }
       if (sku) {
-        {% if product.sku.permalink != 'default' %}
         var image = sku.image_url;
+        {% if product.sku.permalink != 'default' %}
         var newurl = sku.permalink;
         history.pushState(null, null, newurl);
         updateShareUrl(image);
