@@ -5,25 +5,37 @@ body {
   line-height: 1.6;
   background-color: $body_background_color;
   color: $body_font_color;
-  @media(min-width:768px) {
+  @media(min-width: 768px) {
     padding-top: 106px;
   }
 }
-
+body.home {
+  #page-content-wrapper {
+    padding-top: 0;
+  }
+}
+#wrapper {
+  position: relative;
+}
+#page-content-wrapper {
+  padding-top: 0;
+}
 .container.page {
   margin-top: 0;
   padding-bottom: 30px;
   @media(min-width: 768px) {
     margin-top: 20px;
     padding-bottom: 40px;
+    min-height: 600px;
   }
 }
 
-body:before{
-  content:"";
-  height:100%;
-  display:block;
+body:before {
+  content: "";
+  height: 100%;
+  display: block;
 }
+
 .container {
   @media (min-width: 1600px) {
     width: 1420px;
@@ -32,8 +44,9 @@ body:before{
     width: 1600px;
   }
 }
+
 .no-padding {
   @media (min-width: 992px) {
-   padding:0;
+    padding:0;
   }
 }

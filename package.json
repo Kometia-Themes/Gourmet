@@ -1,7 +1,7 @@
 {
   "name": "Gourmet",
-  "version": "1.0.0",
-  "description": "Theme Gourmet Shoperti",
+  "version": "1.1.0",
+  "description": "Theme Gourmet Kometia",
   "repository": {
     "type": "git",
     "url": "git@github.com:carlosvazquez/gourmet-theme.git"
@@ -15,11 +15,11 @@
     "serve": "webpack-dev-server --progress --colors --config ./webpack.server.config.js "
   },
   "keywords": [
-    "Shoperti",
+    "Kometia",
     "template",
     "theme"
   ],
-  "author": "Shoperti",
+  "author": "Kometia",
   "license": "ISC",
   "engineStrict": true,
   "engines": {
@@ -45,7 +45,7 @@
     "extract-zip": "^1.6.0",
     "file-loader": "^0.10.0",
     "fs": "^0.0.1-security",
-    "fsevents": "^1.1.1",
+    "fsevents": "^1.2.3",
     "graceful-fs": "^4.1.11",
     "html-webpack-plugin": "^2.28.0",
     "jquery": "^1.12.4",

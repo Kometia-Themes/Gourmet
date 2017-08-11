@@ -5,17 +5,34 @@
 {{ 'sku-select/v1/sku-select.min.js' | global_asset_url | script_tag }}
 <script type="text/javascript">
  {% if settings.enable_product_image_zoom %}
-  function loadZoom() {
+  var zoomInText = '{{ settings.product_image_zoom_in_text }}';
+  var zoomOutText = '{{ settings.product_image_zoom_out_text }}';
+  var loadZoom = function() {
     $('#zoom').wrap('<span style="display:block"></span>')
-      .css('display', 'block')
-      .parent()
-      .zoom();
-    }
+    .css('display', 'block')
+    .parent()
+    .zoom({
+      on: 'click',
+      touch: false,
+      onZoomIn: function() {
+        $('.fireZoomEvent span').text(zoomOutText);
+      },
+      onZoomOut: function() {
+        $('.fireZoomEvent span').text(zoomInText);
+      }
+    })
+  }
  {% endif %}
-
-  $(function() {
+  $(document).ajaxStart(function(){
+    $(document.body).css({'cursor':'wait'});
+    $('body a').css({'pointer-events':'none'})})
+  .ajaxStop(function(){
+    $(document.body).css({'cursor':'default'});
+    $('body a').css({'pointer-events':'auto'})}).ready(
+    function(){
     // Update Social Share Links
     var title = '{{ product.name | escape }}';
+    var enableZoom = {{ settings.enable_product_image_zoom ? 'true' : 'false' }};
     var updateShareUrl = function(image_url) {
       var image_url = image_url || '';
       var permalink = $(location).attr('href');
@@ -45,27 +62,28 @@
       centerMode: false,
       focusOnSelect: true
     });
-    {% if settings.enable_product_image_zoom %}
+    if(enableZoom) {
       loadZoom();
-    {% endif %}
+    }
+
     $('.slider-nav .slider-nav__item').on('click', function(e) {
       mainProduct = $(this).find('img').attr('src');
-      $('.main-product').find('img').attr('src', mainProduct);
-      {% if settings.enable_product_image_zoom %}
+      mainProduct = mainProduct.split("&");
+      $('.slider .main-product').empty();
+      $('.slider .main-product').append('<img class="img-responsive slider__imag-placeholder" src="'+ mainProduct[0] +'&w=1200&h=1200&fit=bounds" id="zoom">');
+      if(enableZoom) {
         var zoom = $('#zoom');
         zoom.trigger('zoom.destroy');
-        zoom.attr("src", mainProduct);
+        zoom.attr("src", mainProduct[0]+'&w=1200&h=1200&fit=bounds');
         loadZoom();
-      {% endif %}
+      }
     });
-    var removeMainImgContainerHeight = function() {
-      $('.main-product').removeAttr("style");
-    }
 
     var setMainImgContainerHeight = function() {
       var mainImgContainerHeight = $('.main-product').outerHeight();
       $('.main-product').css({ 'min-height': mainImgContainerHeight });
     }
+    // Quantity input
     var qty = $("input#quantity");
     $('.btn-number').click(function(e){
       e.preventDefault();
@@ -77,7 +95,7 @@
           if(type == 'minus') {
             if(currentVal > input.attr('min')) {
               input.val(currentVal - 1).change();
-            } 
+            }
             if(parseInt(input.val()) == input.attr('min')) {
               $(this).attr('disabled', true);
             }
@@ -117,15 +135,7 @@
           qty.attr('value', $(this).data('oldValue'));
       }
     });
-
-{% if product.is_in_stock %}
-    var formatMoney = function(price) {
-      var formatPrice = price /= 100;
-
-      formatPrice = formatPrice.toFixed(2);
-      formatPrice = formatPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-      return '$ ' + formatPrice + ' {{ store.currency }}';
-    }
+    // End quantity input
 
     var firstLoad = true;
     var enable_product_image_zoom = '{{ settings.enable_product_image_zoom }}';
@@ -135,7 +145,7 @@
       skus: {{ product.skus | json }},
       inputType: 'radio'
     }, function(sku) {
-      if (sku && !(sku.stock_policy !== 'none' && sku.in_stock < 1)) {
+      if (sku && (sku.in_stock >= 1 || sku.stock_policy === 'none' || sku.is_backorderable)) {
         jQuery('#js-sku-id').val(sku.id);
         jQuery('#js-sku-new').val(sku.id);
         if (sku.code != '') {
@@ -143,9 +153,9 @@
         }
         jQuery('#js-add-to-cart').removeClass('disabled').removeAttr('disabled', 'disabled')
         if (sku.price < sku.compared_price) {
-          jQuery('#js-price-preview').html("<del class=\"compared-price\"><span class=\"inner\">" + formatMoney(sku.compared_price) + "</span></del><br><span class=\"product-price-data-price product-price__discount\">" + formatMoney(sku.price) + "</span>");
+          jQuery('#js-price-preview').html("<del class=\"price-preview__compared-price\"><span class=\"inner\">" + formatMoney(sku.compared_price) + "</span></del><br><span class=\"product-price-data-price price-preview__price\">" + formatMoney(sku.price) + "</span>");
         } else {
-          jQuery('#js-price-preview').html("<span class=\"product-price-data-price\">" + formatMoney(sku.price) + "</span>");
+          jQuery('#js-price-preview').html("<span class=\"product-price-data-price price-preview__price\">" + formatMoney(sku.price) + "</span>");
         }
       } else {
         jQuery('#js-add-to-cart').addClass('disabled').attr('disabled', 'disabled')
@@ -154,16 +164,20 @@
       if (sku) {
         var image = sku.image_url;
         {% if product.sku.permalink != 'default' %}
-        var newurl = sku.permalink;
-        history.pushState(null, null, newurl);
-        updateShareUrl(image);
+          var parentPermalink = '{{ product.permalink }}';
+          var newurl = '/productos/';
+          newurl += parentPermalink+'/'+sku.permalink;
+          if(history.pushState) {
+            history.pushState(null, null, newurl);
+          }
+          updateShareUrl(image);
         {% endif %}
         if (!firstLoad) {
-          if ({{ settings.enable_product_image_zoom }}) {
+          if (enableZoom) {
             var zoom = $('#zoom');
             if (image && $('.zoomImg').attr('src') != image) {
-              zoom.trigger('zoom.destroy');
-              zoom.attr("src", image);
+              $('.slider .main-product').empty();
+              $('.slider .main-product').append('<img class="img-responsive slider__imag-placeholder" src="'+ image +'&w=1200&h=1200&fit=bounds" id="zoom">');
               loadZoom();
             }
           } else {
@@ -175,11 +189,9 @@
         }
         firstLoad = false;
       }
-
     });
-{% endif %}
+
   $(window).on('resize', function () {
-    removeMainImgContainerHeight();
   });
 });
 </script>

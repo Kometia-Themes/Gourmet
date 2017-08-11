@@ -1,12 +1,18 @@
 {% if settings.featured_banner_home_one_image_url %}
-<div class="featured-banner-home" style="background-image: url({{ settings.featured_banner_home_one_image_url }});">
+<div class="featured-banner-home" style="background-image: url('{{ settings.featured_banner_home_one_image_url }}');">
   <div class="container">
     <div class="row">
       <div class="featured-banner-home__content">
         <h2 class="featured-banner-home__title">{{ settings.featured_banner_home_one_title }}</h2>
+        {% if settings.featured_banner_home_one_subtitle is not empty %}
         <h4 class="featured-banner-home__subtitle">{{ settings.featured_banner_home_one_subtitle }}</h4>
+        {% endif %}
+        {% if settings.featured_banner_home_one_intro is not empty %}
         <p class="featured-banner-home__intro">{{ settings.featured_banner_home_one_intro }}</p>
-        <p><a class="btn btn-lg featured-banner-home--btn-banner" href="{{ settings.featured_banner_home_one_link }}">{{ settings.featured_banner_home_one_btn_text }}</a></p>
+        {% endif %}
+        {% if settings.featured_banner_home_one_btn_text is not empty %}
+        <a class="btn btn-lg featured-banner-home--btn-banner" href="{{ settings.featured_banner_home_one_link }}">{{ settings.featured_banner_home_one_btn_text }}</a>
+        {% endif %}
       </div>
     </div>
   </div>

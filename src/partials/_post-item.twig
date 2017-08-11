@@ -12,7 +12,6 @@
   </div>
     <div class="blog-page__item-description">
       <h2 class="blog-page__item-title"><a class="blog-page__title-link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">{{ post.title }}</a></h2>
-      <p class="blog-page__item-extract">{{ (post.summary is not empty ? post.summary : post.content) | truncate_words(20) }}</p>
-      <p class="blog-page__btn"><a class="blog-page__btn-link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">Leer más</a></p>
+      <p class="blog-page__btn"><a class="btn-link blog-page__btn-link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">Leer más</a></p>
     </div>
-</div> 
+</div>

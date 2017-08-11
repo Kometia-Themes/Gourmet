@@ -109,6 +109,10 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key={{ settings.map_api_key }}&signed_in=true&callback=initMap"
   async defer></script>
+{% else %}
+  <script type="text/javascript">
+  $('.contact-page__placeholder').hide();
+  </script>
 {% endif %}
 
 {% endblock %}

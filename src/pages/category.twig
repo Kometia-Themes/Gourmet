@@ -1,44 +1,39 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-  {% if settings.categories_sidebar_display or settings.collections_sidebar_display %}
-    {% set sidebar = true %}
-    {% else %}
-    {% set sidebar = false %}
-  {% endif %}
-<div class="container page category-page">
-  <div class="row">
-  {% if sidebar %}
-    <div class="col-md-9 col-md-push-3 category-page__content">
-    {% else %}
-    <div class="col-xs-12 category-page__content">
-  {% endif %}
-      <div class="row symmetrical-container">
-        <div class="col-xs-12">
-          <div class="category-page__header block_title">
-            <h1 class="category-page__title title">{{ category.title }}</h1>
-            <hr class="page__line">
-          </div>
+{% set  displaySidebar = settings.categories_sidebar_display == true %}
+  <div class="container page category-page">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="products-page__header block_title">
+          <h1 class="products-page__title title">{{ category.title }}</h1>
+          <hr class="page__line">
         </div>
-        {% if products | length > 0 %}
-          {% for product in products %}
-          <div class="col-xs-6 col-sm-6 col-md-4 symmetrical">
-            {% include '_product-card.twig' %}
-          </div>
-          {% endfor %}
-        {% else %}
-          <div class="col-xs-12 text-center">
-            <h2>No existen productos en esta categoría</h2>
-          </div>
-        {% endif %}
-      </div> <!-- .row symmetrical -->
-      {% include '_pagination.twig' %}
+      </div>
     </div>
-  {% if sidebar %}
-  <div class="col-md-3 col-md-pull-9 sidebar__sidebar-container">
-    {% include '_sidebar.twig' %}
+    <div class="row">
+      <div class="col-xs-12 {% if displaySidebar %} col-sm-8 col-sm-push-4 col-md-9 col-md-push-3{% endif %}">
+        <div class="row symmetrical-container">
+          {% if products | length > 0 %}
+            {% for product in products %}
+            <div class="col-xs-6 col-sm-6 col-md-4 symmetrical">
+              {% include '_product-card.twig' %}
+            </div>
+            {% endfor %}
+          {% else %}
+            <div class="col-xs-12 text-center">
+              <h2>No existen productos en esta categoría</h2>
+            </div>
+          {% endif %}
+        </div> <!-- .row symmetrical -->
+        {% include '_pagination.twig' %}
+      </div>
+
+      {% if displaySidebar %}
+      <div class="col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9 sidebar__sidebar-container">
+        {% include '_sidebar.twig' %}
+      </div>
+      {% endif %}
+    </div>
   </div>
-  {% endif %}
-  </div>
-</div>
 {% endblock %}

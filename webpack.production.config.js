@@ -17,8 +17,7 @@ module.exports = {
     filename: 'assets/[name].js',
   },
   module: {
-    rules: [
-    ]
+    rules: []
   },
 
   plugins: [
@@ -45,21 +44,31 @@ module.exports = {
       { from: './src/partials', to: 'partials' },
       { from: './src/screenshots', to: 'screenshots' },
       { from: './src/assets/app.js', to: 'assets/app.js.twig' },
-      { from: 'theme.png', to: 'theme.png' },
+      { from: 'screenshot.png', to: 'screenshot.png' },
       { from: 'README.md', to: 'README.md' },
-      { from:
-        {
-        glob:'.editorconfig', dot: true }, to: '.editorconfig', toType: 'file' },
-      { from:
-        {
-        glob:'.gitignore', dot: true }, to: '.gitignore', toType: 'file' }
-      ], { copyUnmodified: true }),
+      {
+        from: {
+          glob: '.editorconfig',
+          dot: true
+        },
+        to: '.editorconfig',
+        toType: 'file'
+      },
+      {
+        from: {
+          glob: '.gitignore',
+          dot: true
+        },
+        to: '.gitignore',
+        toType: 'file'
+      }
+    ], { copyUnmodified: true }),
 
     new ZipPlugin({
       filename: 'theme.zip',
-      pathPrefix: 'theme/1.0.0',  
-      include: [/\.twig$/, /\.md$/, /\.jpg$/, /\.jpge$/, /\.png$/, /\.ico$/, /\.json$/, '.gitignore', '.editorconfig'],
-      exclude: [/\.html$/, /\.css$/, /\.js$/, /\.php$/],
+      pathPrefix: 'theme/1.1.0',
+      include: [/\.twig$/, /\.md$/, /\.jpg$/, /\.jpge$/, /\.png$/, /\.ico$/, /\.json$/],
+      exclude: [/\.html$/, /\.css$/, /\.js$/, /\.php$/, '.gitignore', '.editorconfig'],
       fileOptions: {
         mtime: new Date(),
         mode: 0o100664,

@@ -1,12 +1,23 @@
 {% set featured_collections = [] %}
 {% for i in 1..8 %}
   {% set featured_collection = 'featured_best_collections_' ~ i %}
-  {% if settings[featured_collection] is not empty and collections[settings[featured_collection]]is defined %}
+  {% if settings[featured_collection] is not empty and collections[settings[featured_collection]] is defined and collections[settings[featured_collection]].is_visible is not null %}
     {% set featured_collections = featured_collections | merge([collections[settings[featured_collection]]]) %}
   {% endif %}
 {% endfor %}
 
-{% if featured_collections | length > 0 %}
+{% set items = featured_collections | length %}
+{% if items == 2 or items == 5 %}
+  {% set row_products = ' col-sm-6' %}
+{% elseif items == 3 or items == 6 %}
+    {% set row_products = ' col-sm-4' %}
+{% elseif items == 4 or items == 7 or items == 8 %}
+    {% set row_products = ' col-sm-6 col-md-3' %}
+{% else %}
+  {% set row_products = ' col-sm-12' %}
+{% endif %}
+
+{% if items > 0 %}
 <div class="featured-best-collections">
   <div class="container">
     <div class="row">
@@ -15,8 +26,8 @@
       </div>
     </div>
     <div class="row">
-    {% for collection in featured_collections  %}
-      <div class="col-xs-12 col-sm-6 col-md-3">
+    {% for collection in featured_collections if collection.is_visible is not null %}
+      <div class="col-xs-12{{ row_products }}">
       {% if collection.image_url is not null %}
         {% set image_url = collection.image_url %}
           <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('{{ image_url }}&w=360&h=224');">
@@ -26,7 +37,7 @@
           <div class="featured-best-collections__content">
             <div class="featured-best-collections__inner">
               <h3 class="featured-best-collections__title">{{ collection.title }}</h3>
-              <p class="featured-best-collections__text"><a class="featured-best-collections__link" href="/colecciones/{{ collection.permalink }}">VER</a></p>
+              <p class="featured-best-collections__text"><a class="btn btn-lg featured-best-collections__link" href="/colecciones/{{ collection.permalink }}">VER</a></p>
             </div>
           </div>
         </div>

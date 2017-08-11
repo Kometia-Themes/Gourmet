@@ -11,19 +11,19 @@ removeDir = function(dirPath, removeSelf) {
 
   try {
     var files = fs.readdirSync(dirPath);
-  } catch(e) {
+  } catch (e) {
     return;
   }
   if (files.length > 0) {
     for (var i = 0; i < files.length; i++) {
       var filePath = dirPath + '/' + files[i];
-      if ( fs.statSync(filePath).isFile() && files[i].split('.').pop() != 'zip') {
+      if (fs.statSync(filePath).isFile() && files[i].split('.').pop() != 'zip') {
         fs.unlinkSync(filePath);
-      } else if( files[i].split('.').pop() != 'zip' ) {
-        rimraf(filePath, function () {});
-    }
-    if (removeSelf)
-      fs.rmdirSync(dirPath);
+      } else if (files[i].split('.').pop() != 'zip') {
+        rimraf(filePath, function() {});
+      }
+      if (removeSelf)
+        fs.rmdirSync(dirPath);
     }
   }
 }

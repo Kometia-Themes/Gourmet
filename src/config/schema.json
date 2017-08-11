@@ -3,7 +3,7 @@
     "logo": "screenshot.png",
     "header": "Gourmet Theme",
     "content": [
-      "Tema 'Gourmet' de Shoperti. Por favor contáctanos por cualquier problema con este tema a [contacto](mailto:themes-support@shoperti.com)."
+      "Tema 'Gourmet' de Kometia. Por favor contáctanos por cualquier problema con este tema a [contacto](mailto:themes-support@kometia.com)."
     ]
   },
   "categories": [
@@ -53,7 +53,7 @@
               "type": "color",
               "id": "nav_menu_bg",
               "label": "Fondo",
-              "default": "rgba(255,255,255,1)"
+              "default": "#ffffff"
             },
             {
               "type": "color",
@@ -89,13 +89,6 @@
               "id": "headings_color",
               "label": "Títulos",
               "default": "#555555"
-            },
-            {
-              "type": "color",
-              "id": "headings_second_color",
-              "label": "Títulos alternativos",
-              "default": "#999999",
-              "info": "Algunos títulos largos llevan la primera palabra en este color"
             },
             {
               "type": "color",
@@ -350,7 +343,7 @@
               "type": "select",
               "id": "body_font",
               "label": "Tipografía",
-              "default": "Google+Roboto",
+              "default": "Google+Open+Sans",
               "options": [
                 {
                   "value": "Google+Arvo",
@@ -365,6 +358,11 @@
                 {
                   "value": "Google+Cabin",
                   "label": "Cabin",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Cantarell",
+                  "label": "Cantarell",
                   "group": "Google Web Fonts"
                 },
                 {
@@ -423,6 +421,21 @@
                   "group": "Google Web Fonts"
                 },
                 {
+                  "value": "Google+Molengo",
+                  "label": "Molengo",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Mukta+Malar",
+                  "label": "Mukta Malar",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Nobile",
+                  "label": "Nobile",
+                  "group": "Google Web Fonts"
+                },
+                {
                   "value": "Google+Old+Standard+TT",
                   "label": "Old Standard TT",
                   "group": "Google Web Fonts"
@@ -455,6 +468,11 @@
                 {
                   "value": "Google+Source+Sans+Pro",
                   "label": "Source Sans Pro",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Yanone+Kaffeesatz",
+                  "label": "Yanone Kaffeesatz",
                   "group": "Google Web Fonts"
                 },
                 {
@@ -605,7 +623,7 @@
               "type": "select",
               "id": "heading_font",
               "label": "Tipografía",
-              "default": "Google+Roboto+Slab",
+              "default": "Google+Roboto",
               "options": [
                 {
                   "value": "Google+Arvo",
@@ -620,6 +638,11 @@
                 {
                   "value": "Google+Cabin",
                   "label": "Cabin",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Cantarell",
+                  "label": "Cantarell",
                   "group": "Google Web Fonts"
                 },
                 {
@@ -678,6 +701,21 @@
                   "group": "Google Web Fonts"
                 },
                 {
+                  "value": "Google+Molengo",
+                  "label": "Molengo",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Mukta+Malar",
+                  "label": "Mukta Malar",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Nobile",
+                  "label": "Nobile",
+                  "group": "Google Web Fonts"
+                },
+                {
                   "value": "Google+Old+Standard+TT",
                   "label": "Old Standard TT",
                   "group": "Google Web Fonts"
@@ -685,6 +723,11 @@
                 {
                   "value": "Google+Open+Sans",
                   "label": "Open Sans",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Oxygen",
+                  "label": "Oxygen",
                   "group": "Google Web Fonts"
                 },
                 {
@@ -710,6 +753,11 @@
                 {
                   "value": "Google+Source+Sans+Pro",
                   "label": "Source Sans Pro",
+                  "group": "Google Web Fonts"
+                },
+                {
+                  "value": "Google+Yanone+Kaffeesatz",
+                  "label": "Yanone Kaffeesatz",
                   "group": "Google Web Fonts"
                 },
                 {
@@ -778,7 +826,7 @@
               "type": "select",
               "id": "heading_font_size",
               "label": "Tamaño de Títulos",
-              "default": "36px",
+              "default": "40px",
               "options": [
                 {
                   "value": "32px",
@@ -814,7 +862,7 @@
               "type": "select",
               "id": "heading_font_weight",
               "label": "Peso",
-              "default": "700",
+              "default": "300",
               "info": "Comprueba que existe el peso seleccionado en https://fonts.google.com.",
               "options": [
                 {
@@ -1649,9 +1697,9 @@
             },
             {
               "type": "text",
-              "id": "featured_products_collection_description",
-              "label": "Descripción de la colección",
-              "default": "Lorem Ipsum"
+              "id": "featured_best_products_title",
+              "label": "Título de la colección",
+              "default": "Nuestras Especialidades"
             },
             {
               "type": "text",
@@ -1659,12 +1707,6 @@
               "label": "Límite de Productos a Mostrar",
               "default": "8",
               "info": "Para mostrar todos los productos de esta colección deja vacío este campo"
-            },
-            {
-              "type": "checkbox",
-              "id": "enable_product_image_zoom",
-              "default": false,
-              "label": "Activar zoom"
             }
           ]
         }
@@ -1987,7 +2029,7 @@
               "type": "text",
               "id": "featured_blog_limit",
               "label": "Cantidad de posts a mostrar",
-              "default": "4"
+              "default": "3"
             }
           ]
         }
@@ -2008,15 +2050,27 @@
             },
             {
               "type": "text",
-              "id": "product_compared_text",
-              "label": "Texto del comparativo",
-              "default": "Precio normal:"
+              "id": "btn_product_view_text",
+              "label": "Texto del botón ver producto",
+              "default": "Ver más"
+            },
+            {
+              "type": "checkbox",
+              "id": "btn_product_buy_in_list",
+              "label": "Mostrar botón comprar ya",
+              "info": "Si está activa esta opción, el botón se mostrará en el producto dentro de productos, colección y categoría."
             },
             {
               "type": "text",
-              "id": "product_view_text",
-              "label": "Texto del botón",
-              "default": "Ver"
+              "id": "btn_product_buy_now_text",
+              "label": "Texto del botón comprar ya",
+              "default": "Comprar ya"
+            },
+            {
+              "type": "text",
+              "id": "max_cart_items",
+              "label": "Cantidad máxima de unidades a comprar",
+              "default": "5"
             },
             {
               "type": "checkbox",
@@ -2030,12 +2084,29 @@
               "label": "Mostrar productos relacionados",
               "info": "La relación se basa en las etiquetas del producto.",
               "default": true
-            },
+            }
+          ]
+        },
+        {
+          "header": "Zoom",
+          "settings": [
             {
               "type": "checkbox",
               "id": "enable_product_image_zoom",
               "label": "Habilitar zoom en imagen principal",
               "default": true
+            },
+            {
+              "type": "text",
+              "id": "product_image_zoom_in_text",
+              "label": "Texto en etiqueta para zoom",
+              "default": "Clic para zoom"
+            },
+            {
+              "type": "text",
+              "id": "product_image_zoom_out_text",
+              "label": "Texto en etiqueta para salir de zoom",
+              "default": "Clic para salir"
             }
           ]
         },
@@ -2044,7 +2115,7 @@
           "settings": [
             {
               "type": "checkbox",
-              "id": "show_vendor_name",
+              "id": "display_vendor",
               "label": "Mostrar marca del producto",
               "default": true
             },
@@ -2061,7 +2132,7 @@
           "settings": [
             {
               "type": "select",
-              "id": "thumbnail_form",
+              "id": "product_thumbnail_type",
               "label": "Tipo de miniaturas",
               "default": "thumbnail_portrait",
               "options": [
@@ -2105,6 +2176,62 @@
               "type": "checkbox",
               "id": "collections_sidebar_display",
               "label": "Mostrar colecciones"
+            }
+          ]
+        },
+        {
+          "header": "Filtro de ordenamiento",
+          "settings": [
+            {
+              "type": "checkbox",
+              "id": "orderby_name",
+              "label": "Ordenar por nombre"
+            },
+            {
+              "type": "text",
+              "id": "orderby_name_ascending_text",
+              "label": "Título del filtro nombre ascendente",
+              "default": "Alfabéticamente A-Z"
+            },
+            {
+              "type": "text",
+              "id": "orderby_name_descending_text",
+              "label": "Título del filtro nombre descendente",
+              "default": "Alfabéticamente Z-A"
+            },
+            {
+              "type": "checkbox",
+              "id": "orderby_created",
+              "label": "Ordenar por creación"
+            },
+            {
+              "type": "text",
+              "id": "orderby_created_ascending_text",
+              "label": "Título del filtro creación ascendente",
+              "default": "Fecha: Nuevos a viejos"
+            },
+            {
+              "type": "text",
+              "id": "orderby_created_descending_text",
+              "label": "Título del filtro creación descendente",
+              "default": "Fecha: Viejos a nuevos"
+            },
+            {
+              "type": "checkbox",
+              "id": "orderby_price",
+              "label": "Ordenar por creación"
+            },
+            {
+              "type": "text",
+              "id": "orderby_price_ascending_text",
+              "label": "Título del filtro precio ascendente",
+              "default": "Precio: Menor a mayor"
+            },
+            {
+              "type": "text",
+              "id": "orderby_price_descending_text",
+              "label": "Título del filtro precio descendente",
+              "default": "Precio: Mayor a menor"
             }
           ]
         }
@@ -2161,12 +2288,8 @@
             {
               "type": "text",
               "id": "cart_title",
-              "label": "Título de la sección de carrito"
-            },
-            {
-              "type": "text",
-              "id": "cart_description",
-              "label": "Descripción de la sección de carrito"
+              "label": "Título de la sección de carrito",
+              "default": "Carrito de Compras"
             },
             {
               "type": "text",
@@ -2179,6 +2302,52 @@
               "id": "cart_btn_more_text",
               "label": "Texto de boton comprar más",
               "default": "Comprar más"
+            }
+          ]
+        },
+        {
+          "header": "Es regalo",
+          "settings": [
+            {
+              "type": "checkbox",
+              "id": "enabled_gift_option",
+              "label": "Mostrar opciones para regalo.",
+              "default": false
+            },
+            {
+              "type": "text",
+              "id": "gift_title_message",
+              "label": "Título",
+              "default": "Esto es un regalo. Incluir el siguiente mensaje (150 caracteres máximo)."
+            },
+            {
+              "type": "text",
+              "id": "gift_btn_message",
+              "label": "Texto del botón",
+              "default": "Agregar mensaje"
+            }
+          ]
+        },
+        {
+          "header": "Nota del cliente",
+          "settings": [
+            {
+              "type": "checkbox",
+              "id": "enabled_customer_note_option",
+              "label": "Mostrar campo nota del cliente.",
+              "default": true
+            },
+            {
+              "type": "text",
+              "id": "customer_title_note",
+              "label": "Título",
+              "default": "Agrega alguna nota o comentario al vendedor:"
+            },
+            {
+              "type": "text",
+              "id": "customer_btn_note_text",
+              "label": "Texto del botón",
+              "default": "Agregar nota"
             }
           ]
         }
@@ -2195,56 +2364,56 @@
               "type": "text",
               "id": "facebook_link",
               "label": "Facebook",
-              "default": "https://www.facebook.com/ShopertiHQ",
-              "info": "https://www.facebook.com/shoperti"
+              "default": "https://www.facebook.com/KometiaHQ",
+              "info": "https://www.facebook.com/kometia"
             },
             {
               "type": "text",
               "id": "twitter_link",
               "label": "Twitter",
-              "info": "https://twitter.com/shoperti"
+              "info": "https://twitter.com/kometia"
             },
             {
               "type": "text",
               "id": "google_link",
               "label": "Google+",
-              "info": "https://plus.google.com/+shoperti"
+              "info": "https://plus.google.com/+kometia"
             },
             {
               "type": "text",
               "id": "pinterest_link",
               "label": "Pinterest",
-              "info": "https://www.pinterest.com/shoperti/"
+              "info": "https://www.pinterest.com/kometia/"
             },
             {
               "type": "text",
               "id": "instagram_link",
               "label": "Instagram",
-              "info": "https://instagram.com/shoperti/"
+              "info": "https://instagram.com/kometia/"
             },
             {
               "type": "text",
               "id": "youtube_link",
               "label": "Youtube",
-              "info": "https://www.youtube.com/user/shoperti"
+              "info": "https://www.youtube.com/user/kometia"
             },
             {
               "type": "text",
               "id": "vimeo_link",
               "label": "Vimeo",
-              "info": "https://vimeo.com/shoperti"
+              "info": "https://vimeo.com/kometia"
             },
             {
               "type": "text",
               "id": "tumblr_link",
               "label": "Tumblr",
-              "info": "http://shoperti.tumblr.com/"
+              "info": "http://kometia.tumblr.com/"
             },
             {
               "type": "text",
               "id": "whatsapp_link",
               "label": "Whatsapp",
-              "info": "+52 123 456 789"
+              "info": "No incluir + ni espacios. Ejemplo: 52112345678"
             }
           ]
         },

@@ -1,6 +1,7 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
+{% set  displaySidebar = settings.categories_sidebar_display == true %}
   <div class="container page products-page">
     <div class="row">
       <div class="col-xs-12">
@@ -10,23 +11,36 @@
         </div>
       </div>
     </div>
-  {% if products.count > 0 %}
-    <div class="row symmetrical-container">
-    {% for product in products %}
-      <div class="col-xs-6 col-sm-6 col-md-4 symmetrical">
-        {% include '_product-card.twig' %}
-      </div>
-    {% endfor %}
-    {% include '_pagination.twig' %}
-    </div>
-  {% else %}
     <div class="row">
-      <div class="col-xs-12 text-center">
-        <h2 class="products-title">¡Falta poco!</h2>
-        <p class="products-text">Todavía no existen Productos, una vez que empieces a crearlos aparecerán aquí.</p>
-        <p><a class="btn btn-primary" href="/admin/products">Gestionar Productos</a> <a class="btn btn-primary" href="/admin/collections">Gestionar Colecciones</a></p>
+      {% include '_filterbar.twig' %}
+      <div class="col-xs-12{% if displaySidebar %} col-sm-8 col-sm-push-4 col-md-9 col-md-push-3{% endif %}">
+      {% if products.count > 0 %}
+        <div class="row symmetrical-container">
+        {% for product in products %}
+          <div class="col-xs-6 col-md-4 symmetrical">
+            {% include '_product-card.twig' %}
+          </div>
+        {% endfor %}
+          <div class="col-xs-12">
+            {% include '_pagination.twig' %}
+          </div>
+        </div>
+      {% else %}
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <h2 class="products-title">¡Falta poco!</h2>
+            <p class="products-text">Todavía no existen Productos, una vez que empieces a crearlos aparecerán aquí.</p>
+            <p><a class="btn btn-primary" href="/admin/products">Gestionar Productos</a> <a class="btn btn-primary" href="/admin/collections">Gestionar Colecciones</a></p>
+          </div>
+        </div>
+      {% endif %}
       </div>
+      {% if displaySidebar %}
+      <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9 sidebar__sidebar-container">
+        {% include '_sidebar.twig' %}
+      </div> <!-- .col-sm-4.col-sm-pull-8.col-md-3 col-md-pull-9.sidebar__sidebar-container -->
+      {% endif %}
+
     </div>
-  {% endif %}
   </div>
 {% endblock %}

@@ -1,11 +1,12 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
+{% set maxqty = settings.max_cart_items %}
 <div class="container page cart-page">
   <div class="row">
     <div class="col-xs-12">
       <div class="cart-page__header block_title">
-        <h1 class="cart-page__title title">Carrito de Compras</h1>
+        <h1 class="cart-page__title title">{{ settings.cart_title }}</h1>
         <hr class="page__line">
       </div>
     </div>
@@ -47,17 +48,16 @@
               {% for modifier in item.product.modifiers %}
               <p class="cart-item__product--variant">{{ modifier | title }}: <span class="cart-item__product--variant-desc">{{ item.sku.modifiers[loop.index0] | title }}</span></p>
                {% endfor %}
-              <form action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form-mobile visible-xs">
+              <form name="updateQty" action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form-mobile visible-xs">
                 <div class="form-group">
                   <input type="hidden" name="_method" value="patch">
                   <input type="hidden" name="id" value="{{ item.id }}">
-                  <select class="cart-item__quantity-picker selectpicker" name="quantity">
-                    {% for qty in 1..5 %}
+                  <select class="cart-item__quantity-picker selectpicker updateQty" name="quantity">
+                    {% for qty in 1..maxqty %}
                     <option value="{{ qty }}"{{ qty == item.quantity ? ' selected="selected"' : null }}>{{ qty }}</option>
                     {% endfor %}
                   </select>
                 </div>
-                <button class="btn btn-link cart-item__quantity-refresh" type="submit"><span class="mdi mdi-autorenew"></span></button>
               </form>
               {% if cart.items | length > 1 %}
               <h5 class="cart-item__product--price visible-xs">{{ item.total | money('symbol', 'code') }}</h5>
@@ -68,17 +68,16 @@
 
         <div class="col-sm-3 col-md-2 cart-item__quantity-container hidden-xs">
           <h5 class="visible-xs-block cart-item__quantity-item-title">Cantidad</h5>
-          <form action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form">
+          <form name="updateQty" action="/carrito/actualizar" method="post" class="form-inline cart-item__quantity-form">
             <div class="form-group">
               <input type="hidden" name="_method" value="patch">
               <input type="hidden" name="id" value="{{ item.id }}">
-              <select class="cart-item__quantity-picker selectpicker" name="quantity">
-                {% for qty in 1..5 %}
+              <select class="cart-item__quantity-picker selectpicker updateQty" name="quantity">
+                {% for qty in 1..maxqty %}
                 <option value="{{ qty }}"{{ qty == item.quantity ? ' selected="selected"' : null }}>{{ qty }}</option>
                 {% endfor %}
               </select>
             </div>
-            <button class="btn btn-link cart-item__quantity-refresh" type="submit"><span class="mdi mdi-autorenew"></span></button>
           </form>
         </div>
         <div class="col-sm-3 col-md-2 cart-item__price-container hidden-xs">
@@ -96,7 +95,37 @@
       </div>
     {% endfor %}
       <div class="row cart-page__heading-row resume">
-        <div class="col-sm-4 col-sm-offset-8 col-md-3 col-md-offset-9">
+        <div class="col-xs-12 col-sm-6">
+          <form action="/carrito" method="post">
+            {% if settings.enabled_gift_option %}
+              <div class="cartgift__form">
+                <div class="checkbox">
+                  <label><input class="cartgift--checkbox" type="checkbox" name="is_gift" value="1" {{ cart.is_gift ? "checked='checked'" : '' }}>{{ settings.gift_title_message }}</label>
+                </div>
+                <div class="cartgift__form--content">
+                  <div class="form-group">
+                    <label class="sr-only" for="gift_message">{{ settings.gift_title_message }}</label>
+                    <textarea type="text" class="form-control" name="gift_message" value="{{ cart.gift_message }}" maxlength="150">{{ cart.gift_message }}</textarea>
+                  </div>
+                  <button type="submit" class="btn btn-xs btn-primary cartgift__btn">{{ settings.gift_btn_message }}</button>
+                </div>
+              </div>
+            {% endif %}
+            {% if settings.enabled_customer_note_option %}
+            <hr>
+              <p>{{ settings.customer_title_note }}</p>
+              <div class="cartnote__form">
+                <div class="form-group">
+                  <label class="sr-only" for="note">{{ settings.customer_title_note }}</label>
+                  <textarea class="form-control cartnote__note" type="textarea" name="note" value="{{ cart.customer_note }}" maxlength="500">{{ cart.customer_note }}</textarea>
+                </div>
+                <button type="submit" class="btn btn-xs btn-primary cartnote__btn">{{ settings.customer_btn_note_text }}</button>
+              </div>
+            {% endif %}
+          </form>
+        </div>
+
+        <div class="col-xs-12 col-sm-6">
           <div class="cart-page__payment__info">
             <div class="row">
               <div class="col-xs-12">
@@ -110,7 +139,8 @@
               </div>
             </div>
           </div>
-          <a href="/checkout" class="btn btn-primary btn-lg cart-page__btn-cart">Compra Ahora</a>
+          <a href="/productos" class="btn btn-primary btn-lg cart-page__btn-cart">{{ settings.cart_btn_more_text }}</a>
+          <a href="/checkout" class="btn btn-primary btn-lg cart-page__btn-cart">{{ settings.cart_btn_buy_text }}</a>
         </div>
       </div>
   {% else %}
@@ -121,4 +151,18 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block body_js %}
+{{ parent() }}
+  <script type="text/javascript">
+  $(function () {
+    $('.updateQty').change(function() {
+      this.form.submit();
+    });
+    $('form').submit(function(){
+      $(this).find(':submit').prop('disabled', true);
+    });
+  });
+  </script>
 {% endblock %}

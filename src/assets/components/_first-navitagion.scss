@@ -1,10 +1,10 @@
 .first-navigation {
   ul {
     list-style: none;
-    padding-left:0;
+    padding-left: 0;
   }
   li a:hover {
-    text-decoration:none;
+    text-decoration: none;
   }
   clear: right;
   .navigation__link {
@@ -21,14 +21,15 @@
     color: $nav_link_text_hover_color;
   }
   .submenu-toggle {
-  	width: auto;
+    width: auto;
     position: absolute;
     top: 0;
     right: 0;
-    padding-right:0;
-    padding-left:0;
+    padding-right: 0;
+    padding-left: 0;
     text-align: center;
     padding: 1.2em 8px;
+    color: $nav_link_text_color;
   }
 
   .has-children {
@@ -47,29 +48,29 @@
       @media(min-width: 768px) {
         position: absolute;
         margin-top: 0 !important;
-      	width: 100%;
+        width: 100%;
         min-width: 250px;
-	      -webkit-box-shadow: 0px 4px 14px 0 rgba(100,100,100,0.15);
-	      -moz-box-shadow: 0px 4px 14px 0 rgba(100,100,100,0.15);
-	      box-shadow: 0px 4px 14px 0 rgba(100,100,100,0.15);
-    	}
-			.navigation__link::before {
-				position: absolute;
-				content: '';
-				top:0;
-				left: 0;
-				width: 0;
-				height: 100%;
-				background-color: $nav_menu_scrolled_bg;
-				transform-origin:left;
-				transition:width 0.35s ease;
-				z-index:-1;
-			}
-			.navigation__link:hover::before {
-				width: 100%;
-			}
-	  }
-    > .subnav.active {
+        -webkit-box-shadow: 0px 4px 14px 0 rgba(100, 100, 100, 0.15);
+        -moz-box-shadow: 0px 4px 14px 0 rgba(100, 100, 100, 0.15);
+        box-shadow: 0px 4px 14px 0 rgba(100, 100, 100, 0.15);
+      }
+      .navigation__link::before {
+        position: absolute;
+        content: '';
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background-color: $nav_menu_scrolled_bg;
+        transform-origin: left;
+        transition: width 0.35s ease;
+        z-index: -1;
+      }
+      .navigation__link:hover::before {
+        width: 100%;
+      }
+    }
+    >.subnav.active {
       display: block;
       position: absolute;
       z-index: 0;
@@ -77,7 +78,7 @@
         position: relative;
       }
     }
-    > .subnav.active {
+    >.subnav.active {
       display: block;
       position: absolute;
       @media(max-width: 767px) {
@@ -88,24 +89,31 @@
       position: absolute;
       left: 100%;
       top: 0;
+      @media(max-width: 767px) {
+        position: relative;
+        left: auto;
+      }
     }
     .subnav.last.active .has-children .subnav.active {
       position: absolute;
       left: -100%;
       top: 0;
+      @media(max-width: 767px) {
+        position: relative;
+        left: auto;
+      }
     }
   } // Has children
-
   // First parent link
-  > .has-children {
+  >.has-children {
     @media(min-width: 768px) {
-    	> .sub__link {
-    		padding-right:8px;
-    	}
-    	padding-right:20px;
-    	> .subnav {
-    		border-top: 4px solid $nav_link_text_hover_color;
-    	}
+      > .sub__link {
+        padding-right:8px;
+      }
+      padding-right:20px;
+      >.subnav {
+        border-top: 4px solid $nav_link_text_hover_color;
+      }
       .subnav.active .has-children .subnav.active {
         display: block;
         position: absolute;
@@ -114,32 +122,38 @@
   }
 }
 
-  // Navbar toggle
-  .navbar-toggle {
-    background-color: transparent;
-    color: $nav_link_text_color;
-    border-radius: 0;
-    padding: 10px;
-    margin-bottom: 4px;
-    margin-top: 4px;
-    .icon-bar {
-      height: 5px;
-      background-color: $nav_link_text_color;
-    }
+.navbar-toggle {
+  background-color: transparent;
+  color: $nav_link_text_color;
+  border-radius: 0;
+  padding: 10px;
+  margin-bottom: 4px;
+  margin-top: 4px;
+  .icon-bar {
+    height: 5px;
+    background-color: $nav_link_text_color;
   }
-  .navbar-toggle:hover {
-    background-color: transparent;
-    .icon-bar {
-      background-color: $nav_link_text_hover_color;
-    }
+}
+
+.navbar-toggle:hover {
+  background-color: transparent;
+  .icon-bar {
+    background-color: $nav_link_text_hover_color;
   }
-  .navbar-collapse {
-    max-height: 1000px;
-    -webkit-transition:200ms ease;
-    -moz-transition:200ms ease;
-    -o-transition:200ms ease;
-    transition:200ms ease;
-    @media(max-width:767px) {
-      background-color: $nav_mobile_menu_bg;
-    }
+}
+
+.navbar-collapse {
+  max-height: 100vh;
+  -webkit-transition: 200ms ease;
+  -moz-transition: 200ms ease;
+  -o-transition: 200ms ease;
+  transition: 200ms ease;
+  @media(max-width: 767px) {
+    background-color: $nav_mobile_menu_bg;
   }
+}
+
+.navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
+  height: auto;
+  max-height: 100vh;
+}
