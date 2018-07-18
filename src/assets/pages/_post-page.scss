@@ -23,9 +23,7 @@
       font-size: 14px;
       text-transform: uppercase;
     }
-    .label-primary {
-
-    }
+    .label-primary {}
     .post-page__label {
       transition: all .3s ease-in-out;
       margin-left: .3em;
@@ -35,7 +33,6 @@
       color: #cccccc;
       background-color: #F2F2F2;
     }
-
   }
   &__tag-link:hover {
     text-decoration: none;
@@ -53,15 +50,11 @@
       margin: 1em auto;
     }
   }
-  &__link {
-    
-  }
+  &__link {}
   &__image {
     width: 100%;
   }
-  .page__description {
-
-  }
+  .page__description {}
   &__title-link {
     color: $headings_color;
   }
@@ -93,8 +86,7 @@
     }
   }
   .btn {
-    font-size:14px;
-    padding:.5em;
+    font-size: 14px;
+    padding: .5em;
   }
-
 }

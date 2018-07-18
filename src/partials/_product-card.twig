@@ -9,7 +9,19 @@
 {% for item in product.skus if item.is_listable == 1 %}
   {% set counter = counter + 1 %}
 {% endfor %}
-
+{% set totalImageCounter = 0 %}
+{% for thumbnail in product.images %}
+  {% if 'tagcolor' not in thumbnail.url | lower %}
+    {% set totalImageCounter = totalImageCounter + 1 %}
+  {% endif %}
+{% endfor %}
+{% if settings.product_thumbnail_type == 'thumbnail_portrait' %}
+  {% set thumb = {'width': 350, 'height': 615} %}
+{% elseif settings.product_thumbnail_type == 'thumbnail_landscape' %}
+  {% set thumb = {'width': 350, 'height': 216} %}
+{% else %}
+  {% set thumb = {'width': 350, 'height': 350} %}
+{% endif %}
 <div class="product-card__card">
   <div class="product-card__content">
     <div class="product-card__thumbnail">
@@ -17,30 +29,32 @@
       <div class="product-card__ribbon product-card--ofert"><span>{{ settings.product_ribbon_text }}</span></div>
       {% endif %}
       <div class="product-card__link">
-        <a class="btn btn-primary product-card__btn" href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">Ver más</a>
+        {% if product.sku.permalink == 'default' and settings.btn_product_buy_in_list %}
+        <a data-skuid="{{ product.sku.id }}" class="btn btn-primary product-card__btn add-ajax-product-btn">{{ settings.btn_product_buy_now_text }}</a>
+        {% endif %}
+        <a class="btn btn-primary product-card__btn" href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">{{ settings.btn_product_view_text }}</a>
       </div>
       <a href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">
-      {% if counter == 1 %}
+      {% if counter == 1 and totalImageCounter > 1 %}
           {% set alt_image_url = '' %}
           {% if product.images | length > 1 %}
-            <img class="img-responsive product-card--preview-1" src="{{ image_url }}&w=600&h=600" alt="{{ product.name }}">
+            <img class="img-responsive product-card--preview-1" src="{{ image_url }}&w={{ thumb.width }}&h={{ thumb.height }}&fit=crop" width="{{ thumb.width }}" alt="{{ product.name }}">
             {% for thumbnail in product.images %}
               {% if 'color-' not in thumbnail.url %}
                 {% set alt_image_url = thumbnail.url != image_url ? thumbnail.url %}
               {% endif %}
             {% endfor %}
-            <img class="img-responsive product-card--preview-2 {{ style }}" src="{{ alt_image_url }}&w=600&h=600" alt="{{ product.name }}">
+            <img class="img-responsive product-card--preview-2 {{ style }}" src="{{ alt_image_url }}&w={{ thumb.width }}&h={{ thumb.height }}&fit=crop" alt="{{ product.name }}">
           {% else %}
-            <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w=600&h=600" alt="{{ product.name }}">
+            <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w={{ thumb.width }}&h={{ thumb.height }}&fit=crop" alt="{{ product.name }}">
           {% endif %}
       {% else %}
-          <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w=600&h=600" alt="{{ product.name }}">
+          <img class="img-responsive product-card--preview {{ style }}" src="{{ image_url }}&w={{ thumb.width }}&h={{ thumb.height }}&fit=crop" alt="{{ product.name }}">
       {% endif %}
       </a>
     </div>
     <div class="product-card__desc">
       <h3 class="product-card__title"><a href="/productos/{{ product.permalink }}{% if product.sku.permalink != 'default' %}/{{ product.sku.permalink }}{% endif %}">{{ product.name }}</a></h3>
-      <p class="product-card__excerpt">{{ product.excerpt | truncate_words(40) }}</p>
       <p class="product-card__price">{{ product.price | money('symbol', 'code') }}
         {% if product.compared_price > product.price %}
         <span class="product-card--discount">{{ product.compared_price | money('symbol', 'code') }}</span>

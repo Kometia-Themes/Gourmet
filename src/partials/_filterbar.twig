@@ -1,0 +1,29 @@
+{% if settings.orderby_name or settings.orderby_created or settings.orderby_price %}
+  <div id="navbar-filter" class="navbar">
+      <div class="col-xs-12">
+        <div class="navbar-right">
+          <form class="navbar-form" role="search">
+            <span class="filter-bar">
+              <div class="form-group">
+                <select name="filter_type" id="filter_type" class="selectpicker js-select-orderby form-control" data-width="220px">
+                  <option value="no-order" selected disabled>Ordenar por:</option>
+                  {% if settings.orderby_name %}
+                    <option value="name-ascending">{{ settings.orderby_name_ascending_text }}</option>
+                    <option value="name-descending">{{ settings.orderby_name_descending_text }}</option>
+                  {% endif %}
+                  {% if settings.orderby_created %}
+                    <option value="created-ascending">{{ settings.orderby_created_ascending_text }}</option>
+                    <option value="created-descending">{{ settings.orderby_created_descending_text }}</option>
+                  {% endif %}
+                  {% if settings.orderby_price %}
+                    <option value="price-ascending">{{ settings.orderby_price_ascending_text }}</option>
+                    <option value="price-descending">{{ settings.orderby_price_descending_text }}</option>
+                  {% endif %}
+                </select>
+              </div>
+            </span>
+          </form>
+        </div>
+      </div>
+  </div>
+{% endif %}

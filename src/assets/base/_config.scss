@@ -1,19 +1,15 @@
 // Vars from Config file
 $brand_main_color: "{{ settings.brand_main_color }}";
-
 $body_font_size: "{{ settings.body_font_size }}";
-$body_font: "{{ settings.body_font | remove('Google+') | replace({'+': ' '}) }}, sans-serif";
+$body_font: "{{ settings.body_font | remove('Google+') | replace({'+': ' '}) }}";
+$body_font_type: "{{ settings.body_font_type }}";
 $body_font_weight: "{{ settings.body_font_weight }}";
-$body_font_size: "{{ settings.body_font_size }}";
-$body_font_weight: "{{ settings.body_font_weight }}";
-
-$heading_font: "{{ settings.heading_font | remove('Google+') | replace({'+': ' '}) }}, sans-serif";
+$heading_font: "{{ settings.heading_font | remove('Google+') | replace({'+': ' '}) }}";
+$heading_font_type: "{{ settings.heading_font_type }}";
 $heading_font_size: "{{ settings.heading_font_size }}";
 $heading_font_weight: "{{ settings.heading_font_weight }}";
-
 $body_background_color: "{{ settings.body_background_color }}";
 $headings_color: "{{ settings.headings_color }}";
-$headings_second_color: "{{ settings.headings_second_color }}";
 $body_font_color: "{{ settings.body_font_color }}";
 $main_link_color: "{{ settings.main_link_color }}";
 $main_link_hover_color: "{{ settings.main_link_hover_color }}";
@@ -40,52 +36,42 @@ $slide_title_color: "{{ settings.slide_title_color }}";
 $slide_bg_color: "{{ settings.slide_bg_color }}";
 $slide_title_color: "{{ settings.slide_title_color }}";
 $slide_subtitle_color: "{{ settings.slide_subtitle_color }}";
-
 $slide_btn_text_color: "{{ settings.slide_btn_text_color }}";
 $slide_btn_text_color_hover: "{{ settings.slide_btn_text_color_hover }}";
 $slide_btn_bg_color: "{{ settings.slide_btn_bg_color }}";
 $slide_btn_bg_color_hover: "{{ settings.slide_btn_bg_color_hover }}";
-
 $product_ribbon_bg: "{{ settings.product_ribbon_bg }}";
 $best_collection_1_bg_image: "{{ settings.best_collection_1_bg_image }}";
 $best_collection_2_bg_image: "{{ settings.best_collection_2_bg_image }}";
 $best_collection_3_bg_image: "{{ settings.best_collection_3_bg_image }}";
 $best_collection_4_bg_image: "{{ settings.best_collection_4_bg_image }}";
-
 $promo_home_1_display: "{{ settings.promo_home_1_display }}";
 $promo_home_1_title: "{{ settings.promo_home_1_title }}";
 $promo_home_1_desc: "{{ settings.promo_home_1_desc }}";
 $promo_home_1_icon: "{{ settings.promo_home_1_icon }}";
 $promo_home_1_icon_name: "{{ settings.promo_home_1_icon_name }}";
-
 $promo_home_2_display: "{{ settings.promo_home_2_display }}";
 $promo_home_2_title: "{{ settings.promo_home_2_title }}";
 $promo_home_2_desc: "{{ settings.promo_home_2_desc }}";
 $promo_home_2_icon: "{{ settings.promo_home_2_icon }}";
 $promo_home_2_icon_name: "{{ settings.promo_home_2_icon_name }}";
-
 $promo_home_3_display: "{{ settings.promo_home_3_display }}";
 $promo_home_3_title: "{{ settings.promo_home_3_title }}";
 $promo_home_3_desc: "{{ settings.promo_home_3_desc }}";
 $promo_home_3_icon: "{{ settings.promo_home_3_icon }}";
 $promo_home_3_icon_name: "{{ settings.promo_home_3_icon_name }}";
-
 $promo_home_color_title: "{{ settings.promo_home_color_title }}";
 $promo_home_color_desc: "{{ settings.promo_home_color_desc }}";
 $promo_home_color_icon: "{{ settings.promo_home_color_icon }}";
-
 $featured_parallax_banner_one_text_color: "{{ settings.featured_parallax_banner_one_text_color }}";
 $featured_parallax_banner_two_text_color: "{{ settings.featured_parallax_banner_two_text_color }}";
-
 $footer_bg_color: "{{ settings.footer_bg_color }}";
 $footer_legal_text_color: "{{ settings.footer_legal_text_color }}";
 $footer_legal_bg_color: "{{ settings.footer_legal_bg_color }}";
 $footer_border_color: "{{ settings.footer_border_color }}";
 $footer_title_color: "{{ settings.footer_title_color }}";
 $footer_text_color: "{{ settings.footer_text_color }}";
-
 $featured_static_banner_bg_color: "{{ settings.featured_static_banner_bg_color }}";
-
 $sidebar_bg_color: "{{ settings.sidebar_bg_color }}";
 $sidebar_lines_color: "{{ settings.sidebar_lines_color }}";
 $sidebar_titles_color: "{{ settings.sidebar_titles_color }}";

@@ -9,12 +9,8 @@
   &__item {
     margin-bottom: 1em;
   }
-  &__item-image {
-    
-  }
-  &__link {
-    
-  }
+  &__item-image {}
+  &__link {}
   &__image {
     width: 100%;
     @media(max-width: 767px) {
@@ -24,10 +20,9 @@
   &__content {
     min-height: 400px;
   }
-  &__item-description {
-  }
+  &__item-description {}
   &__item-title {
-    font-family: $heading_font;
+    font-family: $heading_font, $heading_font_type;
     font-weight: $heading_font_weight;
   }
   &__title-link {
@@ -40,13 +35,7 @@
   &__item-extract {
     margin-bottom: 1em;
   }
-  &__btn {
-
-  }
-  &__btn-link {
-
-  }
-  &--modifier {
-    
-  }
+  &__btn {}
+  &__btn-link {}
+  &--modifier {}
 }

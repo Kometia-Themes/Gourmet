@@ -1,0 +1,17 @@
+.pagination {
+  > li > a, > li > span {
+    padding: 12px 20px;
+    color: $brand_main_color;
+    line-height: 1.6;
+    background-color: $body_background_color;
+    border: 1px solid #ddd;
+  }
+  > .active > a, > .active > a:focus, > .active > a:hover, > .active > span, > .active > span:focus, > .active > span:hover {
+    color: $btn_text_color;
+    background-color: $btn_bg_color;
+    border-color: $btn_bg_color;
+  }
+  > li:first-child > a, > li:first-child > span, > li:last-child > a, > li:last-child > span {
+    border-radius: 0;
+  }
+}

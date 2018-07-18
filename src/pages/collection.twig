@@ -1,44 +1,52 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-<div class="container page collection-page">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="collection-page__header block_title">
-        <h1 class="collection-page__title title">{{ collection.title }}</h1>
-        {% if collection.description is not null %}
-        <div class="page__description">{{ collection.description }}</div>
-        {% endif %}
-        <hr class="page__line">
+{% set  displaySidebar = settings.collections_sidebar_display == true %}
+  <div class="container page collection-page">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="collection-page__header block_title">
+          <h1 class="collection-page__title title">{{ collection.title }}</h1>
+          <hr class="page__line">
+        </div>
       </div>
     </div>
-  </div>
-
-  <div class="row">
-    <div class="col-sm-12 collection-page__content">
-    {% if products.count == 0 %}
-      <div class="row">
-        <div class="col-xs-12">
+    <div class="row">
+      <div class="col-xs-12 {% if displaySidebar %} col-sm-8 col-sm-push-4 col-md-9 col-md-push-3{% endif %}">
+        <div class="row">
+        {% if products.count == 0 %}
           <div class="row">
-            <div class="col-xs-12 text-center">
-                  <h2 class="products-title">¡Falta poco!</h2>
-                  <p class="products-text">Todavía no existen productos en esta colección, una vez que empieces a crearlos aparecerán aquí.</p>
-                  <p><a class="btn btn-primary" href="/admin/products">Gestionar Productos</a> <a class="btn btn-primary" href="/admin/collections">Gestionar Colecciones</a></p>
+            <div class="col-xs-12">
+              <div class="row">
+                <div class="col-xs-12 text-center">
+                      <h2 class="products-title">¡Falta poco!</h2>
+                      <p class="products-text">Todavía no existen productos en esta colección, una vez que empieces a crearlos aparecerán aquí.</p>
+                      <p><a class="btn btn-primary" href="/admin/products">Gestionar Productos</a> <a class="btn btn-primary" href="/admin/collections">Gestionar Colecciones</a></p>
+                </div>
+              </div>
             </div>
           </div>
+        {% else %}
+          <div class="collection-page__content">
+            <div class="col-xs-12">
+              <div class="row symmetrical-container">
+              {% for product in products %}
+                <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 symmetrical">
+                  {% include '_product-card.twig' %}
+                </div>
+              {% endfor %}
+              </div>
+            </div>
+            {% include '_pagination.twig' %}
+          </div>
+        {% endif %}
         </div>
       </div>
-    {% else %}
-      <div class="row symmetrical-container">
-      {% for product in products %}
-        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-3 symmetrical">
-          {% include '_product-card.twig' %}
-        </div>
-      {% endfor %}
+      {% if displaySidebar %}
+      <div class="col-xs-12 col-sm-4 col-sm-pull-8 col-md-3 col-md-pull-9 sidebar__sidebar-container">
+        {% include '_sidebar.twig' %}
       </div>
-      {% include '_pagination.twig' %}
-    {% endif %}
+      {% endif %}
     </div>
-  </div> 
-</div>
+  </div>
 {% endblock %}

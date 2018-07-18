@@ -21,7 +21,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      {% if settings.use_logo %}
+      {% if settings.use_logo and settings.nav_logo is not empty %}
           <a class="navbar-brand navigation__logo-image" href="/">
             <img class="logotype" src="{{ settings['nav_logo'] }}" alt="{{ store.name }}">
         {% else %}
@@ -35,7 +35,7 @@
       {% if cart.total_items > 0 %}
         <li><a class="navigation__link second-navigation__link second-navigation--active" href="/carrito"><i class="mdi mdi-cart second-navigation__icon "></i><sup class="second-navigation__qty">{{ cart.total_items }}</sup></a></li>
       {% else %}
-        <li><span class="navigation__link second-navigation__link second-navigation--nonactive"><i class="mdi mdi-cart-outline second-navigation__icon "></i></span></li>
+        <li><a class="navigation__link second-navigation__link second-navigation--nonactive" href="/carrito"><i class="mdi mdi-cart second-navigation__icon "></i><sup class="second-navigation__qty"></sup></a></li>
       {% endif %}
         <li><a class="navigation__link second-navigation__link" href="/buscar">BUSCAR</a></li>
 

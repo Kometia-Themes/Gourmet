@@ -1,16 +1,36 @@
 <div class="sidebar__sidebar">
-{% if settings.categories_sidebar_display %}
+{% if settings.categories_sidebar_display and (category.title != '' or page_title == 'Productos' ) %}
   <h4 class="sidebar__sidebar-title">{{ settings.categories_sidebar_title }}</h4>
   <ul class="sidebar__sidebar-list active">
     {% if categories | length > 0 %}
       {% for categoryElement in categories %}
         {% include '_category_tree_item.twig' with {
           'category' : categoryElement,
-          'current'  : category
+          'current'  : category,
+          'parent': 'categorias'
         } only %}
       {% endfor %}
   {% else %}
-    <li class="sidebar__sidebar-item"><a class="sidebar__sidebar-item-link" href="#">No hay categorías</a></li>
+    <li class="sidebar__sidebar-item"><a class="sidebar__sidebar-item-link">No hay categorías</a></li>
+  {% endif %}
+  </ul>
+{% endif %}
+{% if settings.collections_sidebar_display and collection.title != ''%}
+{% set currentCollection = collection.title %}
+  <h4 class="sidebar__sidebar-title">{{ settings.collections_sidebar_title }}</h4>
+  <ul class="sidebar__sidebar-list active">
+    {% if collections | length > 0 %}
+      {% for collection in collections %}
+        {% if collection.title != currentCollection %}
+        {% include '_category_tree_item.twig' with {
+          'category' : collection,
+          'current'  : category,
+          'parent': 'colecciones'
+        } only %}
+        {% endif %}
+      {% endfor %}
+  {% else %}
+    <li class="sidebar__sidebar-item"><a class="sidebar__sidebar-item-link">No hay colecciones</a></li>
   {% endif %}
   </ul>
 {% endif %}

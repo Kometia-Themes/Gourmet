@@ -18,31 +18,30 @@ module.exports = {
   },
 
   module: {
-    rules: [
-    {
-      test: /\.(js)$/,
-      loader: 'babel-loader',
-      exclude: /node_module/,
-      query: {
-        presets: ['es2015']
+    rules: [{
+        test: /\.(js)$/,
+        loader: 'babel-loader',
+        exclude: /node_module/,
+        query: {
+          presets: ['es2015']
+        }
+      },
+      {
+        test: /\.scss$/,
+        loader: ExtractTextPlugin.extract('css-loader!sass-loader')
+      },
+      {
+        test: /\.less$/,
+        loader: ExtractTextPlugin.extract('css-loader!less-loader')
+      },
+      {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('css-loader')
+      },
+      {
+        test: /\.exec.js$/,
+        use: ['script-loader']
       }
-    },
-    {
-      test: /\.scss$/,
-      loader: ExtractTextPlugin.extract('css-loader!sass-loader')
-    },
-    {
-      test: /\.less$/,
-      loader: ExtractTextPlugin.extract('css-loader!less-loader')
-    },
-    {
-      test: /\.css$/,
-      loader: ExtractTextPlugin.extract('css-loader')
-    },
-    {
-      test: /\.exec.js$/,
-      use: [ 'script-loader' ]
-    }
     ]
   },
   externals: {
@@ -59,16 +58,16 @@ module.exports = {
     new CopyWebpackPlugin([
       { from: './src/pages/', to: 'pages' },
       { from: './src/assets/', to: 'assets' }
-      ], 
-      {ignore: [
+    ], {
+      ignore: [
         // Doesn't copy any files with a scss extension    
         '*.scss',
         '.DS_Store',
         'base/*',
         'pages/*',
         'components/*.scss'
-      ]},
-      { copyUnmodified: true }),
+      ]
+    }, { copyUnmodified: true }),
     new WebpackShellPlugin({
       // onBuildEnd: ['node convert-twig-params-prod.js']
     })
