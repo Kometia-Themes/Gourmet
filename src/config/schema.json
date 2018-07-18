@@ -2271,7 +2271,7 @@
             {
               "type": "text",
               "id": "map_api_key",
-              "default": "AIzaSyBjWefNJdkFjr8IC6izNHSj-9hJzCwIAr0",
+              "default": "",
               "label": "API KEY",
               "info": "API Key DEMO, Visita: https://developers.google.com/maps/documentation/geocoding/get-api-key y obtén una clave para continuar usando el mapa correctamente"
             }
