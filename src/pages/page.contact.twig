@@ -1,52 +1,57 @@
 {% extends 'layout.twig' %}
-
+{% block body_class %}contact-page{% endblock body_class %}
 {% block body %}
-<div class="container page contact-page">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="contact-page__header block_title">
-        <h1 class="contact-page__title title">{{ page.title }}</h1>
-        <hr class="page__line">
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 contact-page__content">
-      {{ page.content }}
-    </div>
-  </div>
-  <div class="row contact-page__form">
-    <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
-      {% form 'contact' 'role="form" class="contact-form"' %}
-      <form action="#" method="POST" role="form" class="contact-page__contact-form">
-        <div class="form-group">
-          <input type="name" data-validation="length required" data-validation-length="min4" data-validation-error-msg="Escribe tu nombre por favor." name="message[content][nombre]" class="form-control contact-page__input contact-page--input" id="name" placeholder="Tu nombre">
-        </div>
-        <div class="form-group">
-          <input type="email" data-validation="email required" data-validation-error-msg="La dirección de correo no es válida." name="message[content][email]" class="form-control contact-page__input contact-page--input" id="email" placeholder="Correo electrónico" required>
-        </div>
-        <div class="form-group">
-          <input type="text" name="message[content][telefono]"  class="form-control contact-page__input contact-page--input" id="phone" placeholder="Teléfono">
-        </div>
-        <div class="form-group">
-          <textarea id="message" data-validation="length required" data-validation-length="min6" data-validation-error-msg="Olvidó su mensaje." name="message[content][mensaje]" class="form-control contact-page__input contact-page--message" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-lg btn-primary contact-page__btn">Enviar</button>
-        </form>
-      {% endform %}
-    </div>
-  </div>
-</div>
-
-{% if settings.map_is_enabled %}
-  <div class="contact-page__gmaps">
+  <div class="container page contact-page">
     <div class="row">
-      <div class="col-sm-12 text-center contact-page__map center-map">
-        <div id="map" class="map"></div>
+      <div class="col-xs-12">
+        <div class="contact-page__header block_title">
+          <h1 class="contact-page__title title">{{ page.title }}</h1>
+          <hr class="page__line">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3 contact-page__content">
+        {{ page.content }}
+      </div>
+    </div>
+    <div class="row contact-page__form">
+      <div class="col-xs-12 col-md-8 col-md-offset-2 col-lg-6 col-lg-offset-3">
+        {% form 'contact' 'role="form" class="contact-form"' %}
+          <div class="form-group">
+            <input type="name" data-validation="length required" data-validation-length="min4" data-validation-error-msg="Escribe tu nombre por favor." name="message[content][nombre]" class="form-control contact-page__input contact-page--input" id="name" placeholder="Tu nombre">
+          </div>
+          <div class="form-group">
+            <input type="email" data-validation="email required" data-validation-error-msg="La dirección de correo no es válida." name="message[email]" class="form-control contact-page__input contact-page--input" id="email" placeholder="Correo electrónico" required>
+          </div>
+          <div class="form-group">
+            <input type="text" name="message[content][telefono]"  class="form-control contact-page__input contact-page--input" id="phone" placeholder="Teléfono">
+          </div>
+          <div class="form-group">
+            <textarea id="message" data-validation="length required" data-validation-length="min6" data-validation-error-msg="Olvidó su mensaje." name="message[content][mensaje]" class="form-control contact-page__input contact-page--message" rows="4" placeholder="Escribe tu mensaje aquí" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-lg btn-primary contact-page__btn">Enviar</button>
+        {% endform %}
       </div>
     </div>
   </div>
-{% endif %}
+  {% if settings.map_is_embedded and settings.map_address_embedded is not empty %}
+    <div class="embedGMaps">
+      {% set googleKey = settings.map_address_embedded %}
+      {% set key = googleKey|split('\" ')[0] %}
+      {% set key = key|split('pb=')[1] %}
+      <iframe class="googleMapsEmbedFallback" src="https://www.google.com/maps/embed?pb={{ key }}" frameborder="0" style="border:0" allowfullscreen></iframe>
+    </div>
+  {% endif %}
+  {% if settings.map_is_enabled %}
+    <div class="contact-page__gmaps">
+      <div class="row">
+        <div class="col-sm-12 text-center contact-page__map center-map">
+          <div id="map" class="map"></div>
+        </div>
+      </div>
+    </div>
+  {% endif %}
   <div class="container contact-page__placeholder">
     <div class="row">
       <div class="col-sm-12">

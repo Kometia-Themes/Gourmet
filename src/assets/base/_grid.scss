@@ -29,13 +29,11 @@ body.home {
     min-height: 600px;
   }
 }
-
 body:before {
   content: "";
   height: 100%;
   display: block;
 }
-
 .container {
   @media (min-width: 1600px) {
     width: 1420px;
@@ -44,7 +42,6 @@ body:before {
     width: 1600px;
   }
 }
-
 .no-padding {
   @media (min-width: 992px) {
     padding:0;

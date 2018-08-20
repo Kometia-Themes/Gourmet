@@ -3,7 +3,6 @@ body {
   font-size: $body_font_size;
   font-weight: $body_font_weight;
 }
-
 h1,
 h2,
 h3,
@@ -20,16 +19,13 @@ h6,
   font-weight: $heading_font_weight;
   color: $headings_color;
 }
-
 h1,
 .h1 {
   font-size: $heading_font_size;
 }
-
 .text-shadow {
   text-shadow: rgba(100, 100, 100, .4) 2px 2px 7px;
 }
-
 .block_title {
   .title {
     font-size: 2em;
@@ -50,7 +46,6 @@ h1,
     }
   }
 }
-
 body.home {
   .block_title {
     .title {

@@ -1,5 +1,4 @@
 .post-page {
-
   &__header {
     text-align: center;
   }
@@ -23,7 +22,6 @@
       font-size: 14px;
       text-transform: uppercase;
     }
-    .label-primary {}
     .post-page__label {
       transition: all .3s ease-in-out;
       margin-left: .3em;
@@ -50,11 +48,9 @@
       margin: 1em auto;
     }
   }
-  &__link {}
   &__image {
     width: 100%;
   }
-  .page__description {}
   &__title-link {
     color: $headings_color;
   }
@@ -76,7 +72,6 @@
     }
   }
 }
-
 .post-page {
   &__content {
     .post-page__social-share {

@@ -1,7 +1,7 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
-{% set maxqty = settings.max_cart_items %}
+{% set maxqty = settings.max_cart_items > 20 ? 20 : settings.max_cart_items %}
 <div class="container page cart-page">
   <div class="row">
     <div class="col-xs-12">

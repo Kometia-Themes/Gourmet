@@ -33,9 +33,9 @@
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right second-navigation hidden-xs">
       {% if cart.total_items > 0 %}
-        <li><a class="navigation__link second-navigation__link second-navigation--active" href="/carrito"><i class="mdi mdi-cart second-navigation__icon "></i><sup class="second-navigation__qty">{{ cart.total_items }}</sup></a></li>
+        <li><a class="navigation__link second-navigation__link second-navigation--active" href="/carrito"><span class="mdi mdi-cart second-navigation__icon "></span><sup class="second-navigation__qty">{{ cart.total_items }}</sup></a></li>
       {% else %}
-        <li><a class="navigation__link second-navigation__link second-navigation--nonactive" href="/carrito"><i class="mdi mdi-cart second-navigation__icon "></i><sup class="second-navigation__qty"></sup></a></li>
+        <li><a class="navigation__link second-navigation__link second-navigation--nonactive" href="/carrito"><span class="mdi mdi-cart second-navigation__icon "></span><sup class="second-navigation__qty"></sup></a></li>
       {% endif %}
         <li><a class="navigation__link second-navigation__link" href="/buscar">BUSCAR</a></li>
 
@@ -55,7 +55,7 @@
         {% if link.children | length > 0 %}
         <li class="has-children">
           <a href="{{ link.url }}" class="sub__link">{{ link.name }}</a>
-          <a href="#" class="submenu-toggle"><i class="mdi mdi-chevron-down"></i></a>
+          <a href="#" class="submenu-toggle"><span class="mdi mdi-chevron-down"></span></a>
           <ul class="subnav {% if loop.last or loop.length - 1 == loop.index %}last{% endif %}">
             {% for children in link.children %}
               {% include '_nav-item.twig' with {'link': children} %}
@@ -76,7 +76,7 @@
         {% endif %}
       {% endif %}
       {% if cart.total_items > 0 %}
-        <li><a class="navigation__link visible-xs" href="/carrito">Carrito {{ cart.total_items }}</a></li>
+        <li><a class="navigation__link visible-xs" href="/carrito"><span class="mdi mdi-cart"></span> {{ cart.total_items }}</a></li>
       {% endif %}
         <li><a class="navigation__link visible-xs" href="/buscar">BUSCAR</a></li>
       </ul>

@@ -7,6 +7,10 @@
   padding-bottom: 20px;
   margin-top: 30px;
   font-size: .8em;
+  @media(max-width: 767px) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
   >.container {
     margin-bottom: 14px;
   }
@@ -33,9 +37,6 @@
       }
     }
   }
-
-  &__list-1 {}
-  &__list-2 {}
   &__list-3 {
     display: inline-block;
     padding: 0;
@@ -48,19 +49,20 @@
       }
     }
   }
-  &__list-4 {}
-  &__list-5 {}
   &__section-title {
-    font-family: $heading_font, $heading_font_type;
-    font-weight: $heading_font_weight;
-    margin-top: 0;
-    margin-bottom: 2px;
     color: $footer_title_color;
     display: inline-block;
-    width: 100%;
+    font-family: $heading_font, $heading_font_type;
     font-size: 1.2em;
+    font-weight: $heading_font_weight;
+    margin-top: 0;
+    margin-bottom: 12px;
+    position: relative;
+    width: 100%;
     @media(max-width: 767px) {
       margin-bottom: 0;
+      padding: 14px 0;
+      line-height: 2;
     }
   }
   &__section-subtitle {
@@ -72,16 +74,20 @@
   &__section-icon {
     padding: 2px;
     display: none;
+    position: relative;
     @media(max-width: 767px) {
-      display: inline-block;
-      float: right;
-      padding: 0;
-      font-size: 24px;
-      color: $footer_title_color;
-      background-color: transparent;
       cursor: pointer;
-      margin-top: 0px;
-      margin-bottom: 10px;
+      background-color: transparent;
+      color: $footer_title_color;
+      display: inline-block;
+      font-size: 24px;
+      float: right;
+      height: 58px;
+      padding: 5px 0 0 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: 99;
     }
   }
   &__link {
@@ -102,7 +108,6 @@
       margin-right: 9px;
       margin-bottom: 8px;
     }
-    @media(max-width:767px) {}
     a {
       color: $body_font_color;
     }
@@ -111,16 +116,21 @@
     }
   }
   &--list {
+    display: inline-block;
     margin-top: 0;
     margin-bottom: 1.6em;
     list-style: none;
     padding-left: 0;
+    width: 100%;
+    @media(max-width:767px) {
+      margin-bottom: 0;
+      padding-bottom: 1em;
+    }
     li {
       line-height: 1.7;
     }
   }
 }
-
 body.home .footer {
   margin-top: -30px;
 }

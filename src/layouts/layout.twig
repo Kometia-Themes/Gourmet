@@ -29,7 +29,7 @@
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.0/css/bootstrap-select.min.css">
 
   <!-- {# Material Design Icons #} -->
-  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/1.7.22/css/materialdesignicons.min.css">
+  <link rel="stylesheet" type="text/css" href="//cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css">
 
   <!-- {# Google Fonts #} -->
   {% include '_google-fonts.twig' %}
@@ -77,7 +77,7 @@
   <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
   <!--  Plugin -->
   <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery-placeholder/2.3.1/jquery.placeholder.js"></script>
-  <script src="{{ 'app.js' | asset_url }}"></script>
+  <script id="app" src="{{ 'app.js' | asset_url }}" data-currency='{{ store.currency }}'></script>
   {% endblock %}
 </body>
 </html>

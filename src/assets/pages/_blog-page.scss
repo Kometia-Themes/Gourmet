@@ -1,5 +1,4 @@
 .blog-page {
-
   &__header {
     text-align: center;
   }
@@ -9,8 +8,6 @@
   &__item {
     margin-bottom: 1em;
   }
-  &__item-image {}
-  &__link {}
   &__image {
     width: 100%;
     @media(max-width: 767px) {
@@ -20,10 +17,11 @@
   &__content {
     min-height: 400px;
   }
-  &__item-description {}
   &__item-title {
     font-family: $heading_font, $heading_font_type;
+    font-size: 1.2em;
     font-weight: $heading_font_weight;
+    line-height: 1.4;
   }
   &__title-link {
     color: $headings_color;
@@ -35,7 +33,4 @@
   &__item-extract {
     margin-bottom: 1em;
   }
-  &__btn {}
-  &__btn-link {}
-  &--modifier {}
 }

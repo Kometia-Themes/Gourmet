@@ -2,7 +2,6 @@
   padding: 1.2em 1em;
   line-height: 1.6;
 }
-
 .navbar-collapse {
   max-height: 100vh;
   -webkit-transition: 200ms ease;
@@ -13,7 +12,6 @@
     background-color: $nav_mobile_menu_bg;
   }
 }
-
 .navigation {
   margin-bottom: 0;
   .nav>li {
@@ -67,12 +65,10 @@
       }
     }
   }
-
   @media(max-width:767px) {
     background-color: $nav_mobile_menu_bg;
     border-color: #e7e7e7;
   }
-
   .navbar-brand {
     margin-right: 1em;
     height: auto;
@@ -80,9 +76,6 @@
   &__link {
     line-height: 1.6;
     color: $nav_link_text_color;
-    i.mdi {
-      width: 20px;
-    }
     @media(max-width:767px) {
       border-bottom: 1px solid rgba(100, 100, 100, .1);
     }
@@ -92,7 +85,6 @@
       color: $nav_link_text_color;
     }
   }
-
   &__link:hover {
     color: $nav_link_text_hover_color;
     @media(max-width: 767px) {
@@ -114,7 +106,6 @@
   &--contrast:focus {
     color: $nav_link_text_hover_color;
   }
-
   &__logo-text {
     color: $nav_link_text_color;
     @media(max-width: 767px) {
@@ -141,11 +132,14 @@
     height: auto;
     max-width: 220px;
     max-height: 50px;
+    padding-top: 4px;
+    padding-bottom: 4px;
     float: left;
     @media(min-width: 768px) {
       width: auto;
-      max-height: 80px;
+      max-height: 100%;
       max-width: 220px;
+      min-height: 60px;
     }
   }
   .navbar-brand.navigation__logo-text {
@@ -163,7 +157,6 @@
       height: 86px;
     }
   }
-
   @media(min-width:768px) {
     .navbar-brand.navigation__logo-text {
       height: 86px;
@@ -180,7 +173,6 @@
     }
   }
 }
-
 .navigation-scrolled {
   background-color: $nav_menu_scrolled_bg;
   -webkit-transition: background-color .5s ease-in-out;
@@ -189,14 +181,12 @@
   -ms-transition: background-color .5s ease-in-out;
   transition: background-color .5s ease-in-out;
 }
-
 .nav-hidde {
   visibility: hidden;
   opacity: 0;
   margin-top: -20px;
   transition: all 0.5s ease;
 }
-
 .nav-show {
   visibility: visible;
   opacity: 1;

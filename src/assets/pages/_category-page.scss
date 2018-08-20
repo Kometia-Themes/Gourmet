@@ -7,11 +7,9 @@
   a:hover {
     color: $main_link_color;
   }
-
   &__header {
     text-align: center;
   }
-  &__title {}
   &__content {
     min-height: 600px;
   }
@@ -22,7 +20,6 @@
       margin-top: 40px;
     }
   }
-
   &__sidebar {
     position: relative;
     width: auto;
@@ -39,8 +36,6 @@
     &-submenu.active {
       border-top: 1px solid rgba(100, 100, 100, .2);
     }
-
-    &-list {}
     &-title {
       margin-top: 0;
       font-size: 24px;
@@ -80,9 +75,4 @@
       }
     }
   }
-
-
-  &__list-title {}
-  &__sidebar-item-link {}
-  &--modifier {}
 }

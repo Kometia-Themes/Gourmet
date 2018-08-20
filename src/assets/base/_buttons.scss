@@ -1,28 +1,23 @@
 a.btn, .btn {
   border-radius: 0;
 }
-
 a.btn.btn-primary, .btn.btn-primary, .btn-primary {
   color: $btn_text_color;
   background-color: $btn_bg_color;
   border-color: $btn_bg_color;
 }
-
 a.btn.btn-primary:hover, .btn.btn-primary:hover, .btn-primary:hover,
 a.btn.btn-primary:focus, .btn.btn-primary:focus, .btn-primary:focus {
   color: $btn_text_color_hover;
   background-color: $btn_bg_color_hover;
   border-color: $btn_bg_color_hover;
 }
-
 .btn-link {
   color: $main_link_color;
 }
-
 .btn-link:hover {
   color: $main_link_hover_color;
 }
-
 .btn-primary.disabled.focus,
 .btn-primary.disabled:focus,
 .btn-primary.disabled:hover,

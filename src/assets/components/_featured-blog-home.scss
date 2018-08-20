@@ -1,8 +1,9 @@
 .featured-blog-home {
   margin-bottom: 30px;
   margin-top: 0;
-  &__header {}
-  &__content {}
+  @media(min-width:1200px) {
+    margin-bottom: 60px;
+  }
   &__title {
     margin-top: 4px;
     margin-bottom: 1em;
@@ -14,7 +15,6 @@
     display: inline-block;
     letter-spacing: .5px;
   }
-  &__thumbnail {}
   &__img {
     margin-bottom: 1em;
     width: 100%;
@@ -31,5 +31,4 @@
     display: block;
     margin-bottom: 2em;
   }
-  &--link {}
 }

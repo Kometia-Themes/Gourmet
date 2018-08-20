@@ -5,15 +5,11 @@
     }
     text-align: center;
   }
-  &__title {}
   &__content {
     padding-bottom: 40px;
     min-height: 400px;
   }
-  &--modifier {}
-  // element
   &-form {
-    .recover-page__input {}
     .recover-page__button {
       .recover-page--btn-danger {
         margin-right: 12px;

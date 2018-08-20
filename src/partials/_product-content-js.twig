@@ -4,6 +4,23 @@
 
 {{ 'sku-select/v1/sku-select.min.js' | global_asset_url | script_tag }}
 <script type="text/javascript">
+var win = $(window);
+var thumbnail_type = "{{ settings.product_thumbnail_type }}";
+
+switch(thumbnail_type) {
+  case "thumbnail_portrait":
+    var thumbnail_width = 1200;
+    var thumbnail_height = 740;
+    break;
+  case "thumbnail_landscape":
+    var thumbnail_width = 740;
+    var thumbnail_height = 1200;
+    break;
+  default:
+    var thumbnail_width = 800;
+    var thumbnail_height = 800;
+}
+
  {% if settings.enable_product_image_zoom %}
   var zoomInText = '{{ settings.product_image_zoom_in_text }}';
   var zoomOutText = '{{ settings.product_image_zoom_out_text }}';
@@ -12,8 +29,9 @@
     .css('display', 'block')
     .parent()
     .zoom({
-      on: 'click',
-      touch: false,
+      on: win.width() < 768 ? 'click' : 'mouseover',
+      touch: win.width() < 768 ? true : false,
+      magnify: 1.6,
       onZoomIn: function() {
         $('.fireZoomEvent span').text(zoomOutText);
       },
@@ -70,11 +88,11 @@
       mainProduct = $(this).find('img').attr('src');
       mainProduct = mainProduct.split("&");
       $('.slider .main-product').empty();
-      $('.slider .main-product').append('<img class="img-responsive slider__imag-placeholder" src="'+ mainProduct[0] +'&w=1200&h=1200&fit=bounds" id="zoom">');
+      $('.slider .main-product').append('<img class="img-responsive slider__imag-placeholder" src="'+ mainProduct[0] +'&w='+thumbnail_width+'&h='+thumbnail_height+'&fit=crop" id="zoom">');
       if(enableZoom) {
         var zoom = $('#zoom');
         zoom.trigger('zoom.destroy');
-        zoom.attr("src", mainProduct[0]+'&w=1200&h=1200&fit=bounds');
+        zoom.attr("src", mainProduct[0]+'&w='+thumbnail_width+'&h='+thumbnail_height+'&fit=crop');
         loadZoom();
       }
     });
@@ -145,21 +163,19 @@
       skus: {{ product.skus | json }},
       inputType: 'radio'
     }, function(sku) {
-      if (sku && (sku.in_stock >= 1 || sku.stock_policy === 'none' || sku.is_backorderable)) {
-        jQuery('#js-sku-id').val(sku.id);
-        jQuery('#js-sku-new').val(sku.id);
-        if (sku.code != '') {
-          jQuery('#js-sku-id').html('SKU: <strong>'+ sku.code +'</strong>');
-        }
-        jQuery('#js-add-to-cart').removeClass('disabled').removeAttr('disabled', 'disabled')
-        if (sku.price < sku.compared_price) {
-          jQuery('#js-price-preview').html("<del class=\"price-preview__compared-price\"><span class=\"inner\">" + formatMoney(sku.compared_price) + "</span></del><br><span class=\"product-price-data-price price-preview__price\">" + formatMoney(sku.price) + "</span>");
-        } else {
-          jQuery('#js-price-preview').html("<span class=\"product-price-data-price price-preview__price\">" + formatMoney(sku.price) + "</span>");
-        }
+      jQuery('#js-sku-id').val(sku.id);
+      jQuery('#js-sku-new').val(sku.id);
+      if (sku.code != '') {
+        jQuery('#js-sku-id').html('SKU: <strong>'+ sku.code +'</strong>');
+      }
+      jQuery('#js-add-to-cart').removeClass('disabled').removeAttr('disabled', 'disabled')
+      if (sku.price < sku.compared_price) {
+        jQuery('#js-price-preview').html("<del class=\"price-preview__compared-price\"><span class=\"inner\">" + formatMoney(sku.compared_price) + "</span></del><br><span class=\"product-price-data-price price-preview__price\">" + formatMoney(sku.price) + "</span>");
       } else {
-        jQuery('#js-add-to-cart').addClass('disabled').attr('disabled', 'disabled')
-        jQuery('#js-price-preview').html('<span class="product-price-data-price">No disponible</span>');
+        jQuery('#js-price-preview').html("<span class=\"product-price-data-price price-preview__price\">" + formatMoney(sku.price) + "</span>");
+      }
+      if (!sku || (sku.in_stock === 0 && sku.stock_policy == 'overall' && !sku.is_backorderable)) {
+        jQuery('#js-add-to-cart').addClass('disabled').attr('disabled', 'disabled');
       }
       if (sku) {
         var image = sku.image_url;
@@ -177,7 +193,7 @@
             var zoom = $('#zoom');
             if (image && $('.zoomImg').attr('src') != image) {
               $('.slider .main-product').empty();
-              $('.slider .main-product').append('<img class="img-responsive slider__imag-placeholder" src="'+ image +'&w=1200&h=1200&fit=bounds" id="zoom">');
+              $('.slider .main-product').append('<img class="img-responsive slider__imag-placeholder" src="'+ image +'&w='+thumbnail_width+'&h='+thumbnail_height+'&fit=crop" id="zoom">');
               loadZoom();
             }
           } else {

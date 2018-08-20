@@ -955,8 +955,7 @@
             {
               "type": "checkbox",
               "id": "footer_display_contact_data",
-              "label": "Mostrar datos",
-              "default": true
+              "label": "Mostrar datos"
             },
             {
               "type": "text",
@@ -991,7 +990,7 @@
               "type": "text",
               "id": "footer_main_menu_title",
               "label": "Título del menú",
-              "default": "NAVEGACIÓN"
+              "default": "Navegación"
             },
             {
               "type": "text",
@@ -1009,7 +1008,7 @@
               "type": "text",
               "id": "footer_second_menu_title",
               "label": "Título del menú",
-              "default": "MENÚ"
+              "default": "Menú"
             },
             {
               "type": "text",
@@ -1743,9 +1742,14 @@
           "header": "Banner estático",
           "settings": [
             {
+              "type": "checkbox",
+              "id": "featured_static_banner",
+              "label": "Activar"
+            },
+            {
               "type": "image",
               "id": "featured_static_banner_image_url",
-              "label": "Imagen de fondo",
+              "label": "Imagen",
               "info": "1280px de ancho recomendado"
             },
             {
@@ -1951,7 +1955,39 @@
       "icon": "home-page",
       "sections": [
         {
+          "header": "Formato",
           "settings": [
+            {
+              "type": "select",
+              "id": "featured_best_collections_format_image_type",
+              "label": "Tipo de miniaturas",
+              "default": "landscape",
+              "options": [
+                {
+                  "value": "portrait",
+                  "label": "Vertical"
+                },
+                {
+                  "value": "landscape",
+                  "label": "Horizontal"
+                },
+                {
+                  "value": "square",
+                  "label": "Cuadrada"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "header": "Colecciones",
+          "settings": [
+            {
+              "type": "text",
+              "id": "featured_best_collections_btn_text",
+              "label": "Texto del botón",
+              "default": "Ver más"
+            },
             {
               "type": "text",
               "id": "featured_best_collections_title",
@@ -2070,6 +2106,7 @@
               "type": "text",
               "id": "max_cart_items",
               "label": "Cantidad máxima de unidades a comprar",
+              "info": "El máximo de unidades a mostrar son 20.",
               "default": "5"
             },
             {
@@ -2124,6 +2161,12 @@
               "id": "show_sku_code",
               "label": "Mostrar Sku del producto",
               "default": false
+            },
+            {
+              "type": "text",
+              "id": "sku_title",
+              "label": "Título del Sku",
+              "default": "SKU: "
             }
           ]
         },
@@ -2274,6 +2317,22 @@
               "default": "",
               "label": "API KEY",
               "info": "API Key DEMO, Visita: https://developers.google.com/maps/documentation/geocoding/get-api-key y obtén una clave para continuar usando el mapa correctamente"
+            }
+          ]
+        },
+        {
+          "header": "Mapa Embebido",
+          "settings": [
+            {
+              "type": "checkbox",
+              "id": "map_is_embedded",
+              "label": "Mostrar mapa"
+            },
+            {
+              "type": "text",
+              "id": "map_address_embedded",
+              "label": "Ubicación a mostrar",
+              "info": "Ingresa el código de compartir"
             }
           ]
         }

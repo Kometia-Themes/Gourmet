@@ -1,119 +1,117 @@
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        {% if menus[settings.footer_main_menu_name] is not empty and settings.footer_display_main_menu %}
-        <div class="footer__menu footer__menu--close">
-          <h4 class="footer__section-title">{{ settings.footer_main_menu_title }} <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
-          <ul class="footer__list-1 footer--list">
-          {% for links in menus[settings.footer_main_menu_name] %}
-              <li class="footer__link"><a href="{{ links.url }}" target="_blank" title="{{ links.name }}">{{ links.name }}</a></li>
-            {% endfor %}
-          </ul>
-        </div>
-        {% endif %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      {% if menus[settings.footer_main_menu_name] is not empty and settings.footer_display_main_menu %}
+      <div class="footer__menu footer__menu--close">
+        <h4 class="footer__section-title">{{ settings.footer_main_menu_title }} <span class="footer__section-icon footer__section--close"><span class="mdi mdi-chevron-down"></span></span></h4>
+        <ul class="footer__list-1 footer--list">
+        {% for links in menus[settings.footer_main_menu_name] %}
+            <li class="footer__link"><a href="{{ links.url }}" target="_blank" title="{{ links.name }}">{{ links.name }}</a></li>
+          {% endfor %}
+        </ul>
       </div>
-      <div class="col-xs-12 col-sm-6 col-md-3">
-        {% if menus[settings.footer_second_menu_name] is not empty and settings.footer_display_second_menu %}
-        <div class="footer__menu footer__menu--close">
-          <h4 class="footer__section-title">{{ settings.footer_second_menu_title }} <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
-            <ul class="footer__list-2 footer--list footer--list">
-            {% for links in menus[settings.footer_second_menu_name] %}
-              <li class="footer__link"><a href="{{ links.url }}" target="_blank" title="{{ links.name }}">{{ links.name }}</a></li>
-            {% endfor %}
-            </ul>
-        </div>
-        {% endif %}
-        {% if settings.footer_display_social %}
-        <div class="footer__menu footer__menu--close">
-          <h4 class="footer__section-title">NUESTRAS REDES <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
-          <ul class="footer__list-3 footer--list">
-            {% if settings.twitter_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.twitter_link }}" target="_blank" title="Sigue a {{ store.name }} en Twitter"><i class="mdi mdi-18px mdi-twitter"></i></a></li>
-            {% endif %}
-            {% if settings.facebook_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.facebook_link }}" target="_blank" title="Sigue a {{ store.name }} en Facebook"><i class="mdi mdi-18px mdi-facebook"></i></a></li>
-            {% endif %}
-            {% if settings.google_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.google_link }}" target="_blank" title="Sigue a {{ store.name }} en Google+"><i class="mdi mdi-18px mdi-google-plus"></i></a></li>
-            {% endif %}
-            {% if settings.youtube_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.youtube_link }}" target="_blank" title="Sigue a {{ store.name }} en YouTube"><i class="mdi mdi-18px mdi-youtube-play"></i></a></li>
-            {% endif %}
-            {% if settings.vimeo_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.vimeo_link }}" target="_blank" title="Sigue a {{ store.name }} en Vimeo"><i class="mdi mdi-18px mdi-vimeo"></i></a></li>
-            {% endif %}
-            {% if settings.pinterest_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.pinterest_link }}" target="_blank" title="Sigue a {{ store.name }} en Pinterest"><i class="mdi mdi-18px mdi-pinterest"></i></a></li>
-            {% endif %}
-            {% if settings.instagram_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.instagram_link }}" target="_blank" title="Sigue a {{ store.name }} en Instagram"><i class="mdi mdi-18px mdi-instagram"></i></a></li>
-            {% endif %}
-            {% if settings.tumblr_link is not empty %}
-            <li class="footer__link"><a href="{{ settings.tumblr_link }}" target="_blank" title="Sigue a {{ store.name }} en Tumblr"><i class="mdi mdi-18px mdi-tumblr"></i></a></li>
-            {% endif %}
-            {% if settings.whatsapp_link is not empty %}
-            <li class="footer__link"><a href="https://api.whatsapp.com/send?phone={{ settings.whatsapp_link }}" target="_blank" title="Lámanos {{ store.name }} en Whatsapp"><i class="mdi mdi-18px mdi-whatsapp"></i></a></li>
-            {% endif %}
-          </ul>
-        </div>
       {% endif %}
-
-        <div class="footer__menu footer__menu--close">
-          {% if settings.footer_display_payment_methods %}
-          <h4 class="footer__section-title">MÉTODOS DE PAGO <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
-          <ul class="footer__list-4 footer--list">
-          {% if settings.footer_display_payment_methods %}
-            {% if settings.accept_visa %}
-            <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'visa.png'| payment_img_url }}" alt="Visa"></li>
-            {% endif %}
-            {% if settings.accept_mastercard %}
-            <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'mastercard.png'| payment_img_url }}" alt="Mastercard"></li>
-            {% endif %}
-            {% if settings.accept_amex %}
-            <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'amex.png'| payment_img_url }}" alt="American Express"></li>
-            {% endif %}
-            {% if settings.accept_paypal %}
-            <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'paypal.png'| payment_img_url }}" alt="Paypal"></li>
-            {% endif %}
-            {% if settings.accept_oxxo %}
-            <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'oxxo.png'| payment_img_url }}" alt="oxxo"></li>
-            {% endif %}
-            {% if settings.accept_spei %}
-            <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'spei.png'| payment_img_url }}" alt="spei"></li>
-            {% endif %}
-            {% if settings.accept_cash %}
-            <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'cash.png'| payment_img_url }}" alt="Efectivo"></li>
-            {% endif %}
-          {% endif %}
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-3">
+      {% if menus[settings.footer_second_menu_name] is not empty and settings.footer_display_second_menu %}
+      <div class="footer__menu footer__menu--close">
+        <h4 class="footer__section-title">{{ settings.footer_second_menu_title }} <span class="footer__section-icon footer__section--close"><span class="mdi mdi-chevron-down"></span></span></h4>
+          <ul class="footer__list-2 footer--list footer--list">
+          {% for links in menus[settings.footer_second_menu_name] %}
+            <li class="footer__link"><a href="{{ links.url }}" target="_blank" title="{{ links.name }}">{{ links.name }}</a></li>
+          {% endfor %}
           </ul>
-          {% endif %}
-        </div>
       </div>
-    {% if settings.footer_display_contact_data or settings.policy_url is defined %}
-      <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
-        <div class="footer__menu footer__menu--close">
-          <h4 class="footer__section-title">{{ store.name | title }} <span class="footer__section-icon footer__section--close"><i class="mdi mdi-chevron-down"></i></span></h4>
-          <div class="footer--list">
-            <div>{{ settings.footer_contact_data }}</div>
-           {% if settings.footer_display_hours %}
-            <h5 class="footer__section-subtitle">{{ settings.footer_display_hours_title }}</h5>
-            <ul class="footer__list-5">
-              {{ settings.footer_hours_data_text }}
-            </ul>
-           {% endif %}
-           {% if settings.policy_url is not empty %}
-            {% if settings.policy_url == 'inicio' %}
-            <h5 class="footer__section-subtitle"><a href="/">Aviso de privacidad</a></h5>
-            {% else %}
-            <h5 class="footer__section-subtitle"><a href="paginas/{{ settings.policy_url }}">Aviso de privacidad</a></h5>
-            {% endif %}
+      {% endif %}
+      {% if settings.footer_display_social %}
+      <div class="footer__menu footer__menu--close">
+        <h4 class="footer__section-title">Nuestras redes <span class="footer__section-icon footer__section--close"><span class="mdi mdi-chevron-down"></span></span></h4>
+        <ul class="footer__list-3 footer--list">
+          {% if settings.twitter_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.twitter_link }}" target="_blank" title="Sigue a {{ store.name }} en Twitter"><span class="mdi mdi-twitter"></i></a></li>
           {% endif %}
-          </div>
-        </div>
+          {% if settings.facebook_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.facebook_link }}" target="_blank" title="Sigue a {{ store.name }} en Facebook"><span class="mdi mdi-facebook-box"></i></a></li>
+          {% endif %}
+          {% if settings.google_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.google_link }}" target="_blank" title="Sigue a {{ store.name }} en Google+"><span class="mdi mdi-google-plus"></i></a></li>
+          {% endif %}
+          {% if settings.youtube_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.youtube_link }}" target="_blank" title="Sigue a {{ store.name }} en YouTube"><span class="mdi mdi-youtube-play"></i></a></li>
+          {% endif %}
+          {% if settings.vimeo_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.vimeo_link }}" target="_blank" title="Sigue a {{ store.name }} en Vimeo"><span class="mdi mdi-vimeo"></i></a></li>
+          {% endif %}
+          {% if settings.pinterest_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.pinterest_link }}" target="_blank" title="Sigue a {{ store.name }} en Pinterest"><span class="mdi mdi-pinterest"></i></a></li>
+          {% endif %}
+          {% if settings.instagram_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.instagram_link }}" target="_blank" title="Sigue a {{ store.name }} en Instagram"><span class="mdi mdi-instagram"></i></a></li>
+          {% endif %}
+          {% if settings.tumblr_link is not empty %}
+          <li class="footer__link"><a href="{{ settings.tumblr_link }}" target="_blank" title="Sigue a {{ store.name }} en Tumblr"><span class="mdi mdi-tumblr"></i></a></li>
+          {% endif %}
+          {% if settings.whatsapp_link is not empty %}
+          <li class="footer__link"><a href="https://api.whatsapp.com/send?phone={{ settings.whatsapp_link }}" target="_blank" title="Lámanos {{ store.name }} en Whatsapp"><span class="mdi mdi-whatsapp"></i></a></li>
+          {% endif %}
+        </ul>
       </div>
     {% endif %}
+
+      <div class="footer__menu footer__menu--close">
+        {% if settings.footer_display_payment_methods %}
+        <h4 class="footer__section-title">Métodos de pago <span class="footer__section-icon footer__section--close"><span class="mdi mdi-chevron-down"></span></span></h4>
+        <ul class="footer__list-4 footer--list">
+        {% if settings.footer_display_payment_methods %}
+          {% if settings.accept_visa %}
+          <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'visa.png'| payment_img_url }}" alt="Visa"></li>
+          {% endif %}
+          {% if settings.accept_mastercard %}
+          <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'mastercard.png'| payment_img_url }}" alt="Mastercard"></li>
+          {% endif %}
+          {% if settings.accept_amex %}
+          <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'amex.png'| payment_img_url }}" alt="American Express"></li>
+          {% endif %}
+          {% if settings.accept_paypal %}
+          <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'paypal.png'| payment_img_url }}" alt="Paypal"></li>
+          {% endif %}
+          {% if settings.accept_oxxo %}
+          <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'oxxo.png'| payment_img_url }}" alt="oxxo"></li>
+          {% endif %}
+          {% if settings.accept_spei %}
+          <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'spei.png'| payment_img_url }}" alt="spei"></li>
+          {% endif %}
+          {% if settings.accept_cash %}
+          <li class="footer__link footer__link--payment"><img class="payment-image" src="{{ 'cash.png'| payment_img_url }}" alt="Efectivo"></li>
+          {% endif %}
+        {% endif %}
+        </ul>
+        {% endif %}
+      </div>
     </div>
+  {% if settings.footer_display_contact_data or settings.policy_url is defined %}
+    <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2">
+      <div class="footer__menu footer__menu--close">
+        <h4 class="footer__section-title">{{ store.name | title }} <span class="footer__section-icon footer__section--close"><span class="mdi mdi-chevron-down"></span></span></h4>
+        <div class="footer--list">
+          {% if settings.footer_display_contact_data %}
+          <div>{{ settings.footer_contact_data }}</div>
+          {% endif %}
+          {% if settings.footer_display_hours %}
+            <h5 class="footer__section-subtitle">{{ settings.footer_display_hours_title }}</h5>
+            {{ settings.footer_hours_data_text }}
+          {% endif %}
+          </div>
+          {% if settings.policy_url is not empty %}
+          <ul class="footer__list-5 footer--list">
+          <li class="footer__link"><a href="paginas/{{ settings.policy_url }}" target="_blank" title="Aviso de privacidad">Aviso de privacidad</a></li>
+          </ul>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
   </div>
-  <div class="footer-legal">
-    <p class="footer-legal__description">© 2017 Gourmet Theme - Derechos reservados <br class="visible-xs"/><span class="hidden-xs"> &nbsp;&nbsp;|&nbsp;&nbsp; </span> Tienda generada con <span class="footer-legal--bold">Kometia</span></p>
-  </div>
+</div>
+<div class="footer-legal">
+  <p class="footer-legal__description">&copy; {{ "now"|date("Y") }} {{ store.name | title }} - Derechos Reservados <br class="visible-xs"/><span class="hidden-xs"> &nbsp;&nbsp;|&nbsp;&nbsp; </span> Tienda generada con <span class="footer-legal--bold">Kometia</span></p>
+</div>

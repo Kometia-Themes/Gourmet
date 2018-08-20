@@ -77,7 +77,6 @@
     -o-transition: background-color .5s ease-out;
     transition: background-color .5s ease-out;
   }
-
   &__text {
     display: inline-block;
     min-height: 30px;
@@ -102,6 +101,6 @@
     filter: grayscale(.3);
   }
   &--bg_no-img {
-    background-color: $brand_main_color;
+    background-color: $collection_bg_color;
   }
 }
