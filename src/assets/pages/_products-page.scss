@@ -50,7 +50,6 @@
     -o-transition: opacity .6s ease-in-out;
     transition: opacity .6s ease-in-out;
   }
-
   &__header {
     text-align: center;
   }
@@ -108,7 +107,6 @@
       font-size: 16px;
     }
   }
-  &__desc {}
   &__title {
     line-height: 1.4;
     font-size: 1em;
@@ -130,7 +128,6 @@
   &__price {
     font-size: 1.2em;
   }
-
   &--discount {
     color: $product_compared_price_color;
     text-decoration: line-through;

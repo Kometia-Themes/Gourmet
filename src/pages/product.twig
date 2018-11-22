@@ -1,6 +1,13 @@
 {% extends 'layout.twig' %}
 
 {% block body %}
+  {% if settings.product_thumbnail_type == 'thumbnail_portrait' %}
+    {% set thumb = {'width': 740, 'height': 1200} %}
+  {% elseif settings.product_thumbnail_type == 'thumbnail_landscape' %}
+    {% set thumb = {'width': 800, 'height': 494} %}
+  {% else %}
+    {% set thumb = {'width': 800, 'height': 800} %}
+  {% endif %}
 {% include '_product-content.twig' %}
 {% endblock %}
 

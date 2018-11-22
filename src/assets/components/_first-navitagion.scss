@@ -3,6 +3,14 @@
     list-style: none;
     padding-left: 0;
   }
+  li {
+    float: left;
+    display: inline-block;
+    @media(max-width: 767px) {
+      display: block;
+      width: 100%;
+    }
+  }
   li a:hover {
     text-decoration: none;
   }
@@ -15,31 +23,55 @@
     @media (max-width: 767px) {
       color: $nav_link_text_color;
       padding: 1.2em 1em;
+      border-bottom: 1px solid rgba(100,100,100,.1);
     }
   }
   .navigation__link:hover {
     color: $nav_link_text_hover_color;
+    @media (max-width: 767px) {
+      background-color: $nav_menu_scrolled_bg;
+    }
   }
   .submenu-toggle {
     width: auto;
+    padding: 1.2em 1em 1.2em 4px;
+    text-align: center;
+    color: $nav_link_text_color;
+    float: left;
+    @media (max-width: 767px) {
+      padding: 1.2em 1em;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  .submenu-toggle:hover, .submenu-toggle:focus {
+    @media (max-width: 767px) {
+      background-color: $nav_menu_scrolled_bg;
+    }
+  }
+  .subnav .has-children .submenu-toggle {
     position: absolute;
     top: 0;
     right: 0;
-    padding-right: 0;
-    padding-left: 0;
-    text-align: center;
-    padding: 1.2em 8px;
-    color: $nav_link_text_color;
   }
-
   .has-children {
     position: relative;
     font-size: 1em;
     .sub__link {
       color: $nav_link_text_color;
+      @media (max-width: 767px) {
+        border-bottom: 1px solid rgba(100,100,100,.1);
+      }
     }
     .sub__link:hover {
       color: $nav_link_text_hover_color;
+      @media (max-width: 767px) {
+        background-color: $nav_menu_scrolled_bg;
+      }
+    }
+    .first-navigation .navigation__link {
+      width: auto;
     }
     .subnav {
       min-width: 200px;
@@ -53,6 +85,10 @@
         -webkit-box-shadow: 0px 4px 14px 0 rgba(100, 100, 100, 0.15);
         -moz-box-shadow: 0px 4px 14px 0 rgba(100, 100, 100, 0.15);
         box-shadow: 0px 4px 14px 0 rgba(100, 100, 100, 0.15);
+        top: 100%;
+      }
+      li {
+        width: 100%;
       }
       .navigation__link::before {
         position: absolute;
@@ -71,77 +107,85 @@
       }
     }
     >.subnav.active {
-      display: block;
-      position: absolute;
-      z-index: 0;
       @media(max-width: 767px) {
         position: relative;
       }
     }
     >.subnav.active {
       display: block;
-      position: absolute;
-      @media(max-width: 767px) {
-        position: relative;
-      }
+      position: relative;
+      box-shadow: none;
     }
     .subnav.active .has-children .subnav.active {
-      position: absolute;
-      left: 100%;
+      position: relative;
+      left: 0%;
       top: 0;
       @media(max-width: 767px) {
         position: relative;
         left: auto;
       }
     }
-    .subnav.last.active .has-children .subnav.active {
-      position: absolute;
-      left: -100%;
-      top: 0;
-      @media(max-width: 767px) {
-        position: relative;
-        left: auto;
+    .subnav.last.active {
+      right: 0;
+      .has-children {
+        .subnav.active {
+          position: absolute;
+          left: -100%;
+          top: 0;
+          @media(max-width: 767px) {
+            position: relative;
+            left: auto;
+          }
+        }
       }
     }
-  } // Has children
+  }
   // First parent link
   >.has-children {
     @media(min-width: 768px) {
-      > .sub__link {
-        padding-right:8px;
+      .sub__link {
+        float: left;
+        padding: 1.2em 0 1.2em 1em;
       }
-      padding-right:20px;
       >.subnav {
         border-top: 4px solid $nav_link_text_hover_color;
       }
+      >.subnav.last {
+        right: 0;
+      }
       .subnav.active .has-children .subnav.active {
         display: block;
-        position: absolute;
+        position: relative;
       }
     }
   }
 }
-
+.nav.navbar-nav.navbar-right.first-navigation > .has-children:hover > .subnav {
+  @media(min-width: 768px){
+    display: block;
+  }
+}
 .navbar-toggle {
   background-color: transparent;
   color: $nav_link_text_color;
   border-radius: 0;
-  padding: 10px;
-  margin-bottom: 4px;
-  margin-top: 4px;
+  padding: 10px 8px;
+  margin-bottom: 0;
+  margin-top: 0;
   .icon-bar {
     height: 5px;
     background-color: $nav_link_text_color;
   }
+  .icon-bar+.icon-bar {
+    margin-top: 5px;
+  }
 }
-
 .navbar-toggle:hover {
   background-color: transparent;
   .icon-bar {
     background-color: $nav_link_text_hover_color;
   }
 }
-
 .navbar-collapse {
   max-height: 100vh;
   -webkit-transition: 200ms ease;
@@ -152,7 +196,6 @@
     background-color: $nav_mobile_menu_bg;
   }
 }
-
 .navbar-fixed-bottom .navbar-collapse, .navbar-fixed-top .navbar-collapse {
   height: auto;
   max-height: 100vh;

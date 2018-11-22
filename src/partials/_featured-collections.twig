@@ -1,4 +1,17 @@
 {% set featured_collections = [] %}
+{% set image_type = settings.featured_best_collections_format_image_type %}
+
+{% set image_type_width = '900' %}
+{% set image_type_height = '556' %}
+
+{% if image_type == 'portrait' %}
+  {% set image_type_width = '556' %}
+  {% set image_type_height = '900' %}
+{% elseif image_type == 'square' %}
+  {% set image_type_width = '900' %}
+  {% set image_type_height = '900' %}
+{% endif %}
+
 {% for i in 1..8 %}
   {% set featured_collection = 'featured_best_collections_' ~ i %}
   {% if settings[featured_collection] is not empty and collections[settings[featured_collection]] is defined and collections[settings[featured_collection]].is_visible is not null %}
@@ -22,27 +35,29 @@
   <div class="container">
     <div class="row">
       <div class="featured-best-collections__header block_title">
-        <h2 class="title">{{ settings.featured_best_collections_title }}</h2>
+        <h2 class="title">{{ settings.featured_best_collections_title is not empty ? settings.featured_best_collections_title : collection.title }}</h2>
       </div>
     </div>
     <div class="row">
     {% for collection in featured_collections if collection.is_visible is not null %}
       <div class="col-xs-12{{ row_products }}">
-      {% if collection.image_url is not null %}
-        {% set image_url = collection.image_url %}
-          <div class="featured-best-collections__card featured-best-collections--bg_img" style="background-image:url('{{ image_url }}&w=360&h=224');">
-      {% else %}
-        <div class="featured-best-collections__card collections-page--bg_no-img">
-      {% endif %}
+        <div class="featured-best-collections__card">
           <div class="featured-best-collections__content">
-            <div class="featured-best-collections__inner">
-              <h3 class="featured-best-collections__title">{{ collection.title }}</h3>
-              <p class="featured-best-collections__text"><a class="btn btn-lg featured-best-collections__link" href="/colecciones/{{ collection.permalink }}">VER</a></p>
+            <div class="featured-best-collections__outher">
+              <div class="featured-best-collections__inner">
+                <h3 class="featured-best-collections__title">{{ collection.title }}</h3>
+                <p class="featured-best-collections__text"><a class="btn btn-primary" href="/colecciones/{{ collection.permalink }}">{{ settings.featured_best_collections_btn_text }}</a></p>
+              </div>
             </div>
           </div>
+          {% if collection.image_url is not null %}
+          <img class="featured-best-collections__image" src="{{ collection.image_url }}&w={{ image_type_width }}&h={{ image_type_height }}&fit=crop">
+          {% else %}
+          <img class="featured-best-collections__image" src="{{ 'placeholders/product-11.jpg' | global_img_url }}&w={{ image_type_width }}&h={{ image_type_height }}">
+          {% endif %}
         </div>
       </div>
-      {% endfor %}
+    {% endfor %}
     </div>
   </div>
 </div>

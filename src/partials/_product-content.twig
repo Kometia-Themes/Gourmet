@@ -1,6 +1,6 @@
 {% set totalImageCounter = 0 %}
 {% for thumbnail in product.images %}
-  {% if 'tagcolor' not in thumbnail.url | lower %}
+  {% if 'tagcolor' not in thumbnail.url|lower %}
     {% set totalImageCounter = totalImageCounter + 1 %}
   {% endif %}
 {% endfor %}
@@ -12,15 +12,15 @@
           <div class="col-xs-12 col-sm-6 col-md-7">
             <div class="slider">
             {% if settings.enable_product_image_zoom %}
-              <div class="fireZoomEvent"><span>{{ settings.product_image_zoom_in_text }}</span></div>
+              <div class="fireZoomEvent visible-xs visible-sm"><span>{{ settings.product_image_zoom_in_text }}</span></div>
             {% endif %}
-            {% if product.images | length == 0 %}
+            {% if product.images|length == 0 %}
               <div class="main-product">
-                <img class="img-responsive slider__imag-placeholder" src="{{ 'placeholders/product-15.jpg' | global_img_url }}" alt="{{ product.name }}" id="zoom">
+                <img class="img-responsive slider__imag-placeholder" src="{{ 'placeholders/product-15.jpg'|global_img_url }}" alt="{{ product.name }}" id="zoom">
               </div>
             {% else %}
               <div class="main-product">
-                <img class="main-product__main-image" src="{{ product.image_url }}&w=1200&h=1200&fit=bounds" alt="{{ product.name }}" id="zoom">
+                <img class="main-product__main-image mageProduct" src="{{ product.image_url }}&w={{ thumb.width }}&h={{ thumb.height }}&fit=crop" alt="{{ product.name }}" id="zoom">
               </div>
             {% endif %}
             </div>
@@ -29,9 +29,9 @@
               <div class="col-xs-12 slider-container">
                 <div class="slider-product slider-nav">
                     {% for thumbnail in product.images %}
-                      {% if 'tagcolor' not in thumbnail.url | lower %}
+                      {% if 'tagcolor' not in thumbnail.url|lower %}
                       <div class="slider-nav__item">
-                        <img class="slider-nav__image" src="{{ thumbnail.url }}&w=250&h=250&fit=bounds" alt="{{ product.name }}">
+                        <img class="slider-nav__image" src="{{ thumbnail.url }}&w=250&h=250&fit=crop" alt="{{ product.name }}">
                       </div>
                       {% endif %}
                     {% endfor %}
@@ -58,19 +58,19 @@
               </p>
               <div class="vendor">
               {% if product.vendor.name is not null and settings.display_vendor %}
-              <p class="vendor__sku">Marca: <strong>{{ product.vendor.name | title }}</strong></p>
+              <p class="vendor__sku">Marca: <strong>{{ product.vendor.name|title }}</strong></p>
               {% endif %}
               </div><!-- vendor -->
               <h1 class="header__title">{{ product.name }}</h1>
               {% if settings.show_sku_code and product.sku.code is not empty %}
-              <p id="js-sku-id" class="header__sku">SKU: <span class="label-sku">HKJ786</span>{{ settings.sku_title }}: <span>{{ product.sku.code }}</span></p>
+              <p id="js-sku-id" class="header__sku">{{ settings.sku_title }} <span class="label-sku">{{ product.sku.code }}</span></p>
               {% endif %}
             </div>
             <div class="price-preview" id="js-price-preview">
               {% if product.compared_price %}
-              <p class="price-preview__compared-price"><span class="inner">{{ product.compared_price is defined and product.compared_price > product.price ? product.compared_price | money('symbol', 'code') : '' }}</span></p>
+              <p class="price-preview__compared-price"><span class="inner">{{ product.compared_price is defined and product.compared_price > product.price ? product.compared_price|money('symbol', 'code') : '' }}</span></p>
               {% endif %}
-              <p class="price-preview__price">{{ product.price | money('symbol', 'code') }}</p>
+              <p class="price-preview__price">{{ product.price|money('symbol', 'code') }}</p>
             </div>
 
             <div class="quantity">
@@ -93,34 +93,48 @@
                 {% include '_social-share.twig' %}
               </div>
             {% endif %}
+            {% if product.description is not empty %}
+              <div class="product__description">
+                <h4>Descripción:</h4>
+                {{ product.description }}
+              </div>
+            {% endif %}
             <div class="selector">
               <div class="product_selection">
                 <input type="hidden" name="sku_id" value="{{ product.sku.id }}" id="js-sku-new">
                 <input type="hidden" name="quantity" value="1" id="js-quantity">
-                {% if product.skus_modifiers | length > 0 %}
+                {% if product.skus_modifiers|length > 0 %}
                   {% for attribute, attribute_variants in product.skus_modifiers %}
-                    {% if settings.product_tagcolor and attribute | lower == 'color' %}
-                      <p class="product-features hide-product-{{ index }}">{{ attribute | title }}</p>
-                      <div class="form-group product-page__tagcolor hide-product-{{ index }}">
-                      {% set step = loop.index - 1 %}
+                    {% if settings.product_tagcolor and attribute|lower == 'color' %}
+                      <p class="product-features">{{ attribute|title }}</p>
+                      <div class="form-group product-page__tagcolor">
+                      {% set step = loop.index0 %}
                       {% set default_variant = product.sku.modifiers[step] %}
                       {% for variant in attribute_variants %}
-                        <input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select {{ variant|replace(' ', '-') }}" {% if default_variant == variant %}checked="checked"{% endif %}><label style="background-image:url(
-                        {% for thumbnail in product.images %}
-                          {% if 'tagcolor-'~variant | lower |replace(' ', '-') in thumbnail.original_filename | lower %}
-                            {{ thumbnail.url }}&w=30&h=30&fint=crop
+                        {% set colorCounter = 0 %}
+                        {% set tagcolor = 'tagcolor-'~variant|lower|replace({'ñ': 'n', ' ': '-', 'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u' }) %}
+                        <input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select {{ variant|replace({' ': '-'}) }}" {% if default_variant == variant %}checked="checked"{% endif %}>
+                        <label style="background-image:url(
+                          {% for thumbnail in product.images if colorCounter == 0 %}
+                          {% if  tagcolor in thumbnail.url|lower %}
+                            {{ thumbnail.url }}&w=30&h=30&fit=crop
+                          {% set colorCounter = 1 %}
                           {% endif %}
                         {% endfor %}
-                        );" for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><span></span></label>
+                        );" for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><span data-toggle="tooltip" title="{{ variant|title }}"></span></label>
                       {% endfor %}
                       </div>
                     {% else %}
-                      <p class="product-features hide-product-{{ index }}">{{ attribute | title }}</p>
-                      <div class="form-group hide-product-{{ index }}">
+                      <p class="product-features">{{ attribute|title }}</p>
+                      <div class="form-group">
                       {% set step = loop.index - 1 %}
                       {% set default_variant = product.sku.modifiers[step] %}
                       {% for variant in attribute_variants %}
-                        <label for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"><input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select" {% if default_variant == variant %} checked="checked" {% endif %} > {{ variant | title }}</label>
+                      <span class="tagtitle">
+                        <input id="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}" type="radio" name="{{ step }}" value="{{ variant }}" class="js-variant-select custom-input" {% if default_variant == variant %} checked="checked" {% endif %} >
+                        {{ variant|title }}
+                        <label class="custom-label" for="{{ product.sku.id }}_{{ variant }}_{{ loop.index0 }}"></label>
+                      </span>
                       {% endfor %}
                       </div>
                     {% endif %}
@@ -140,16 +154,10 @@
                 </div>
                 <hr class="spacer light">
               </div>
-            {% if product.description is not empty %}
-              <div class="product__description">
-                <h4>Descripción:</h4>
-                {{ product.description }}
-              </div>
-            {% endif %}
             </div>
           </div>  <!-- .product -->
       </div> <!-- .row -->
-    {% if settings.related_products and product.related_by_tags | length > 0 %}
+    {% if settings.related_products and product.related_by_tags|length > 0 %}
       <div class="related_products">
         <div class="subdivider"></div>
         <div class="divider"></div>
@@ -159,7 +167,7 @@
           </div>
         </div>
         <div class="row symmetrical-container">
-          {% for product in product.related_by_tags | slice(0, 4) %}
+          {% for product in product.related_by_tags|slice(0, 4) %}
               <div class="col-xs-6 col-sm-3 symmetrical">
                 {% include '_product-card.twig' %}
               </div>
@@ -168,6 +176,5 @@
       </div>
     {% endif %}
     </div> <!-- .col-md-9 col-md-push-3 -->
-
   </div>
 </div>

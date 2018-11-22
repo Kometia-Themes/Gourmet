@@ -1,7 +1,6 @@
 body>.collection-page {
   margin-top: 0;
 }
-
 .collection-page {
   &__products-row {
     margin-bottom: 30px;
@@ -50,7 +49,6 @@ body>.collection-page {
     -o-transition: opacity .6s ease-in-out;
     transition: opacity .6s ease-in-out;
   }
-
   &__header {
     text-align: center;
   }
@@ -58,7 +56,6 @@ body>.collection-page {
     text-align: center;
     min-height: 400px;
   }
-  &__collection {}
   &__thumbnail {
     position: relative;
     overflow: hidden;
@@ -109,7 +106,6 @@ body>.collection-page {
       font-size: 16px;
     }
   }
-  &__desc {}
   &__title {
     min-height: 64px;
     line-height: 1.4;
@@ -132,7 +128,6 @@ body>.collection-page {
   &__price {
     font-size: 1.2em;
   }
-
   &--discount {
     color: $product_compared_price_color;
     text-decoration: line-through;

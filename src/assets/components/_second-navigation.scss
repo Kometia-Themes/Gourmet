@@ -6,13 +6,12 @@
     float: right;
   }
   .second-navigation__link {
-    padding: 4px 1em 0 .8em;
+    padding: 12px;
     font-size: 12px;
     font-weight: bold;
   }
-  &__icon {}
   &__qty {
-    font-size: 11px;
+    top: -4px;
   }
   &--active {
     color: $brand_main_color;

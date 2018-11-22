@@ -18,7 +18,6 @@
   -o-height: calc(100vh);
   height: calc(100vh);
   min-height: calc(100vh);
-
   &__content {
     display: table;
     width: 100%;
@@ -46,7 +45,6 @@
       text-decoration: none;
     }
   }
-
   @media(max-width:767px) {
     background-attachment: scroll;
   }

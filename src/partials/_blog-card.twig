@@ -15,8 +15,6 @@
   <div class="featured-blog-home__desc">
   {% if post.summary %}
     <p class="featured-blog-home__excerpt">{{ post.summary | truncate_words(20) }}</p>
-  {% else %}
-    <p class="featured-blog-home__excerpt">{{ post.content | truncate_words(20) }}</p>
   {% endif %}
     <p class="featured-blog-home__link"><a class="featured-blog-home--link" href="/blogs/{{ blog.permalink }}/posts/{{ post.permalink }}">Ver más</a></p>
   </div>

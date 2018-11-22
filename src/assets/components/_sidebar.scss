@@ -8,11 +8,9 @@
     color: $main_link_color;
     text-decoration: none;
   }
-
   &__header {
     text-align: center;
   }
-  &__title {}
   &__content {
     min-height: 600px;
   }
@@ -24,7 +22,6 @@
     color: $sidebar_texts_color;
     background-color: $sidebar_bg_color;
   }
-
   &__sidebar {
     position: relative;
     width: auto;
@@ -41,7 +38,6 @@
     &-submenu.active {
       border-top: 1px solid rgba(100, 100, 100, .2);
     }
-
     &-title {
       font-size: 18px;
       color: $sidebar_titles_color;
@@ -92,8 +88,4 @@
       }
     }
   }
-
-  &__list-title {}
-  &__sidebar-item-link {}
-  &--modifier {}
 }

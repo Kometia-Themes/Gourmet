@@ -7,42 +7,34 @@
   background-color: rgba(0, 0, 0, .25);
   z-index: -1;
 }
-
 .block_title {
   padding-bottom: 0;
   padding-top: 0;
 }
-
 .alert {
   border: 0;
   border-radius: 0;
 }
-
 .alert-success {
   background-color: #A5DC86;
   border-color: #A5DC86;
   color: #FFFFFF;
 }
-
 .alert-warning {
   background-color: #ffb94d;
   border-color: #ffb94d;
   color: #FFFFFF;
 }
-
 .alert-info {
   background-color: #8CD4F5;
   border-color: #8CD4F5;
   color: #ffffff;
 }
-
 .alert-danger {
-
   background-color: #F27474;
   border-color: #F27474;
   color: #FFFFFF;
 }
-
 .page__line {
   width: 60%;
   border-top: 1px solid #ccc;
@@ -60,7 +52,6 @@
   }
   display: none !important;
 }
-
 .page__description,
 .page__description p {
   font-size: 18px;

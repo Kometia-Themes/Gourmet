@@ -1,4 +1,4 @@
-# Komeria Gourmet Theme 1.1.0
+# Kometia Gourmet Theme 1.0.0
 > Este es el tema instalado en [Gourmet] (https://gourmet-theme.kometia.com/) y puede servirte de inspiración. Úsalo como base para crear uno nuevo, realizar ajustes pequeños o modificaciones. Sin duda, puede ser el punto de partida para aprender a construir tus propios temas desde cero.
 >
 > **Para más detalles sobre el desarrollo del tema, lee nuestra [Documentación del tema] (https://github.com/Shoperti-Themes/Gourmet)**.

@@ -22,7 +22,7 @@
       {% endif %}
         <div class="featured-promos-home__content {% if loop.last %} no-line-dotted {% endif %}">
           <div class="featured-promos-home__img-icon">
-            <i class="mdi mdi-{{ settings[promo~'_icon_name'] }} mdi-48px featured-promos-home--icon-color"></i>
+            <span class="mdi mdi-{{ settings[promo~'_icon_name'] }} mdi-48px featured-promos-home--icon-color"></span>
           </div>
           <h4 class="featured-promos-home__title">{{ settings[promo~'_title'] }}</h4>
           <p class="featured-promos-home__desc">{{ settings[promo~'_desc'] }}</p>

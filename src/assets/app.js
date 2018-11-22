@@ -1,9 +1,10 @@
+var currency = $('script#app').data("currency");
 // Format Money
 var formatMoney = function(price) {
   var formatPrice = price /= 100;
   formatPrice = formatPrice.toFixed(2);
   formatPrice = formatPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  return '$' + formatPrice + ' {{ store.currency }}';
+  return '$' + formatPrice + ' ' + currency;
 }
 // Pluriliza qty
 var quantityPluralize = function(data) {
@@ -28,6 +29,7 @@ function() {
     return navigation.outerHeight();
   }
   var bodyPadding = function() {
+    $('body').css({ 'padding-top':'' });
     $('body').css({ 'padding-top': getNavigationHeight() });
   }
   var selectPicker = function() {
@@ -138,18 +140,9 @@ function() {
 
   $(".sidebar__sidebar-list-toggle").click(function(e) {
     e.preventDefault();
-    var isActive = $(this).next('.sidebar__sidebar-submenu').hasClass('active');
-    if (!isActive) {
-      $(this).children(".mdi").addClass('mdi-chevron-up');
-      $(this).children(".mdi").removeClass('mdi-chevron-down');
-      $(this).next(".sidebar__sidebar-submenu").css({'display':'block'});
-      $(this).next(".sidebar__sidebar-submenu").addClass('active');
-    } else {
-      $(this).children('.mdi').removeClass('mdi-chevron-up');
-      $(this).children('.mdi').addClass('mdi-chevron-down');
-      $(this).next(".sidebar__sidebar-submenu").css({'display':'none'});
-      $(this).next(".sidebar__sidebar-submenu").removeClass('active');
-    }
+    $(this).find('.mdi').toggleClass("mdi-chevron-up mdi-chevron-down");
+    $(this).next('.sidebar__sidebar-submenu').slideToggle("slow", function() {
+    });
   });
 
   $('.nav > .has-children > .submenu-toggle').on('click', function(e) {
@@ -163,6 +156,7 @@ function() {
   });
 
   $('.sidebar-nav__more.submenu-toggle').on('click', function(e) {
+    $(this).find(".mdi").toggleClass(" mdi-chevron-down  mdi-chevron-up");
     $(this).next(".subnav").toggleClass("active");
     $(this)
       .parents()
@@ -185,9 +179,10 @@ function() {
   }
     // AJAX Add to Cart Component
     // Add Product to cart by ajax
+    var root = window.location.hostname;
+    var PROTOCOL = window.location.protocol;
     var getAjaxStoteUrl = function(type) {
-      var _root = document.location.hostname;
-      return 'https://'+ _root + '/' + type;
+      return PROTOCOL + '//' + root + '/' + type;
     }
     var ajaxConfig = {
       postUrl: getAjaxStoteUrl('cart/add.js')
@@ -387,7 +382,7 @@ function() {
     alignHeights();
   });
   bodyPadding();
-  updateIcon();
+  // updateIcon();
   changeColspan();
   selectPicker();
   setCategoryMenu();

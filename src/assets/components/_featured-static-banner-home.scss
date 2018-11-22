@@ -2,8 +2,9 @@
   margin-bottom: 30px;
   margin-top: 0;
   background-color: $featured_static_banner_bg_color;
-
-  &__link {}
+  @media(min-width:1200px) {
+    margin-bottom: 60px;
+  }
   &__img {
     margin: 0 auto;
     max-height: 450px;
