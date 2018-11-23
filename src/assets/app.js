@@ -349,8 +349,9 @@ function() {
       return vars;
     }
     $('select.js-select-orderby').val(getUrlVars()["sort_by"]);
+
     var getRequestQuery = function(orderBy) {
-      var currentUrl = (window.location.href).split('?')[0];
+      var currentUrl = (window.location.href).split('?')[0].replace('#','');
       var orderBy = orderBy;
       if (orderBy === 'no-order') {
         window.location = currentUrl;
@@ -359,7 +360,7 @@ function() {
       }
     }
     // Get selected value
-    $( "select.js-select-orderby" )
+    $("select.js-select-orderby")
       .change(function() {
         var option = $( "select.js-select-orderby option:selected" ).val();
         getRequestQuery(option);
