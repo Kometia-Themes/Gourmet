@@ -28,18 +28,18 @@ h1,
 }
 .block_title {
   .title {
-    font-size: 2em;
+    font-size: 1.6em;
     margin-top: 0;
     margin-bottom: .6em;
     color: $headings_color;
     @media(min-width: 768px) {
-      font-size: 2.2em;
+      font-size: 2em;
     }
     @media(min-width: 992px) {
-      font-size: 2.4em;
+      font-size: 2.2em;
     }
     @media(min-width: 1200px) {
-      font-size: 2.5em;
+      font-size: 2.4em;
     }
     @media(min-width: 1900px) {
       font-size: 2.6em;
