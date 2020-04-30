@@ -48,7 +48,7 @@
     "fsevents": "^1.2.3",
     "graceful-fs": "^4.1.11",
     "html-webpack-plugin": "^2.28.0",
-    "jquery": "^1.12.4",
+    "jquery": "^3.5.0",
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "livereload": "^0.6.2",
