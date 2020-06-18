@@ -18,14 +18,12 @@
               "type": "color",
               "id": "brand_main_color",
               "label": "Color destacado",
-              "default": "#f15a29",
               "info": "Usualmente es el color principal de la marca."
             },
             {
               "type": "color",
               "id": "body_background_color",
-              "label": "Fondo de la página",
-              "default": "#ffffff"
+              "label": "Fondo de la página"
             }
           ]
         },
@@ -35,14 +33,12 @@
             {
               "type": "color",
               "id": "navigation_top_banner_bg_color",
-              "label": "Fondo",
-              "default": "rgba(0,0,0,.8)"
+              "label": "Fondo"
             },
             {
               "type": "color",
               "id": "navigation_top_banner_text_color",
-              "label": "Texto",
-              "default": "#ffffff"
+              "label": "Texto"
             }
           ]
         },
@@ -52,32 +48,27 @@
             {
               "type": "color",
               "id": "nav_menu_bg",
-              "label": "Fondo",
-              "default": "#ffffff"
+              "label": "Fondo"
             },
             {
               "type": "color",
               "id": "nav_menu_scrolled_bg",
-              "label": "Fondo desplazado",
-              "default": "rgba(255,255,255,.85)"
+              "label": "Fondo desplazado"
             },
             {
               "type": "color",
               "id": "nav_mobile_menu_bg",
-              "label": "Fondo en móviles",
-              "default": "#dcdcdc"
+              "label": "Fondo en móviles"
             },
             {
               "type": "color",
               "id": "nav_link_text_color",
-              "label": "Vínculos y textos",
-              "default": "#666666"
+              "label": "Vínculos y textos"
             },
             {
               "type": "color",
               "id": "nav_link_text_hover_color",
-              "label": "Sobre vínculos",
-              "default": "#F19729"
+              "label": "Sobre vínculos"
             }
           ]
         },
@@ -87,26 +78,22 @@
             {
               "type": "color",
               "id": "headings_color",
-              "label": "Títulos",
-              "default": "#555555"
+              "label": "Títulos"
             },
             {
               "type": "color",
               "id": "body_font_color",
-              "label": "Contenidos",
-              "default": "#555555"
+              "label": "Contenidos"
             },
             {
               "type": "color",
               "id": "main_link_color",
-              "label": "Vínculos",
-              "default": "#F19729"
+              "label": "Vínculos"
             },
             {
               "type": "color",
               "id": "main_link_hover_color",
-              "label": "Sobre vínculos",
-              "default": "#FF1E00"
+              "label": "Sobre vínculos"
             }
           ]
         },
@@ -116,26 +103,22 @@
             {
               "type": "color",
               "id": "btn_text_color",
-              "label": "Texto",
-              "default": "#ffffff"
+              "label": "Texto"
             },
             {
               "type": "color",
               "id": "btn_bg_color",
-              "label": "Fondo",
-              "default": "#f15a29"
+              "label": "Fondo"
             },
             {
               "type": "color",
               "id": "btn_text_color_hover",
-              "label": "Texto con mouse encima",
-              "default": "#ffffff"
+              "label": "Texto con mouse encima"
             },
             {
               "type": "color",
               "id": "btn_bg_color_hover",
-              "label": "Fondo con mouse encima",
-              "default": "#FF1E00"
+              "label": "Fondo con mouse encima"
             }
           ]
         },
@@ -145,44 +128,37 @@
             {
               "type": "color",
               "id": "slide_bg_color",
-              "label": "Fondo del slider",
-              "default": "#ffffff"
+              "label": "Fondo del slider"
             },
             {
               "type": "color",
-              "id": "slide_bg_color",
-              "label": "Título",
-              "default": "#ffffff"
+              "id": "slide_title_color",
+              "label": "Título"
             },
             {
               "type": "color",
               "id": "slide_subtitle_color",
-              "label": "Subtítulo",
-              "default": "rgb(238,232,170)"
+              "label": "Subtítulo"
             },
             {
               "type": "color",
               "id": "slide_btn_text_color",
-              "label": "Texto del botón",
-              "default": "#ffffff"
+              "label": "Texto del botón"
             },
             {
               "type": "color",
               "id": "slide_btn_bg_color",
-              "label": "Fondo del botón",
-              "default": "#f15a29"
+              "label": "Fondo del botón"
             },
             {
               "type": "color",
               "id": "slide_btn_text_color_hover",
-              "label": "Texto del botón con mouse encima",
-              "default": "#ffffff"
+              "label": "Texto del botón con mouse encima"
             },
             {
               "type": "color",
               "id": "slide_btn_bg_color_hover",
-              "label": "Fondo del botón con mouse encima",
-              "default": "#FF1E00"
+              "label": "Fondo del botón con mouse encima"
             }
           ]
         },
@@ -192,20 +168,17 @@
             {
               "type": "color",
               "id": "promo_home_color_title",
-              "label": "Títulos",
-              "default": "#f15a29"
+              "label": "Títulos"
             },
             {
               "type": "color",
               "id": "promo_home_color_desc",
-              "label": "Descripción",
-              "default": "#666666"
+              "label": "Descripción"
             },
             {
               "type": "color",
               "id": "promo_home_color_icon",
-              "label": "Ícono",
-              "default": "#f15a29"
+              "label": "Ícono"
             }
           ]
         },
@@ -215,26 +188,22 @@
             {
               "type": "color",
               "id": "sidebar_bg_color",
-              "label": "Fondo",
-              "default": "rgba(255,255,255,0)"
+              "label": "Fondo"
             },
             {
               "type": "color",
               "id": "sidebar_lines_color",
-              "label": "Pleca lateral",
-              "default": "#eeeeee"
+              "label": "Pleca lateral"
             },
             {
               "type": "color",
               "id": "sidebar_titles_color",
-              "label": "Títulos",
-              "default": "#555555"
+              "label": "Títulos"
             },
             {
               "type": "color",
               "id": "sidebar_texts_color",
-              "label": "Enlaces",
-              "default": "#555555"
+              "label": "Enlaces"
             }
           ]
         },
@@ -244,8 +213,7 @@
             {
               "type": "color",
               "id": "featured_static_banner_bg_color",
-              "label": "Fondo",
-              "default": "rgba(255,255,255,0)"
+              "label": "Fondo"
             }
           ]
         },
@@ -255,14 +223,7 @@
             {
               "type": "color",
               "id": "featured_parallax_banner_one_text_color",
-              "label": "Títulos y textos",
-              "default": "rgba(255,255,255,0)"
-            },
-            {
-              "type": "color",
-              "id": "featured_parallax_banner_one_text_color",
-              "label": "Título y textos",
-              "default": "rgba(255,255,255,0)"
+              "label": "Títulos y textos"
             }
           ]
         },
@@ -272,20 +233,17 @@
             {
               "type": "color",
               "id": "product_background_card",
-              "label": "Fondo producto inferior",
-              "default": "rgba(255,255,255,0)"
+              "label": "Fondo producto inferior"
             },
             {
               "type": "color",
               "id": "product_ribbon_bg",
-              "label": "Cinta del producto",
-              "default": "#00a0c6"
+              "label": "Cinta del producto"
             },
             {
               "type": "color",
               "id": "product_compared_price_color",
-              "label": "Color precio comparativo",
-              "default": "#f44336"
+              "label": "Color precio comparativo"
             }
           ]
         },
@@ -295,38 +253,32 @@
             {
               "type": "color",
               "id": "footer_bg_color",
-              "label": "Fondo",
-              "default": "#F8FBEF"
+              "label": "Fondo"
             },
             {
               "type": "color",
               "id": "footer_title_color",
-              "label": "Títulos",
-              "default": "f15a29"
+              "label": "Títulos"
             },
             {
               "type": "color",
               "id": "footer_text_color",
-              "label": "Textos",
-              "default": "#666666"
+              "label": "Textos"
             },
             {
               "type": "color",
               "id": "footer_border_color",
-              "label": "Borde",
-              "default": "#F2F2F2"
+              "label": "Borde"
             },
             {
               "type": "color",
               "id": "footer_legal_text_color",
-              "label": "Texto legal",
-              "default": "#ffffff"
+              "label": "Texto legal"
             },
             {
               "type": "color",
               "id": "footer_legal_bg_color",
-              "label": "Fondo barra legal",
-              "default": "#86b404"
+              "label": "Fondo barra legal"
             }
           ]
         }
@@ -960,20 +912,17 @@
             {
               "type": "text",
               "id": "footer_contact_data",
-              "label": "Contacto y/o ubicación",
-              "default": "CALLE 000, COLONIA, DELEGACION/MUNICIPIO, MÉXICO, ESTADO, C.P. 00000 TELÉFONO (+52) 000 000000 - (+52) 000 000000 INFO@MIEMPRESA.COM"
+              "label": "Contacto y/o ubicación"
             },
             {
               "type": "checkbox",
               "id": "footer_display_social",
-              "label": "Mostrar redes sociales",
-              "default": true
+              "label": "Mostrar redes sociales"
             },
             {
               "type": "checkbox",
               "id": "footer_display_payment_methods",
-              "label": "Mostrar métodos de pago",
-              "default": true
+              "label": "Mostrar métodos de pago"
             }
           ]
         },
@@ -983,38 +932,32 @@
             {
               "type": "checkbox",
               "id": "footer_display_main_menu",
-              "label": "Mostrar",
-              "default": true
+              "label": "Mostrar"
             },
             {
               "type": "text",
               "id": "footer_main_menu_title",
-              "label": "Título del menú",
-              "default": "Navegación"
+              "label": "Título del menú"
             },
             {
               "type": "text",
               "id": "footer_main_menu_name",
-              "label": "identificador del menú",
-              "default": "main"
+              "label": "identificador del menú"
             },
             {
               "type": "checkbox",
               "id": "footer_display_second_menu",
-              "label": "Mostrar",
-              "default": true
+              "label": "Mostrar"
             },
             {
               "type": "text",
               "id": "footer_second_menu_title",
-              "label": "Título del menú",
-              "default": "Menú"
+              "label": "Título del menú"
             },
             {
               "type": "text",
               "id": "footer_second_menu_name",
-              "label": "identificador del menú",
-              "default": "footer"
+              "label": "identificador del menú"
             }
           ]
         },
@@ -1024,20 +967,17 @@
             {
               "type": "checkbox",
               "id": "footer_display_hours",
-              "label": "Mostrar horarios",
-              "default": true
+              "label": "Mostrar horarios"
             },
             {
               "type": "text",
               "id": "footer_display_hours_title",
-              "label": "Horarios",
-              "default": "Horariosa"
+              "label": "Horarios"
             },
             {
               "type": "text",
               "id": "footer_hours_data_text",
-              "label": "Contacto y/o ubicación",
-              "default": "<li>L-J 13:00 a 23:00</li><li>V y S 13:00 a 24:00</li><li>D 13:00 a 23:00</li>"
+              "label": "Contacto y/o ubicación"
             }
           ]
         },
@@ -1047,14 +987,12 @@
             {
               "type": "checkbox",
               "id": "accept_visa",
-              "label": "Visa",
-              "default": true
+              "label": "Visa"
             },
             {
               "type": "checkbox",
               "id": "accept_mastercard",
-              "label": "Mastercard",
-              "default": true
+              "label": "Mastercard"
             },
             {
               "type": "checkbox",
@@ -1064,8 +1002,7 @@
             {
               "type": "checkbox",
               "id": "accept_paypal",
-              "label": "Paypal",
-              "default": true
+              "label": "Paypal"
             },
             {
               "type": "checkbox",
@@ -1484,8 +1421,7 @@
             {
               "type": "checkbox",
               "id": "slide_1_image_display",
-              "label": "Mostrar imagen",
-              "default": true
+              "label": "Mostrar imagen"
             },
             {
               "type": "text",
@@ -1721,20 +1657,17 @@
             {
               "type": "checkbox",
               "id": "navigation_top_banner_active",
-              "default": false,
               "label": "Activar"
             },
             {
               "type": "text",
               "id": "navigation_top_banner_text",
-              "label": "Enlace del banner",
-              "default": "ENVÍO GRATIS EN PEDIDOS SUPERIORES A $2000"
+              "label": "Enlace del banner"
             },
             {
               "type": "text",
               "id": "navigation_top_banner_link",
-              "label": "Enlace de destino",
-              "default": "#"
+              "label": "Enlace de destino"
             }
           ]
         },
@@ -1755,14 +1688,7 @@
             {
               "type": "text",
               "id": "featured_static_banner_link",
-              "label": "Enlace del banner",
-              "default": "#"
-            },
-            {
-              "type": "color",
-              "id": "featured_static_banner_bg_color",
-              "label": "Color de fondo",
-              "default": "#ffffff"
+              "label": "Enlace del banner"
             }
           ]
         },
@@ -1772,94 +1698,79 @@
             {
               "type": "checkbox",
               "id": "promo_home_1_display",
-              "label": "Mostrar Promo 1",
-              "default": true
+              "label": "Mostrar Promo 1"
             },
             {
               "type": "text",
               "id": "promo_home_1_title",
-              "label": "Título Promo 1",
-              "default": "GRATIS"
+              "label": "Título Promo 1"
             },
             {
               "type": "text",
               "id": "promo_home_1_desc",
-              "label": "Descripción",
-              "default": "EL ENVÍO SI COMPRAS +$200"
+              "label": "Descripción"
             },
             {
               "type": "checkbox",
               "id": "promo_home_1_icon",
-              "default": true,
               "label": "Mostrar ícono promo 1"
             },
             {
               "type": "text",
               "id": "promo_home_1_icon_name",
               "label": "Título Promo 1",
-              "default": "truck",
               "info": "Ver íconos disponibles en https://materialdesignicons.com/"
             },
             {
               "type": "checkbox",
               "id": "promo_home_2_display",
-              "default": true,
               "label": "Mostrar Promo 2"
             },
             {
               "type": "text",
               "id": "promo_home_2_title",
-              "label": "Título Promo 2",
-              "default": "EXPRESS"
+              "label": "Título Promo 2"
             },
             {
               "type": "text",
               "id": "promo_home_2_desc",
-              "label": "Descripción",
-              "default": "LLEGA DE 30 A 45 MINUTOS*"
+              "label": "Descripción"
             },
             {
               "type": "checkbox",
               "id": "promo_home_2_icon",
-              "default": true,
               "label": "Mostrar ícono promo 2"
             },
             {
               "type": "text",
               "id": "promo_home_2_icon_name",
               "label": "Título Promo 2",
-              "default": "motorbike",
               "info": "Ver íconos disponibles en https://materialdesignicons.com/"
             },
             {
               "type": "checkbox",
               "id": "promo_home_3_display",
-              "default": true,
               "label": "Mostrar Promo 3"
             },
             {
               "type": "text",
               "id": "promo_home_3_title",
-              "label": "Título Promo 3",
-              "default": "GARANTÍA"
+              "label": "Título Promo 3"
             },
             {
               "type": "text",
               "id": "promo_home_3_desc",
-              "label": "Descripción",
-              "default": "SIEMPRE FRESCO"
+              "label": "Descripción"
             },
             {
               "type": "checkbox",
               "id": "promo_home_3_icon",
-              "default": true,
               "label": "Mostrar ícono promo 3"
             },
             {
               "type": "text",
               "id": "promo_home_3_icon_name",
               "label": "Título Promo 3",
-              "default": "food-apple",
               "info": "Ver íconos disponibles en https://materialdesignicons.com/"
             }
           ]
@@ -1869,33 +1780,27 @@
           "settings": [
             {
               "type": "text",
-              "id": "featured_banner_home_one_title",
-              "default": "TÍTULO DEL Banner"
+              "id": "featured_banner_home_one_title"
             },
             {
               "type": "text",
-              "id": "featured_banner_home_one_subtitle",
-              "default": "SUBTÍTULO"
+              "id": "featured_banner_home_one_subtitle"
             },
             {
               "type": "text",
-              "id": "featured_banner_home_one_intro",
-              "default": "Describa eso deliciosos ingredientes."
+              "id": "featured_banner_home_one_intro"
             },
             {
               "type": "text",
-              "id": "featured_banner_home_one_btn_text",
-              "default": "Pídelo Ya!"
+              "id": "featured_banner_home_one_btn_text"
             },
             {
               "type": "text",
               "id": "featured_banner_home_one_link",
-              "default": "#"
             },
             {
               "type": "checkbox",
               "id": "featured_banner_home_one_overlay",
-              "default": true,
               "label": "Mostrar capa de oscurecimiento"
             },
             {
@@ -1911,33 +1816,27 @@
           "settings": [
             {
               "type": "text",
-              "id": "featured_banner_home_two_title",
-              "default": "TÍTULO DEL Banner"
+              "id": "featured_banner_home_two_title"
             },
             {
               "type": "text",
-              "id": "featured_banner_home_two_subtitle",
-              "default": "SUBTÍTULO"
+              "id": "featured_banner_home_two_subtitle"
             },
             {
               "type": "text",
-              "id": "featured_banner_home_two_intro",
-              "default": "Describa eso deliciosos ingredientes."
+              "id": "featured_banner_home_two_intro"
             },
             {
               "type": "text",
-              "id": "featured_banner_home_two_btn_text",
-              "default": "¡Comprar Ya!"
+              "id": "featured_banner_home_two_btn_text"
             },
             {
               "type": "text",
               "id": "featured_banner_home_two_link",
-              "default": "#"
             },
             {
               "type": "checkbox",
               "id": "featured_banner_home_two_overlay",
-              "default": true,
               "label": "Mostrar capa de oscurecimiento"
             },
             {
@@ -2081,14 +1980,12 @@
             {
               "type": "text",
               "id": "product_ribbon_text",
-              "label": "Texto de la cinta (ribbon)",
-              "default": "Oferta"
+              "label": "Texto de la cinta (ribbon)"
             },
             {
               "type": "text",
               "id": "btn_product_view_text",
-              "label": "Texto del botón ver producto",
-              "default": "Ver más"
+              "label": "Texto del botón ver producto"
             },
             {
               "type": "checkbox",
@@ -2099,15 +1996,13 @@
             {
               "type": "text",
               "id": "btn_product_buy_now_text",
-              "label": "Texto del botón comprar ya",
-              "default": "Comprar ya"
+              "label": "Texto del botón comprar ya"
             },
             {
               "type": "text",
               "id": "max_cart_items",
               "label": "Cantidad máxima de unidades a comprar",
-              "info": "El máximo de unidades a mostrar son 20.",
-              "default": "5"
+              "info": "El máximo de unidades a mostrar son 20."
             },
             {
               "type": "checkbox",
@@ -2119,8 +2014,7 @@
               "type": "checkbox",
               "id": "related_products",
               "label": "Mostrar productos relacionados",
-              "info": "La relación se basa en las etiquetas del producto.",
-              "default": true
+              "info": "La relación se basa en las etiquetas del producto."
             }
           ]
         },
@@ -2130,20 +2024,17 @@
             {
               "type": "checkbox",
               "id": "enable_product_image_zoom",
-              "label": "Habilitar zoom en imagen principal",
-              "default": true
+              "label": "Habilitar zoom en imagen principal"
             },
             {
               "type": "text",
               "id": "product_image_zoom_in_text",
-              "label": "Texto en etiqueta para zoom",
-              "default": "Clic para zoom"
+              "label": "Texto en etiqueta para zoom"
             },
             {
               "type": "text",
               "id": "product_image_zoom_out_text",
-              "label": "Texto en etiqueta para salir de zoom",
-              "default": "Clic para salir"
+              "label": "Texto en etiqueta para salir de zoom"
             }
           ]
         },
@@ -2153,20 +2044,17 @@
             {
               "type": "checkbox",
               "id": "display_vendor",
-              "label": "Mostrar marca del producto",
-              "default": true
+              "label": "Mostrar marca del producto"
             },
             {
               "type": "checkbox",
               "id": "show_sku_code",
-              "label": "Mostrar Sku del producto",
-              "default": false
+              "label": "Mostrar Sku del producto"
             },
             {
               "type": "text",
               "id": "sku_title",
-              "label": "Título del Sku",
-              "default": "SKU: "
+              "label": "Título del Sku"
             }
           ]
         },
@@ -2201,8 +2089,7 @@
             {
               "type": "text",
               "id": "categories_sidebar_title",
-              "label": "Título categorías",
-              "default": "Categorías"
+              "label": "Título categorías"
             },
             {
               "type": "checkbox",
@@ -2212,8 +2099,7 @@
             {
               "type": "text",
               "id": "collections_sidebar_title",
-              "label": "Título colecciones",
-              "default": "Colecciones"
+              "label": "Título colecciones"
             },
             {
               "type": "checkbox",
@@ -2233,14 +2119,12 @@
             {
               "type": "text",
               "id": "orderby_name_ascending_text",
-              "label": "Título del filtro nombre ascendente",
-              "default": "Alfabéticamente A-Z"
+              "label": "Título del filtro nombre ascendente"
             },
             {
               "type": "text",
               "id": "orderby_name_descending_text",
-              "label": "Título del filtro nombre descendente",
-              "default": "Alfabéticamente Z-A"
+              "label": "Título del filtro nombre descendente"
             },
             {
               "type": "checkbox",
@@ -2250,14 +2134,12 @@
             {
               "type": "text",
               "id": "orderby_created_ascending_text",
-              "label": "Título del filtro creación ascendente",
-              "default": "Fecha: Nuevos a viejos"
+              "label": "Título del filtro creación ascendente"
             },
             {
               "type": "text",
               "id": "orderby_created_descending_text",
-              "label": "Título del filtro creación descendente",
-              "default": "Fecha: Viejos a nuevos"
+              "label": "Título del filtro creación descendente"
             },
             {
               "type": "checkbox",
@@ -2267,14 +2149,12 @@
             {
               "type": "text",
               "id": "orderby_price_ascending_text",
-              "label": "Título del filtro precio ascendente",
-              "default": "Precio: Menor a mayor"
+              "label": "Título del filtro precio ascendente"
             },
             {
               "type": "text",
               "id": "orderby_price_descending_text",
-              "label": "Título del filtro precio descendente",
-              "default": "Precio: Mayor a menor"
+              "label": "Título del filtro precio descendente"
             }
           ]
         }
@@ -2347,20 +2227,17 @@
             {
               "type": "text",
               "id": "cart_title",
-              "label": "Título de la sección de carrito",
-              "default": "Carrito de Compras"
+              "label": "Título de la sección de carrito"
             },
             {
               "type": "text",
               "id": "cart_btn_buy_text",
-              "label": "Texto de boton comprar",
-              "default": "Prodecer a comprar"
+              "label": "Texto de boton comprar"
             },
             {
               "type": "text",
               "id": "cart_btn_more_text",
-              "label": "Texto de boton comprar más",
-              "default": "Comprar más"
+              "label": "Texto de boton comprar más"
             }
           ]
         },
@@ -2370,20 +2247,17 @@
             {
               "type": "checkbox",
               "id": "enabled_gift_option",
-              "label": "Mostrar opciones para regalo.",
-              "default": false
+              "label": "Mostrar opciones para regalo."
             },
             {
               "type": "text",
               "id": "gift_title_message",
-              "label": "Título",
-              "default": "Esto es un regalo. Incluir el siguiente mensaje (150 caracteres máximo)."
+              "label": "Título"
             },
             {
               "type": "text",
               "id": "gift_btn_message",
-              "label": "Texto del botón",
-              "default": "Agregar mensaje"
+              "label": "Texto del botón"
             }
           ]
         },
@@ -2393,20 +2267,17 @@
             {
               "type": "checkbox",
               "id": "enabled_customer_note_option",
-              "label": "Mostrar campo nota del cliente.",
-              "default": true
+              "label": "Mostrar campo nota del cliente."
             },
             {
               "type": "text",
               "id": "customer_title_note",
-              "label": "Título",
-              "default": "Agrega alguna nota o comentario al vendedor:"
+              "label": "Título"
             },
             {
               "type": "text",
               "id": "customer_btn_note_text",
-              "label": "Texto del botón",
-              "default": "Agregar nota"
+              "label": "Texto del botón"
             }
           ]
         }
@@ -2482,38 +2353,32 @@
             {
               "type": "checkbox",
               "id": "enable_share_products",
-              "label": "Habilitar compartir productos",
-              "default": true
+              "label": "Habilitar compartir productos"
             },
             {
               "type": "checkbox",
               "id": "enable_share_blog",
-              "label": "Habilitar compartir blog y posts",
-              "default": true
+              "label": "Habilitar compartir blog y posts"
             },
             {
               "type": "checkbox",
               "id": "share_facebook",
-              "label": "Compartir en Facebook",
-              "default": true
+              "label": "Compartir en Facebook"
             },
             {
               "type": "checkbox",
               "id": "share_twitter",
-              "label": "Tuitear en Twitter",
-              "default": true
+              "label": "Tuitear en Twitter"
             },
             {
               "type": "checkbox",
               "id": "share_pinterest",
-              "label": "Hacer pin en Pinterest",
-              "default": true
+              "label": "Hacer pin en Pinterest"
             },
             {
               "type": "checkbox",
               "id": "share_google",
-              "label": "+1 en Google Plus",
-              "default": true
+              "label": "+1 en Google Plus"
             }
           ]
         }
