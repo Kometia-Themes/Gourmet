@@ -1796,7 +1796,7 @@
             },
             {
               "type": "text",
-              "id": "featured_banner_home_one_link",
+              "id": "featured_banner_home_one_link"
             },
             {
               "type": "checkbox",
@@ -1832,7 +1832,7 @@
             },
             {
               "type": "text",
-              "id": "featured_banner_home_two_link",
+              "id": "featured_banner_home_two_link"
             },
             {
               "type": "checkbox",
@@ -2162,7 +2162,6 @@
     },
     {
       "name": "Contacto",
-      "icon": "contact-page",
       "sections": [
         {
           "header": "Mapa",
