@@ -59,7 +59,7 @@
     "replace": "^0.3.0",
     "sass-loader": "^6.0.2",
     "script-loader": "^0.7.0",
-    "tar": "^2.2.1",
+    "tar": "^4.4.15",
     "url-loader": "^0.5.8",
     "webpack": "^2.2.1",
     "webpack-cleanup-plugin": "^0.5.1",
