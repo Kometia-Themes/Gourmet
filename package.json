@@ -52,7 +52,7 @@
     "less": "^2.7.2",
     "less-loader": "^2.2.3",
     "livereload": "^0.6.2",
-    "node-sass": "^4.5.0",
+    "node-sass": "^7.0.0",
     "on-build-webpack": "^0.1.0",
     "postcss-modules-local-by-default": "^1.1.1",
     "purifycss-webpack": "^0.4.2",
